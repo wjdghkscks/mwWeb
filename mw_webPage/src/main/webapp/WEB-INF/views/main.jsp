@@ -54,7 +54,7 @@
 			});
 		</script>
 		
-		<!-- 카테고리별 클릭 시 해당 카테고리 파라미터 선택하여 이동 -->
+		<!-- 카테고리별 클릭 시 해당 카테고리의 파라미터 값 포함시켜 이동 -->
 		<div class="category">
 			<div onclick="category_eat()">먹거리</div>
 			<div onclick="category_drink()">마실거리</div>

@@ -1,0 +1,100 @@
+@charset "UTF-8";
+
+.search_res_searchbar {
+	border: 2px solid #e8a761;
+	width: 83%;
+	margin: 8vw auto 0 auto;
+	display: flex;
+	justify-content: space-between;
+	padding: 2%;
+}
+
+.search_res_searchbar img {
+	width: 6vw;
+	margin-left: 1%;
+}
+
+.search_res_searchbar input {
+	font-family: 'GmarketSansLight';
+	font-size: 5vw;
+	width: 85%;
+	border-left-width:0;
+	border-right-width:0;
+	border-top-width:0;
+	border-bottom-width:0;
+}
+
+.cardview {
+	display: flex;
+	flex-wrap: wrap;
+	width: 90%;
+	margin: 1vw auto;
+}
+
+.card {
+  	box-shadow: 0 2vw 2vw 0 rgba(0, 0, 0, 0.2);
+  	transition: 0.3s;
+  	width: 47%;
+  	margin: 5vw auto;
+}
+
+/* .card:hover {
+  	box-shadow: 0 4vw 4vw 0 rgba(0,0,0,0.2);
+  	width: 48%;
+} */
+
+.card img {
+	margin-top: 2vw;
+}
+
+.text_container {
+	padding: 2vw 5vw;
+}
+
+.text_container h4 { 
+	font-family: 'GmarketSansBold';
+	color: #444;
+	text-align: center;
+	font-size: 4vw;
+}
+
+.text_container p { 
+	font-family: 'GmarketSansLight';
+	color: #777;
+	font-size: 3vw;
+	text-align: center;
+}
+
+
+/* 576px 이상 tablet */
+@media (min-width: 576px){
+
+.search_res_searchbar {
+	border: 3px solid #e8a761;
+}
+	
+}
+
+/* 992px 이상 PC */
+@media (min-width: 992px) {
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

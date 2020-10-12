@@ -4,7 +4,13 @@
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mw">
 
-	
+	<select id="search" parameterType="String" resultType="svo">
+		SELECT * 
+		FROM mw_store 
+		WHERE (store_name LIKE '%'||#{findSearch}||'%' 
+			OR store_sub LIKE '%'||#{findSearch}||'%' 
+			OR store_hashtag LIKE '%'||#{findSearch}||'%')
+	</select>
 	
 </mapper>
 

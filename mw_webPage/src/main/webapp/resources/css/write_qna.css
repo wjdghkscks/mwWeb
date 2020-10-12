@@ -132,8 +132,10 @@ form {
 	}
 	.qna_submit input {
 		font-size: 36px;
-		padding: 10px;
-		width: 20%;
+		padding: 10px 10px 7px 10px;
+		height: 92px;
+		width: 331px;
+		margin: 28px;
 	}
 }
 

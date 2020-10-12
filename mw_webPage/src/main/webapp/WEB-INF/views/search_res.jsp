@@ -17,55 +17,30 @@
 	<div>
 		<jsp:include page="top.jsp" />
 	</div>
+	
 	<div class="search_res_searchbar">
 		<img alt="search" src="/resources/images/search_icon.svg">
-		<input type="text" name="search" placeholder="검색어">
+		<input type="text" name="search" placeholder="${findsearch}">
 	</div>
+	
 	<div class="cardview">
-	<%-- <c:forEach var="k" item="${ }" > --%>
-		<div class="card">
-			<img alt="shop" src="/resources/images/shop.png" style="width: 100%">
-			<div class="text_container">
-				<h4><b>NAME</b></h4>
-				<p>#tag1 #tag2 #tag3</p>
-			</div>
-		</div>
-		<div class="card">
-			<img alt="shop" src="/resources/images/shop.png" style="width: 100%">
-			<div class="text_container">
-				<h4><b>NAME</b></h4>
-				<p>#tag1 #tag2 #tag3</p>
-			</div>
-		</div>
-		<div class="card">
-			<img alt="shop" src="/resources/images/shop.png" style="width: 100%">
-			<div class="text_container">
-				<h4><b>NAME</b></h4>
-				<p>#tag1 #tag2 #tag3</p>
-			</div>
-		</div>
-		<div class="card">
-			<img alt="shop" src="/resources/images/shop.png" style="width: 100%">
-			<div class="text_container">
-				<h4><b>NAME</b></h4>
-				<p>#tag1 #tag2 #tag3</p>
-			</div>
-		</div>
-		<div class="card">
-			<img alt="shop" src="/resources/images/shop.png" style="width: 100%">
-			<div class="text_container">
-				<h4><b>NAME</b></h4>
-				<p>#tag1 #tag2 #tag3</p>
-			</div>
-		</div>
-		<div class="card">
-			<img alt="shop" src="/resources/images/shop.png" style="width: 100%">
-			<div class="text_container">
-				<h4><b>NAME</b></h4>
-				<p>#tag1 #tag2 #tag3</p>
-			</div>
-		</div>
-	<%-- </c:forEach> --%>
+		<c:choose>
+			<c:when test="empty ${store_list}">
+				<p> 검색 결과가 존재하지 않습니다. </p>
+			</c:when>
+			<c:otherwise>
+				<c:forEach var="k" items="${store_list}">
+					<div class="card">
+						${k.store_img}
+						<div class="text_container">
+							<h4><b>${k.store_name}</b></h4>
+							<p>${k.store_hashtag}</p>
+						</div>
+					</div>
+				</c:forEach>
+			</c:otherwise>
+		</c:choose>
 	</div>
+	
 </body>
 </html>

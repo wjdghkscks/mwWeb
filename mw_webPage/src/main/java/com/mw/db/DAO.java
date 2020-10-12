@@ -1,5 +1,7 @@
 package com.mw.db;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 
 public class DAO {
@@ -11,5 +13,11 @@ public class DAO {
 	}
 	
 	// DB 처리
+	public List<SVO> getSearchResult(String findSearch) {
+		List<SVO> list = null;
+		list = sqlSessionTemplate.selectList("search", findSearch);
+		return list;
+	}
+	
 	
 }

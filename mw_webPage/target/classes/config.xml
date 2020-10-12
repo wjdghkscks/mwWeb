@@ -5,7 +5,7 @@
 <configuration>
 	<!-- 별칭 사용 -->
 	<typeAliases>
-		<typeAlias type="com.mw.db.VO" alias="vo" />
+		<typeAlias type="com.mw.db.SVO" alias="svo" />
 	</typeAliases>
 	<mappers>
 		<mapper resource="mappings/mapper.xml" />

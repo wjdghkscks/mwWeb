@@ -19,6 +19,10 @@
 	function category_eat() {
 		location.href = "category_eat.do";	
 	}
+	function searchBtn(f) {
+		f.action = "search.do";
+		f.submit();
+	}
 </script>
 </head>
 
@@ -41,6 +45,7 @@
 			$(document).ready(function() {
 				$('.main_banner').slick({
 					autoplay : true,
+					arrows : false,
 					dots : true,
 					appendDots : $('banner_container'),
 					speed : 900, 			/* 이미지 슬라이딩 시 걸리는 시간 */
@@ -62,10 +67,12 @@
 		</div>
 		
 		<!-- 검색창 클릭 시 배경 검게, 추천검색어/검색기록 뜨게 수정 필요 -->
-		<div class="search-bar">
-			<input type="text" name="search" placeholder="검색어를 입력하세요."> 
-			<a href="search.do"><img alt="search" src="/resources/images/search_icon.svg"></a>
-		</div>
+		<form>
+			<div class="search-bar">
+				<p><input type="text" name="findSearch" placeholder="검색어를 입력하세요."></p>
+				<input type="image" src="/resources/images/search_icon.svg" alt="search" onclick="searchBtn(this.form)">
+			</div>
+		</form>
 		
 		<div class="story">
 			<h3> 최근 본 가게 </h3>
@@ -150,7 +157,7 @@
 				</div>
 			</div>
 		<%-- </c:forEach> --%>
-		</div>
-	</div>
+		</div>	<!-- cardview 클래스 끝 -->
+	</div>	<!-- wrap-all 클래스 끝 -->
 </body>
 </html>

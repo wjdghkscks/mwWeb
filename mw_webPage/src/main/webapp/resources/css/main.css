@@ -1,6 +1,5 @@
 @charset "UTF-8";
 
-/* main.jsp */
 .wrap-all {
 	display: flex;
 	flex-direction: column;
@@ -16,9 +15,7 @@
 	overflow-x: auto; 
 }
 
-.main_banner::-webkit-scrollbar {
-	display: none;
-}
+.main_banner::-webkit-scrollbar { display: none; }
 
 .main_banner img { 
 	width: 100%;
@@ -44,6 +41,7 @@
 	padding-top: 2%;
 	border: 2px solid #444;
 	border-radius: 5px;
+	cursor: pointer;
 }
 
 .category div:hover {
@@ -54,17 +52,18 @@
 
 .search-bar {
 	display: flex;
+	justify-content: space-between;
 	text-align: center;
 	margin: 5vw auto;
 	width: 90%;
 }
 
-.search-bar img { width: 9vw; }
+.search-bar input { width: 6vw; }
 
-.search-bar input {
+.search-bar p input {
 	padding: 5px;
 	border: 1px solid #444;
-	width: 90%;
+	width: 81vw;
 	font-family: 'GmarketSansLight';
 	font-size: 6vw;
 	text-align: center;
@@ -128,25 +127,24 @@
 
 /* 576px 이상 tablet */
 @media (min-width: 576px){
+	.category div {
+		border: 3px solid #444;
+		border-radius: 5%;
+	}
+	.search-bar p input {
+		border: 2px solid #444;
+		text-align: center;
+		width: 108%;
+		border-left-width: 0;
+		border-right-width: 0;
+		border-top-width: 0;
+		border-bottom-width: 1;
+	}
+	.search-bar input {
+		margin: 0;
+	}	
 	
-.category div {
-	border: 3px solid #444;
-	border-radius: 5%;
-}
-
-.search-bar input {
-	border: 2px solid #444;
-	text-align: center;
-	border-left-width: 0;
-	border-right-width: 0;
-	border-top-width: 0;
-	border-bottom-width: 1;
-}
-
-.story {
-	font-size: 4vw
-}	
-	
+	.story { font-size: 4vw }	
 }
 
 /* 992px 이상 PC */
@@ -169,17 +167,16 @@
 	}
 	.search-bar {
 		display: flex;
-		justify-content: space-between;
 		margin: 20px auto;
 	}
-	.search-bar input {
-		width: 100%;
+	.search-bar p input {
+		width: 808px;
 		font-size: 30px;
 		text-align: center;
 		border-color: #444;
 	}
-	.search-bar a {
-		display: none;		
+	.search-bar input {
+		width: 40px;		
 	}
 	.story {
 		font-size: 24px;
@@ -187,6 +184,8 @@
 	}
 	.cardview {
 		display: flex;
+		width: 85%;
+		margin: 0 auto;
 	}
 	.card {
 		display: flex;
@@ -215,7 +214,7 @@
 		justify-content: flex-start;
 	}
 	.text_container h4 {
-		font-size: 50px;
+		font-size: 42px;
 		text-align: left;
 	}
 	.text_container p {
@@ -225,7 +224,7 @@
 	}
 	
 	.shop_info {
-		margin: 40px 0 0 0px;
+		margin: 77px 0 0 0px;
 		display: flex;
 		justify-content: space-between;
 		width: 300px;
@@ -243,23 +242,6 @@
 	}
 	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

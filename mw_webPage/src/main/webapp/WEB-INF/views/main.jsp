@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html>
@@ -13,15 +13,21 @@
 <!-- slick css -->
 <link rel="stylesheet" type="text/css" href="http://kenwheeler.github.io/slick/slick/slick.css" />
 <link rel="stylesheet" type="text/css" href="http://kenwheeler.github.io/slick/slick/slick-theme.css" />
-<script src="http://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" crossorigin="anonymous"></script>
+<script src="http://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" crossorigin="anonymous" ></script>
 <script type="text/javascript" src="http://kenwheeler.github.io/slick/slick/slick.min.js"></script>
 <script type="text/javascript">
-	function category_eat() {
-		location.href = "category_eat.do";	
-	}
 	function searchBtn(f) {
 		f.action = "search.do";
 		f.submit();
+	}
+	function category_eat() {
+		location.href = "category_eat.do";	
+	}
+	function category_drink() {
+		location.href = "category_drink.do";	
+	}
+	function category_play() {
+		location.href = "category_play.do";	
 	}
 </script>
 </head>
@@ -38,9 +44,9 @@
 				<div><img src="/resources/images/banner02.png"></div>
 				<div><img src="/resources/images/banner03.png"></div>
 			</div>
-		</div>
+		</div> <!-- banner_container 끝 -->
 		
-		<!-- slick js -->
+		<!-- slick 라이브러리 설정 -->
 		<script type="text/javascript">
 			$(document).ready(function() {
 				$('.main_banner').slick({
@@ -57,107 +63,112 @@
 					fade : false
 				});
 			});
-		</script>
+		</script> <!-- slick 라이브러리 설정 끝 -->
 		
-		<!-- 카테고리별 클릭 시 해당 카테고리의 파라미터 값 포함시켜 이동 -->
+<!-- 검색창 이벤트 처리 -->
+<!-- <script type="text/javascript">
+	$(function() {
+		$("#search_bar").click(function() {
+			$("#pop").show(0);
+		});
+		$("#search_bar").mouseleave(function() {
+			$("#pop").hide(0);
+		});
+	});
+</script> -->
+		<form>
+			<div id="search_bar" class="search-bar">
+				<p><input type="text" name="keyWord" placeholder="검색어를 입력하세요."></p>
+				<input type="image" src="/resources/images/search_icon.svg" alt="search" onclick="searchBtn(this.form)">
+			</div>
+<!--	
+		<div id="pop" class="search-bar-click" style="display: none;">
+				<div class="prev-search">
+					<h5>검색 기록</h5>
+					<p>검색어1</p>
+					<p>검색어2</p>
+					<p>검색어3</p>
+				</div>
+				<div class="want-search">
+					<h5>추천 검색어</h5>
+					<p>검색어1</p>
+					<p>검색어2</p>
+					<p>검색어3</p>
+				</div>
+			</div> 
+-->		
+		</form>
+		
 		<div class="category">
 			<div onclick="category_eat()">먹거리</div>
 			<div onclick="category_drink()">마실거리</div>
 			<div onclick="category_play()">놀거리</div>
 		</div>
 		
-		<!-- 검색창 클릭 시 배경 검게, 추천검색어/검색기록 뜨게 수정 필요 -->
-		<form>
-			<div class="search-bar">
-				<p><input type="text" name="findSearch" placeholder="검색어를 입력하세요."></p>
-				<input type="image" src="/resources/images/search_icon.svg" alt="search" onclick="searchBtn(this.form)">
-			</div>
-		</form>
-		
-		<div class="story">
-			<h3> 최근 본 가게 </h3>
-		</div>
-		
-		<!-- DB 생성 후 jstl 적용 필요 -->
-		<div class="cardview">
-		<%-- <c:forEach var="k" item="${}" > --%>
-			<div class="card">
-				<img alt="shop" src="/resources/images/shop.png">
-				<div class="text_container">
-					<h4><b>NAME</b></h4>
-					<p>#tag1 #tag2</p>
-					<div class="shop_info">
-						<img alt="like" src="/resources/images/like.svg">
-						<h5>1,023</h5>
-						<img alt="like" src="/resources/images/write.svg">
-						<h5>64</h5>
-						<img alt="like" src="/resources/images/watch.svg">
-						<h5>39,806</h5>
-					</div>
+		<!-- Session 이 유지되는 동안 조회한 가게 리스트 출력 -->
+		<c:choose>
+			<c:when test="${empty thisTimeView}">
+				<div class="story">
+					<h3> 추천 리스트 </h3>
 				</div>
-			</div>
-			<div class="card">
-				<img alt="shop" src="/resources/images/shop.png">
-				<div class="text_container">
-					<h4><b>NAME</b></h4>
-					<p>#tag1 #tag2</p>
-					<div class="shop_info">
-						<img alt="like" src="/resources/images/like.svg">
-						<h5>1,023</h5>
-						<img alt="like" src="/resources/images/write.svg">
-						<h5>64</h5>
-						<img alt="like" src="/resources/images/watch.svg">
-						<h5>39,806</h5>
+				<div class="cardview">
+					<div class="card" onclick="location.href='store_detail.do?store_idx=${k.store_idx}'">
+						<img alt="shop" src="/resources/images/shop.png">
+						<div class="text_container">
+							<h4><b>가게이름</b></h4>
+							<p>#tag1 #tag2</p>
+							<div class="shop_info">
+								<img alt="like" src="/resources/images/like.svg">
+								<h5>132</h5>
+								<img alt="like" src="/resources/images/write.svg">
+								<h5>27</h5>
+								<img alt="like" src="/resources/images/watch.svg">
+								<h5>1,054</h5>
+							</div> <!-- shop_info -->
+						</div> <!-- text-container -->
+					</div> <!-- card -->
+					<div class="card" onclick="location.href='store_detail.do?store_idx=${k.store_idx}'">
+						<img alt="shop" src="/resources/images/shop.png">
+						<div class="text_container">
+							<h4><b>가게이름</b></h4>
+							<p>#tag1 #tag2</p>
+							<div class="shop_info">
+								<img alt="like" src="/resources/images/like.svg">
+								<h5>132</h5>
+								<img alt="like" src="/resources/images/write.svg">
+								<h5>27</h5>
+								<img alt="like" src="/resources/images/watch.svg">
+								<h5>1,054</h5>
+							</div> <!-- shop_info -->
+						</div> <!-- text-container -->
+					</div> <!-- card -->
+				</div> <!-- cardview -->
+			</c:when>
+			<c:otherwise>
+				<c:forEach var="k" items="${thisTimeView}">
+					<div class="story">
+						<h3> 최근 본 가게 </h3>
 					</div>
-				</div>
-			</div>
-			<div class="card">
-				<img alt="shop" src="/resources/images/shop.png">
-				<div class="text_container">
-					<h4><b>NAME</b></h4>
-					<p>#tag1 #tag2</p>
-					<div class="shop_info">
-						<img alt="like" src="/resources/images/like.svg">
-						<h5>1,023</h5>
-						<img alt="like" src="/resources/images/write.svg">
-						<h5>64</h5>
-						<img alt="like" src="/resources/images/watch.svg">
-						<h5>39,806</h5>
-					</div>
-				</div>
-			</div>
-			<div class="card">
-				<img alt="shop" src="/resources/images/shop.png">
-				<div class="text_container">
-					<h4><b>NAME</b></h4>
-					<p>#tag1 #tag2</p>
-					<div class="shop_info">
-						<img alt="like" src="/resources/images/like.svg">
-						<h5>1,023</h5>
-						<img alt="like" src="/resources/images/write.svg">
-						<h5>64</h5>
-						<img alt="like" src="/resources/images/watch.svg">
-						<h5>39,806</h5>
-					</div>
-				</div>
-			</div>
-			<div class="card">
-				<img alt="shop" src="/resources/images/shop.png">
-				<div class="text_container">
-					<h4><b>NAME</b></h4>
-					<p>#tag1 #tag2</p>
-					<div class="shop_info">
-						<img alt="like" src="/resources/images/like.svg">
-						<h5>1,023</h5>
-						<img alt="like" src="/resources/images/write.svg">
-						<h5>64</h5>
-						<img alt="like" src="/resources/images/watch.svg">
-						<h5>39,806</h5>
-					</div>
-				</div>
-			</div>
-		<%-- </c:forEach> --%>
-		</div>	<!-- cardview 클래스 끝 -->
+					<div class="cardview">
+						<div class="card" onclick="location.href='store_detail.do?store_idx=${k.store_idx}'">
+							<img alt="shop" src="/resources/images/${k.store_img}">
+							<div class="text_container">
+								<h4><b>${k.store_name}</b></h4>
+								<p>${k.store_sub}</p>
+								<div class="shop_info">
+									<img alt="like" src="/resources/images/like.svg">
+									<h5>${k.store_like}</h5>
+									<img alt="like" src="/resources/images/write.svg">
+									<h5>${k.store_comment}</h5>
+									<img alt="like" src="/resources/images/watch.svg">
+									<h5>${k.store_view}</h5>
+								</div> <!-- shop_info -->
+							</div> <!-- text-container -->
+						</div> <!-- card -->
+					</div> <!-- cardview -->
+				</c:forEach>
+			</c:otherwise>
+		</c:choose>
 	</div>	<!-- wrap-all 클래스 끝 -->
 </body>
 </html>

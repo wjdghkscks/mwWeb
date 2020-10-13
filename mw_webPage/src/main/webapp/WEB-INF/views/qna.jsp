@@ -31,7 +31,6 @@
 			<input type="button" value="문의하기" onclick="ask_go()">
 		</div>
 		
-		
 		<div class="qna_list">
 			<div class="qna_one">
 				<h4>문의 제목이 여기에 표시..</h4>

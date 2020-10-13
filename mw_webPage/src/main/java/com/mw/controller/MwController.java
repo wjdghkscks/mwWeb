@@ -3,6 +3,7 @@ package com.mw.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,38 +18,41 @@ public class MwController {
 	
 	@Autowired
 	private DAO dao;
-
-	public void setDao(DAO dao) {
-		this.dao = dao;
-	}
+	public void setDao(DAO dao) {this.dao = dao;}
 	
 	@RequestMapping("main.do")
-	public ModelAndView mainCommand() {
+	public ModelAndView mainCommand(HttpSession session) {
 		
 		ModelAndView mv = new ModelAndView("main");
 		
-		// 최근 방문한 가게가 세션에 있는 경우 가게 리스트 출력 필요 
+		// 최근 방문한 가게 이력 세션 
+		/*
+		 * List<SVO> thisSessionView = session.getSessionContext();
+		 * session.setAttribute("thisTimeView", thisSessionView);
+		 */
 		
 		return mv;
 	}
 	
 	@RequestMapping("search.do")
 	public ModelAndView searchCommand(HttpServletRequest request) {
-		String findSearch = request.getParameter("findSearch");
+		String keyWord = request.getParameter("keyWord");
 		
-		ModelAndView mv = new ModelAndView("search_res?find=" + findSearch);
-		mv.addObject("findSearch", findSearch);
+		ModelAndView mv = new ModelAndView("search_res?find="+keyWord);
+		mv.addObject("keyWord", keyWord);
 		
 		// DAO 에서 검색 결과에 해당되는 아이템 리스트 가져오기
-		List<SVO> list = dao.getSearchResult(findSearch);
-		mv.addObject("store_list", list);
+		List<SVO> list = dao.getSearchResult(keyWord);
+		if (list.size() > 0) {
+			mv.addObject("store_list", list);
+		}
 		
 		return mv;
 	}
 	
 	@RequestMapping("category_eat.do")
 	public ModelAndView categoryEatCommand() {
-		return new ModelAndView("search_category");
+		return new ModelAndView("category_eat");
 	}
 	
 	@RequestMapping("submenu_mobile.do")
@@ -64,6 +68,24 @@ public class MwController {
 	@RequestMapping("search_category.do")
 	public ModelAndView searchCategoryCommand() {
 		return new ModelAndView("search_category");
+	}
+	
+	@RequestMapping("store_detail.do")
+	public ModelAndView storeDetailCommand(HttpServletRequest request) {
+		
+		ModelAndView mv = new ModelAndView("store_detail");
+		
+		// 가게 정보 받기
+		String idx = request.getParameter("store_idx");
+		SVO svo = dao.getStoreInfo(idx);
+		mv.addObject("svo", svo);
+		
+		// 해시태그 분리
+		String hash = request.getParameter("store_hashtag");
+		String[] hashes = hash.split("-");
+		mv.addObject("hashes", hashes);
+		
+		return mv;
 	}
 	
 	@RequestMapping("qna.do")

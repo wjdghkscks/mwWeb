@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    
+
 <!DOCTYPE html>
 <html>
 
@@ -26,25 +26,28 @@
 	<div>
 		<jsp:include page="top.jsp" />
 	</div>
-		
+	
+	<!-- session 에 최근 방문한 가게 이력 저장 필요 -->
+	<input type="hidden" name="store_idx" value="${svo.store_idx}">
+	
 	<div class="wrap-all">
 		<div class="header">
 			<div class="header_top">
 				<div class="info_title">
-					<h2>가게이름</h2>
-					<h5>가게 주소가 여기에 들어갑니다.</h5>
+					<h2>${svo.store_name}</h2>
+					<h5>${svo.store_location}</h5>
 				</div>
 				<div class="numbers">
 					<div>
-						<h5>like&nbsp;
+						<h5>${svo.store_like}&nbsp;
 						<img alt="like" src="/resources/images/like.svg"></h5>
 					</div>
 					<div>
-						<h5>comment&nbsp;
+						<h5>${svo.store_comment}&nbsp;
 						<img alt="write" src="/resources/images/write.svg"></h5>
 					</div>
 					<div>
-						<h5>view&nbsp;
+						<h5>${svo.store_view}&nbsp;
 						<img alt="view" src="/resources/images/watch.svg"></h5>
 					</div>
 				</div>
@@ -57,9 +60,9 @@
 			</div>
 			
 			<div class="hashtag">
-				<div>#hashtag1</div>
-				<div>#hashtag2</div>
-				<div>#hashtag3</div>
+				<c:forEach var="k" items="${hashes}">
+					<div>${k}</div>
+				</c:forEach>
 			</div>
 			
 		</div>
@@ -87,10 +90,10 @@
 			<div class="store_info">
 				<h2>가게 정보</h2>
 				<ul>
-					<li><b>가게위치&nbsp;&nbsp;</b>가게 주소가 여기에 들어갑니다.</li>
-					<li><b>전화번호&nbsp;&nbsp;</b>가게 전화번호가 여기에 들어갑니다.</li>
-					<li><b>영업시간&nbsp;&nbsp;</b>가게 영업시간이 여기에 들어갑니다.</li>
-					<li><b>대표메뉴&nbsp;&nbsp;</b>가게 대표 메뉴가 여기에 들어갑니다.</li>
+					<li><b>가게위치&nbsp;&nbsp;</b>${svo.store_location}</li>
+					<li><b>전화번호&nbsp;&nbsp;</b>${svo.store_tel}</li>
+					<li><b>영업시간&nbsp;&nbsp;</b>${svo.store_hour}</li>
+					<li><b>대표메뉴&nbsp;&nbsp;</b>${svo.store_menu}</li>
 				</ul>
 			</div>
 			

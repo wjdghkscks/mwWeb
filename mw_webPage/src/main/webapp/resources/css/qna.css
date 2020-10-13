@@ -25,7 +25,7 @@
 	border-radius: 5px;
 	transition: 0.3s;
 	font-size: 5vw;
-	margin-top: 9vw;
+	margin-top: 6vw;
 	padding: 2vw;
 	width: 100%;
 }
@@ -94,6 +94,13 @@
 		margin: 20px 0 58px 0;
 		text-align: center;
 	}
+	.list_title input {
+		font-size: 40px;
+		border-radius: 10px;
+		width: 100%;
+		padding: 28px;
+		margin: 20px 0 0 0;
+	}
 	.list_title input:hover {
 		border: 3px solid #e8a761;
 		box-shadow: 0 4vw 4vw 0 rgba(0,0,0,0.2);
@@ -103,13 +110,6 @@
 	}
 	.list_title h2 {
 		font-size: 70px;
-	}
-	.list_title input {
-		font-size: 32px;
-		border-radius: 10px;
-		width: 100%;
-		padding: 28px;
-		margin: 20px 0 0 0;
 	}
 	.qna_list {
 		margin: 50px 0;

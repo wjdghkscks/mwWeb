@@ -7,9 +7,15 @@
 	<select id="search" parameterType="String" resultType="svo">
 		SELECT * 
 		FROM mw_store 
-		WHERE (store_name LIKE '%'||#{findSearch}||'%' 
-			OR store_sub LIKE '%'||#{findSearch}||'%' 
-			OR store_hashtag LIKE '%'||#{findSearch}||'%')
+		WHERE (store_name LIKE '%'||#{keyWord}||'%' 
+			OR store_sub LIKE '%'||#{keyWord}||'%' 
+			OR store_hashtag LIKE '%'||#{keyWord}||'%')
+	</select>
+	
+	<select id="storeInfo" parameterType="String" resultType="svo">
+		SELECT * 
+		FROM mw_store 
+		WHERE store_idx = #{idx}
 	</select>
 	
 </mapper>

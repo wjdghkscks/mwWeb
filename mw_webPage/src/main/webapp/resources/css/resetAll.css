@@ -21,47 +21,7 @@
 
 /* 초기화 */
 * { margin: 0; padding: 0; }
+*:focus { outline: none; }
 li { list-style: none; }
 a { text-decoration: none; color: #444; }
 img { border: none; vertical-align: top; }
-
-
-
-/*
-576px 이상 태블릿
-@media (min-width: 576px) {
-	
-	html,body{ height: auto; }
-	
-	.search-bar { text-align: center; margin: 20px 0; }
-	
-	.search-bar input[type=text] {
-		padding: 10px;
-		border: 1px solid #444;
-		width: 85%;
-		margin: 3 auto;
-		font-family: 'GmarketSansLight';
-		font-size: 21px;
-		text-align: center;
-		border-left-width:0;
-		border-right-width:0;
-		border-top-width:0;
-		border-bottom-width:1;
-	}
-	
-	.category-button { text-align: center; }
-	
-	.category-button>button {
-		font-family: 'GmarketSansBold';
-		padding: 92px;
-		margin: 6px;
-		font-size: 23px;
-	}
-	
-	.main-banner { height: 50%; }
-}
-
-992px 이상 PC
-@media (min-width: 992px) {
-	
-} */

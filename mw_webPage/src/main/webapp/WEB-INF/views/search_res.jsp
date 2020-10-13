@@ -20,7 +20,7 @@
 	
 	<div class="search_res_searchbar">
 		<img alt="search" src="/resources/images/search_icon.svg">
-		<input type="text" name="search" placeholder="${findsearch}">
+		<input type="text" name="search" placeholder="${keyWord}">
 	</div>
 	
 	<div class="cardview">

@@ -12,7 +12,7 @@
 <link rel="stylesheet" type="text/css" href="/resources/css/resetAll.css">
 </head>
 
-<body>
+<body style="background-color: white;">
 	<header class ="main_header">
 		<div class="top_menu">
 			<a href="submenu_mobile.do"><img alt="menu" src="/resources/images/menu.svg"></a>

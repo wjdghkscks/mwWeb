@@ -20,6 +20,9 @@
 		f.action = "search.do";
 		f.submit();
 	}
+	function search_main() {
+		location.href = "search_main.do";
+	}
 	function category_eat() {
 		location.href = "category_eat.do";	
 	}
@@ -66,37 +69,37 @@
 		</script> <!-- slick 라이브러리 설정 끝 -->
 		
 <!-- 검색창 이벤트 처리 -->
-<!-- <script type="text/javascript">
+<script type="text/javascript">
 	$(function() {
 		$("#search_bar").click(function() {
-			$("#pop").show(0);
+			$("#popUpContent").show(0);
 		});
-		$("#search_bar").mouseleave(function() {
-			$("#pop").hide(0);
-		});
+		/* $("#search_bar").mouseleave(function() {
+			$("#popUpContent").hide(0);
+		}); */
 	});
-</script> -->
+</script>
+
 		<form>
 			<div id="search_bar" class="search-bar">
 				<p><input type="text" name="keyWord" placeholder="검색어를 입력하세요."></p>
-				<input type="image" src="/resources/images/search_icon.svg" alt="search" onclick="searchBtn(this.form)">
+				<input type="image" src="/resources/images/search_icon.svg" alt="search" onclick="searchBtn()">
 			</div>
-<!--	
-		<div id="pop" class="search-bar-click" style="display: none;">
-				<div class="prev-search">
+	
+			<div id="popUpContent" class="search-bar-click" style="display: none;">
+				<div class="prev_search">
 					<h5>검색 기록</h5>
 					<p>검색어1</p>
 					<p>검색어2</p>
 					<p>검색어3</p>
 				</div>
-				<div class="want-search">
+				<div class="want_search">
 					<h5>추천 검색어</h5>
 					<p>검색어1</p>
 					<p>검색어2</p>
 					<p>검색어3</p>
 				</div>
 			</div> 
--->		
 		</form>
 		
 		<div class="category">

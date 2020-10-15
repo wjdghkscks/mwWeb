@@ -20,7 +20,7 @@
 	
 	<div class="wrap-all">
 		<div class="biggerCategory">
-			<div>먹거리</div>
+			<div style="border-color: #e8a761; background-color: #e8a761; color: white;">먹거리</div>
 			<div>마실거리</div>
 			<div>놀거리</div>
 		</div>
@@ -68,36 +68,6 @@
 						<img alt="like" src="/resources/images/write.svg">
 						<h5>64</h5>
 						<img alt="like" src="/resources/images/watch.svg">
-						<h5>39,806</h5>
-					</div>
-				</div>
-			</div>
-			<div class="card">
-				<img alt="shop" src="/resources/images/shop.png">
-				<div class="text_container">
-					<h4><b>NAME</b></h4>
-					<p>#tag1 #tag2</p>
-					<div class="shop_info">
-						<img alt="like" src="../images/like.svg">
-						<h5>1,023</h5>
-						<img alt="like" src="../images/write.svg">
-						<h5>64</h5>
-						<img alt="like" src="../images/watch.svg">
-						<h5>39,806</h5>
-					</div>
-				</div>
-			</div>
-			<div class="card">
-				<img alt="shop" src="/resources/images/shop.png">
-				<div class="text_container">
-					<h4><b>NAME</b></h4>
-					<p>#tag1 #tag2</p>
-					<div class="shop_info">
-						<img alt="like" src="../images/like.svg">
-						<h5>1,023</h5>
-						<img alt="like" src="../images/write.svg">
-						<h5>64</h5>
-						<img alt="like" src="../images/watch.svg">
 						<h5>39,806</h5>
 					</div>
 				</div>

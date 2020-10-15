@@ -150,7 +150,7 @@
 	}
 	.smallHash {
 		width: 100%;
-		justify-content: center;
+		margin: 0 0 0 57px;
 	}
 	.smallHash div {
 		border: 2px solid #444;

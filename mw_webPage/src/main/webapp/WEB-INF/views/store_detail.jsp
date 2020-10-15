@@ -1,3 +1,4 @@
+<%@page import="com.mw.db.SVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -20,6 +21,17 @@
 	}
 </script>
 </head>
+
+<% 
+	// session 에서 svo 값을 받아옴
+	SVO svo = (SVO)request.getSession().getAttribute("svo");
+	String idx = svo.getStore_idx();
+	String name = svo.getStore_name();
+	
+	// 현재 조회중인 가게 정보를 cookie 에 저장
+	Cookie cookie = new Cookie(name, idx);
+	response.addCookie(cookie);
+%>
 
 <body>
 	

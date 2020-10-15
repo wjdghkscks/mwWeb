@@ -15,7 +15,7 @@
 	<select id="storeInfo" parameterType="String" resultType="svo">
 		SELECT * 
 		FROM mw_store 
-		WHERE store_idx = #{idx}
+		WHERE store_idx = #{store_idx}
 	</select>
 	
 </mapper>

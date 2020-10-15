@@ -15,16 +15,16 @@ public class DAO {
 // DB 처리 ↓↓↓
 	
 	// 검색어
-	public List<SVO> getSearchResult(String keyWord) {
+	public List<SVO> getSearchResult(String keyWord) throws Exception {
 		List<SVO> list = null;
 		list = sqlSessionTemplate.selectList("search", keyWord);
 		return list;
 	}
 	
 	// 가게 상세
-	public SVO getStoreInfo(String idx) {
+	public SVO getStoreInfo(String store_idx) {
 		SVO svo = null;
-		svo = sqlSessionTemplate.selectOne("storeInfo", idx);
+		svo = sqlSessionTemplate.selectOne("storeInfo", store_idx);
 		return svo;
 	}
 	

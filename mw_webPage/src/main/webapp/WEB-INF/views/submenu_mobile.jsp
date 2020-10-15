@@ -9,11 +9,16 @@
 <title>메뉴</title>
 <link rel="stylesheet" type="text/css" href="/resources/css/resetAll.css">
 <link rel="stylesheet" type="text/css" href="/resources/css/submenu_mobile.css">
-<style type="text/css">
-	* {
-		background-color: #e8a761;
+<script type="text/javascript">
+	function back_go() {
+		history.go(-1);
 	}
-</style>
+	/* 992px 이상에서 현재 페이지 접속 시 메인 페이지로 이동  */
+	var innerWidth = window.innerWidth;
+	if (innerWidth >= 992) {
+		location.href="main.do";
+	}
+</script>
 </head>
 
 <body>
@@ -27,6 +32,8 @@
 		<li><a href="qna.do">문의하기</a></li>
 		<li><a href="user_info.do">내정보</a></li>
 	</ul>
+
+	<div class="goBack" onclick="back_go()">메인화면으로</div>
 
 </body>
 </html>

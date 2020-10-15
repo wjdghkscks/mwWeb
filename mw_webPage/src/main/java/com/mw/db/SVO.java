@@ -14,6 +14,7 @@ public class SVO {
 			String store_tel, String store_hour, String store_menu, int store_like, int store_comment,
 			int store_view, MultipartFile file) {
 		super();
+		this.store_idx = store_idx;
 		this.store_name = store_name;
 		this.store_sub = store_sub;
 		this.store_img = store_img;
@@ -22,7 +23,6 @@ public class SVO {
 		this.store_tel = store_tel;
 		this.store_hour = store_hour;
 		this.store_menu = store_menu;
-		this.store_idx = store_idx;
 		this.store_like = store_like;
 		this.store_comment = store_comment;
 		this.store_view = store_view;

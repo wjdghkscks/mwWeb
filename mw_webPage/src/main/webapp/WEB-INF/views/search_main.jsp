@@ -11,19 +11,38 @@
 <link rel="stylesheet" type="text/css" href="/resources/css/resetAll.css">
 <link rel="stylesheet" type="text/css" href="/resources/css/search_main.css">
 <script type="text/javascript">
+	function searchBtn(f) {
+		// 유효성 검사
+		var keyWord = f.keyWord.value;
+		if(keyWord == "") {
+			alert("검색할 단어를 입력해주세요.");
+			f.keyWord.value="";
+			f.keyWord.focus();
+			return;
+		} else {
+			f.action = "search.do";
+			f.submit();
+		}
+	}
 	function back_go() {
 		history.go(-1);
+	}
+	/* 992px 이상에서 현재 페이지 접속 시 메인 페이지로 이동  */
+	var innerWidth = window.innerWidth;
+	if (innerWidth >= 992) {
+		location.href="main.do";
 	}
 </script>
 </head>
 	
 <body>
-
-	<div class="search_main_searchbar">
-		<a onclick="back_go()"><img alt="back" src="/resources/images/back_icon.svg"></a>
-		<input type="text" name="search" placeholder="검색어를 입력해주세요.">
-		<img alt="search" src="/resources/images/search_icon.svg">
-	</div>
+	<form>
+		<div class="search_main_searchbar">
+			<img alt="back" src="/resources/images/back_icon.svg" onclick="back_go()">
+			<p><input type="text" name="keyWord" placeholder="검색어를 입력하세요."></p>
+			<input type="image" src="/resources/images/search_icon.svg" alt="search" onclick="searchBtn(this.form)">
+		</div>
+	</form>
 	
 	<div class="search_main_items">
 		<div class="search_main_recent">
@@ -32,19 +51,16 @@
 				<li>
 					<div class="search_main_item">
 						마카롱
-						<span style="opacity: 50%">X</span>
 					</div>
 				</li>
 				<li>
 					<div class="search_main_item">
 						런드리즈
-						<span style="opacity: 50%">X</span>
 					</div>
 				</li>
 				<li>
 					<div class="search_main_item">
 						감자탕
-						<span style="opacity: 50%">X</span>
 					</div>
 				</li>
 			</ul>
@@ -56,24 +72,23 @@
 				<li>
 					<div class="search_main_item">
 						베가보쌈
-						<span style="opacity: 50%">X</span>
 					</div>
 				</li>
 				<li>
 					<div class="search_main_item">
 						단체
-						<span style="opacity: 50%">X</span>
 					</div>
 				</li>
 				<li>
 					<div class="search_main_item">
 						떡볶이 맛집
-						<span style="opacity: 50%">X</span>
 					</div>
 				</li>
 			</ul>
 		</div>
 	</div>
+
+	<div class="goBack" onclick="back_go()">메인화면으로</div>
 
 </body>
 </html>

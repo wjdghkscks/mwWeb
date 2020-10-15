@@ -17,8 +17,17 @@
 <script type="text/javascript" src="http://kenwheeler.github.io/slick/slick/slick.min.js"></script>
 <script type="text/javascript">
 	function searchBtn(f) {
-		f.action = "search.do";
-		f.submit();
+		// 유효성 검사
+		var keyWord = f.keyWord.value;
+		if(keyWord == "") {
+			alert("검색할 단어를 입력해주세요.");
+			f.keyWord.value="";
+			f.keyWord.focus();
+			return;
+		} else {
+			f.action = "search.do";
+			f.submit();
+		}
 	}
 	function search_main() {
 		location.href = "search_main.do";
@@ -36,10 +45,27 @@
 </head>
 
 <body>
-	<div>
-		<jsp:include page="top.jsp" />
-	</div>
+	<div><jsp:include page="top.jsp" /></div>
 	
+	<!-- slick 라이브러리 설정 -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('.main_banner').slick({
+				autoplay : true,
+				arrows : false,
+				dots : true,
+				appendDots : $('banner_container'),
+				speed : 900, 			/* 이미지 슬라이딩 시 걸리는 시간 */
+				infinite : true,
+				autoplaySpeed : 4000, 	/* 다른 이미지로 넘어 갈 때 걸리는 시간 */
+				slidesToShow : 1,
+				slidesToScroll : 1,
+				draggable: true,
+				fade : false
+			});
+		});
+	</script> <!-- slick 라이브러리 설정 끝 -->
+		
 	<div class="wrap-all">
 		<div class="banner_container">
 			<div class="main_banner">
@@ -49,66 +75,61 @@
 			</div>
 		</div> <!-- banner_container 끝 -->
 		
-		<!-- slick 라이브러리 설정 -->
+		<!-- 검색창 이벤트 처리 -->
 		<script type="text/javascript">
-			$(document).ready(function() {
-				$('.main_banner').slick({
-					autoplay : true,
-					arrows : false,
-					dots : true,
-					appendDots : $('banner_container'),
-					speed : 900, 			/* 이미지 슬라이딩 시 걸리는 시간 */
-					infinite : true,
-					autoplaySpeed : 4000, 	/* 다른 이미지로 넘어 갈 때 걸리는 시간 */
-					slidesToShow : 1,
-					slidesToScroll : 1,
-					draggable: true,
-					fade : false
+			$(function() {
+				var innerWidth = window.innerWidth;
+				$("#search_bar").click(function() {
+					if (innerWidth < 992) {
+						location.href = "search_main.do";
+					}
+					if (innerWidth >= 992) {
+						$("#popUpContent").show(0);
+					}
+				});
+				$(document).mouseup(function (e){
+				    var container = $("#popUpContent");
+				    if(container.has(e.target).length === 0){
+				    	container.hide(0);
+				    }
 				});
 			});
-		</script> <!-- slick 라이브러리 설정 끝 -->
+		</script>
 		
-<!-- 검색창 이벤트 처리 -->
-<script type="text/javascript">
-	$(function() {
-		$("#search_bar").click(function() {
-			$("#popUpContent").show(0);
-		});
-		/* $("#search_bar").mouseleave(function() {
-			$("#popUpContent").hide(0);
-		}); */
-	});
-</script>
-
+		<!-- 검색창 -->
 		<form>
 			<div id="search_bar" class="search-bar">
-				<p><input type="text" name="keyWord" placeholder="검색어를 입력하세요."></p>
-				<input type="image" src="/resources/images/search_icon.svg" alt="search" onclick="searchBtn()">
+				<p><input type="text" name="keyWord" placeholder="검색할 단어를 입력하세요."></p>
+				<input type="image" src="/resources/images/search_icon.svg" alt="search" onclick="searchBtn(this.form)">
 			</div>
 	
-			<div id="popUpContent" class="search-bar-click" style="display: none;">
-				<div class="prev_search">
-					<h5>검색 기록</h5>
-					<p>검색어1</p>
-					<p>검색어2</p>
-					<p>검색어3</p>
+			<div id="modal" class="search_modal">
+				<div id="popUpContent" class="search-bar-click" style="display: none;">
+					<div class="prev_search">
+						<!-- *cookie 정보 처리 필요 -->
+						<h5>검색 기록</h5>
+						<p>검색어1</p>
+						<p>검색어2</p>
+						<p>검색어3</p>
+					</div>
+					<div class="want_search">
+						<h5>추천 검색어</h5>
+						<p>검색어1</p>
+						<p>검색어2</p>
+						<p>검색어3</p>
+					</div>
 				</div>
-				<div class="want_search">
-					<h5>추천 검색어</h5>
-					<p>검색어1</p>
-					<p>검색어2</p>
-					<p>검색어3</p>
-				</div>
-			</div> 
+			</div>
 		</form>
 		
+		<!-- 카테고리 버튼 -->
 		<div class="category">
 			<div onclick="category_eat()">먹거리</div>
 			<div onclick="category_drink()">마실거리</div>
 			<div onclick="category_play()">놀거리</div>
 		</div>
 		
-		<!-- Session 이 유지되는 동안 조회한 가게 리스트 출력 -->
+		<!-- 가게 리스트 -->
 		<c:choose>
 			<c:when test="${empty thisTimeView}">
 				<div class="story">

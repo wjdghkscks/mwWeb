@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.mw.db.DAO;
@@ -21,38 +22,43 @@ public class MwController {
 	public void setDao(DAO dao) {this.dao = dao;}
 	
 	@RequestMapping("main.do")
-	public ModelAndView mainCommand(HttpSession session) {
+	public ModelAndView mainCommand() {
 		
 		ModelAndView mv = new ModelAndView("main");
-		
-		// 최근 방문한 가게 이력 세션 
-		/*
-		 * List<SVO> thisSessionView = session.getSessionContext();
-		 * session.setAttribute("thisTimeView", thisSessionView);
-		 */
 		
 		return mv;
 	}
 	
 	@RequestMapping("search.do")
-	public ModelAndView searchCommand(HttpServletRequest request) {
-		String keyWord = request.getParameter("keyWord");
-		
-		ModelAndView mv = new ModelAndView("search_res?find="+keyWord);
-		mv.addObject("keyWord", keyWord);
-		
-		// DAO 에서 검색 결과에 해당되는 아이템 리스트 가져오기
-		List<SVO> list = dao.getSearchResult(keyWord);
-		if (list.size() > 0) {
+	public ModelAndView searchCommand(
+			@RequestParam("keyWord") String keyWord, HttpServletRequest request) {
+
+		ModelAndView mv = new ModelAndView("search_res");
+		try {
+			mv.addObject("keyWord", keyWord);
+	
+			// 검색 결과에 해당되는 아이템 리스트 가져오기
+			List<SVO> list = dao.getSearchResult(keyWord);
 			mv.addObject("store_list", list);
+		} catch (Exception e) {
+			System.out.println(e);
 		}
-		
 		return mv;
 	}
 	
 	@RequestMapping("category_eat.do")
 	public ModelAndView categoryEatCommand() {
 		return new ModelAndView("category_eat");
+	}
+	
+	@RequestMapping("category_drink.do")
+	public ModelAndView categoryDrinkCommand() {
+		return new ModelAndView("category_drink");
+	}
+	
+	@RequestMapping("category_play.do")
+	public ModelAndView categoryPlayCommand() {
+		return new ModelAndView("category_play");
 	}
 	
 	@RequestMapping("submenu_mobile.do")
@@ -73,12 +79,12 @@ public class MwController {
 	@RequestMapping("store_detail.do")
 	public ModelAndView storeDetailCommand(HttpServletRequest request) {
 		
-		ModelAndView mv = new ModelAndView("store_detail");
+		String store_idx = request.getParameter("store_idx");
+		ModelAndView mv = new ModelAndView("store_detail?store_idx=" + store_idx);
 		
 		// 가게 정보 받기
-		String idx = request.getParameter("store_idx");
-		SVO svo = dao.getStoreInfo(idx);
-		mv.addObject("svo", svo);
+		SVO svo = dao.getStoreInfo(store_idx);
+		request.getSession().setAttribute("svo", svo);
 		
 		// 해시태그 분리
 		String hash = request.getParameter("store_hashtag");

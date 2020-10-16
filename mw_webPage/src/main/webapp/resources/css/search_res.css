@@ -16,8 +16,8 @@
 .search_res_searchbar p input {
 	font-family: 'GmarketSansLight';
 	font-size: 5vw;
-	width: 87%;
-	padding-top: 1vw;
+	width: 80%;
+	margin-right: 15vw;
 	border-left-width:0;
 	border-right-width:0;
 	border-top-width:0;
@@ -67,6 +67,9 @@
 @media (min-width: 576px){
 	.search_res_searchbar {
 		border: 3px solid #e8a761;
+	}
+	.search_res_searchbar p input {
+		margin : 1vw 15vw 0 3vw;
 	}
 	.cardview {
 		border: 3px solid #e8a761;

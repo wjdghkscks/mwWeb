@@ -47,7 +47,7 @@
 <body>
 	<div><jsp:include page="top.jsp" /></div>
 	
-	<!-- slick 라이브러리 설정 -->
+	<!-- slick -->
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('.main_banner').slick({
@@ -64,7 +64,7 @@
 				fade : false
 			});
 		});
-	</script> <!-- slick 라이브러리 설정 끝 -->
+	</script>
 		
 	<div class="wrap-all">
 		<div class="banner_container">
@@ -73,7 +73,7 @@
 				<div><img src="/resources/images/banner02.png"></div>
 				<div><img src="/resources/images/banner03.png"></div>
 			</div>
-		</div> <!-- banner_container 끝 -->
+		</div>
 		
 		<!-- 검색창 이벤트 처리 -->
 		<script type="text/javascript">

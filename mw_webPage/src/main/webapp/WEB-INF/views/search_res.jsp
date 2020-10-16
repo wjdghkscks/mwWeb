@@ -52,27 +52,30 @@
 		});
 	</script>
 	
-	<div class="search_res_searchbar">
-		<input type="image" src="/resources/images/search_icon.svg" alt="search" onclick="searchBtn(this.form)">
-		<p><input id="search_bar" type="text" name="keyWord" placeholder="${keyWord}"></p>
-	</div>
-	<div id="modal" class="search_modal">
-		<div id="popUpContent" class="search-bar-click" style="display: none;">
-			<div class="prev_search">
-				<!-- *cookie 정보 처리 필요 -->
-				<h5>검색 기록</h5>
-				<p>검색어1</p>
-				<p>검색어2</p>
-				<p>검색어3</p>
-			</div>
-			<div class="want_search">
-				<h5>추천 검색어</h5>
-				<p>검색어1</p>
-				<p>검색어2</p>
-				<p>검색어3</p>
+	<form>
+		<div class="search_res_searchbar">
+			<input type="image" src="/resources/images/search_icon.svg" alt="search" onclick="searchBtn(this.form)">
+			<p><input id="search_bar" type="text" name="keyWord" placeholder="${keyWord}"></p>
+		</div>
+		
+		<div id="modal" class="search_modal">
+			<div id="popUpContent" class="search-bar-click" style="display: none;">
+				<div class="prev_search">
+					<!-- *cookie 정보 처리 필요 -->
+					<h5>검색 기록</h5>
+					<p>검색어1</p>
+					<p>검색어2</p>
+					<p>검색어3</p>
+				</div>
+				<div class="want_search">
+					<h5>추천 검색어</h5>
+					<p>검색어1</p>
+					<p>검색어2</p>
+					<p>검색어3</p>
+				</div>
 			</div>
 		</div>
-	</div>
+	</form>
 	
 	<div class="cardview">
 		<c:choose>

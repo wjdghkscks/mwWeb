@@ -101,7 +101,7 @@ public class MwController {
 	
 	@RequestMapping("write_qna.do")
 	public ModelAndView writeQnaCommand() {
-		return new ModelAndView("write_qna");
+		return new ModelAndView("qna_write");
 	}
 	
 	@RequestMapping("user_info.do")

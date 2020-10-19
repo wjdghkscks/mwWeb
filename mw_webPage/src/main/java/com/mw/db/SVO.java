@@ -4,124 +4,124 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class SVO {
 
-	private String store_idx, store_name, store_sub, store_img, store_hashtag, store_location, store_tel, store_hour, store_menu;
-	private int store_like, store_comment, store_view;
+	private String s_idx, s_name, s_sub, s_img, s_hashtag, s_location, s_tel, s_hour, s_menu;
+	private int s_like, s_comment, s_view;
 	private MultipartFile file;
 	
-	public SVO() { }
+	public SVO() {}
 
-	public SVO(String store_idx, String store_name, String store_sub, String store_img, String store_hashtag, String store_location,
-			String store_tel, String store_hour, String store_menu, int store_like, int store_comment,
-			int store_view, MultipartFile file) {
+	public SVO(String s_idx, String s_name, String s_sub, String s_img, String s_hashtag, String s_location,
+			String s_tel, String s_hour, String s_menu, int s_like, int s_comment, int s_view, MultipartFile file) {
 		super();
-		this.store_idx = store_idx;
-		this.store_name = store_name;
-		this.store_sub = store_sub;
-		this.store_img = store_img;
-		this.store_hashtag = store_hashtag;
-		this.store_location = store_location;
-		this.store_tel = store_tel;
-		this.store_hour = store_hour;
-		this.store_menu = store_menu;
-		this.store_like = store_like;
-		this.store_comment = store_comment;
-		this.store_view = store_view;
+		this.s_idx = s_idx;
+		this.s_name = s_name;
+		this.s_sub = s_sub;
+		this.s_img = s_img;
+		this.s_hashtag = s_hashtag;
+		this.s_location = s_location;
+		this.s_tel = s_tel;
+		this.s_hour = s_hour;
+		this.s_menu = s_menu;
+		this.s_like = s_like;
+		this.s_comment = s_comment;
+		this.s_view = s_view;
 		this.file = file;
 	}
 
-	public String getStore_idx() {
-		return store_idx;
+	public String getS_idx() {
+		return s_idx;
 	}
 
-	public void setStore_idx(String store_idx) {
-		this.store_idx = store_idx;
-	}
-	public String getStore_name() {
-		return store_name;
+	public void setS_idx(String s_idx) {
+		this.s_idx = s_idx;
 	}
 
-	public void setStore_name(String store_name) {
-		this.store_name = store_name;
+	public String getS_name() {
+		return s_name;
 	}
 
-	public String getStore_sub() {
-		return store_sub;
+	public void setS_name(String s_name) {
+		this.s_name = s_name;
 	}
 
-	public void setStore_sub(String store_sub) {
-		this.store_sub = store_sub;
+	public String getS_sub() {
+		return s_sub;
 	}
 
-	public String getStore_img() {
-		return store_img;
+	public void setS_sub(String s_sub) {
+		this.s_sub = s_sub;
 	}
 
-	public void setStore_img(String store_img) {
-		this.store_img = store_img;
+	public String getS_img() {
+		return s_img;
 	}
 
-	public String getStore_hashtag() {
-		return store_hashtag;
+	public void setS_img(String s_img) {
+		this.s_img = s_img;
 	}
 
-	public void setStore_hashtag(String store_hashtag) {
-		this.store_hashtag = store_hashtag;
+	public String getS_hashtag() {
+		return s_hashtag;
 	}
 
-	public String getStore_location() {
-		return store_location;
+	public void setS_hashtag(String s_hashtag) {
+		this.s_hashtag = s_hashtag;
 	}
 
-	public void setStore_location(String store_location) {
-		this.store_location = store_location;
+	public String getS_location() {
+		return s_location;
 	}
 
-	public String getStore_tel() {
-		return store_tel;
+	public void setS_location(String s_location) {
+		this.s_location = s_location;
 	}
 
-	public void setStore_tel(String store_tel) {
-		this.store_tel = store_tel;
+	public String getS_tel() {
+		return s_tel;
 	}
 
-	public String getStore_hour() {
-		return store_hour;
+	public void setS_tel(String s_tel) {
+		this.s_tel = s_tel;
 	}
 
-	public void setStore_hour(String store_hour) {
-		this.store_hour = store_hour;
+	public String getS_hour() {
+		return s_hour;
 	}
 
-	public String getStore_menu() {
-		return store_menu;
+	public void setS_hour(String s_hour) {
+		this.s_hour = s_hour;
 	}
 
-	public void setStore_menu(String store_menu) {
-		this.store_menu = store_menu;
+	public String getS_menu() {
+		return s_menu;
 	}
 
-	public int getStore_like() {
-		return store_like;
+	public void setS_menu(String s_menu) {
+		this.s_menu = s_menu;
 	}
 
-	public void setStore_like(int store_like) {
-		this.store_like = store_like;
+	public int getS_like() {
+		return s_like;
 	}
 
-	public int getStore_comment() {
-		return store_comment;
+	public void setS_like(int s_like) {
+		this.s_like = s_like;
 	}
 
-	public void setStore_comment(int store_comment) {
-		this.store_comment = store_comment;
+	public int getS_comment() {
+		return s_comment;
 	}
 
-	public int getStore_view() {
-		return store_view;
+	public void setS_comment(int s_comment) {
+		this.s_comment = s_comment;
 	}
 
-	public void setStore_view(int store_view) {
-		this.store_view = store_view;
+	public int getS_view() {
+		return s_view;
+	}
+
+	public void setS_view(int s_view) {
+		this.s_view = s_view;
 	}
 
 	public MultipartFile getFile() {

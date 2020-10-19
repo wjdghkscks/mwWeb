@@ -15,7 +15,7 @@
 		<org.slf4j-version>1.6.6</org.slf4j-version>
 	</properties>
 	<dependencies>
-	
+
 		<!-- Spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -125,6 +125,21 @@
 			<artifactId>spring-jdbc</artifactId>
 			<version>5.2.7.RELEASE</version>
 		</dependency>
+
+		<!-- MariaDB Java Client 2.6.2 -->
+		<dependency>
+			<groupId>org.mariadb.jdbc</groupId>
+			<artifactId>mariadb-java-client</artifactId>
+			<version>2.6.2</version>
+		</dependency>
+
+		<!-- DBCP2 2.7.0 -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-dbcp2</artifactId>
+			<version>2.7.0</version>
+		</dependency>
+
 
 		<!-- cos : 파일 업로드 -->
 		<dependency>

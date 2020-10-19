@@ -39,7 +39,7 @@
 		location.href = "category_drink.do";	
 	}
 	function category_play() {
-		location.href = "category_play.do";	
+		location.href = "admin.do";
 	}
 </script>
 </head>

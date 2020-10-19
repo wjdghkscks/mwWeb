@@ -2,20 +2,38 @@
 <!DOCTYPE mapper
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="mw">
+<mapper namespace="mwDB">
+
+	<select id="total" resultType="int">
+		SELECT count(*) 
+		FROM mw_store
+	</select>
+	
+	<select id="adminList" parameterType="Map" resultType="svo">
+		SELECT * FROM ( 
+			SELECT rownum r_num, a.* FROM ( 
+				SELECT * FROM mw_store ORDER BY s_idx DESC 
+			) a 
+		) WHERE r_num BETWEEN #{begin} AND #{end}
+	</select>
+
+	<insert id="adminWrite" parameterType="svo">
+		INSERT INTO mw_store
+		VALUES(#{s_name}, #{s_sub}, #{s_img}, #{s_hashtag}, #{s_location}, #{s_tel}, #{s_hour}, #{s_menu}, 0, 0, 0)
+	</insert>
 
 	<select id="search" parameterType="String" resultType="svo">
 		SELECT * 
 		FROM mw_store 
-		WHERE (store_name LIKE '%'||#{keyWord}||'%' 
-			OR store_sub LIKE '%'||#{keyWord}||'%' 
-			OR store_hashtag LIKE '%'||#{keyWord}||'%')
+		WHERE (s_name LIKE '%'||#{keyWord}||'%' 
+			OR s_sub LIKE '%'||#{keyWord}||'%' 
+			OR s_hashtag LIKE '%'||#{keyWord}||'%')
 	</select>
 	
 	<select id="storeInfo" parameterType="String" resultType="svo">
 		SELECT * 
 		FROM mw_store 
-		WHERE store_idx = #{store_idx}
+		WHERE s_idx = #{s_idx}
 	</select>
 	
 </mapper>

@@ -25,8 +25,8 @@
 <% 
 	// session 에서 svo 값을 받아옴
 	SVO svo = (SVO)request.getSession().getAttribute("svo");
-	String idx = svo.getStore_idx();
-	String name = svo.getStore_name();
+	String idx = svo.getS_idx();
+	String name = svo.getS_name();
 	
 	// 현재 조회중인 가게 정보를 cookie 에 저장
 	Cookie cookie = new Cookie(name, idx);
@@ -40,26 +40,26 @@
 	</div>
 	
 	<!-- session 에 최근 방문한 가게 이력 저장 필요 -->
-	<input type="hidden" name="store_idx" value="${svo.store_idx}">
+	<input type="hidden" name="store_idx" value="${svo.s_idx}">
 	
 	<div class="wrap-all">
 		<div class="header">
 			<div class="header_top">
 				<div class="info_title">
-					<h2>${svo.store_name}</h2>
-					<h5>${svo.store_location}</h5>
+					<h2>${svo.s_name}</h2>
+					<h5>${svo.s_location}</h5>
 				</div>
 				<div class="numbers">
 					<div>
-						<h5>${svo.store_like}&nbsp;
+						<h5>${svo.s_like}&nbsp;
 						<img alt="like" src="/resources/images/like.svg"></h5>
 					</div>
 					<div>
-						<h5>${svo.store_comment}&nbsp;
+						<h5>${svo.s_comment}&nbsp;
 						<img alt="write" src="/resources/images/write.svg"></h5>
 					</div>
 					<div>
-						<h5>${svo.store_view}&nbsp;
+						<h5>${svo.s_view}&nbsp;
 						<img alt="view" src="/resources/images/watch.svg"></h5>
 					</div>
 				</div>

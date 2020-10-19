@@ -1,0 +1,62 @@
+@charset "UTF-8";
+
+.table_title h2 {
+	font-family: 'GmarketSansBold';
+	color: #444;
+	font-size: 8vw;
+	text-align: center;
+	margin: 4vw auto;
+}
+table {
+	width: 90%;
+	margin: 0 auto;
+	text-align: center;
+	border: 1px solid #444;
+	border-collapse: collapse;
+}
+th,td {
+	border: 1px solid #444;
+	padding: 2vw;
+	font-size: 4vw;
+}
+th { 
+	font-family: 'GmarketSansLight';
+	width: 25%;
+	background-color: #e8a761;
+	color: white;
+}
+td input { 
+	font-family: 'GmarketSansLight';
+	width: 95%;
+	color: #444; 
+	font-size: 3vw;
+	padding: 1%;
+}
+td input::placeholder {
+	font-family: 'GmarketSansLight';
+	color: #444;
+	text-align: center;
+}
+td input:focus {
+	box-shadow: none;
+}
+td input:focus::-webkit-input-placeholder {
+	color: transparent;
+}
+.btns {
+	font-family: 'GmarketSansLight';
+	border: 1px solid #444;
+	border-radius: 8px;
+	background-color: #e8a761;
+	color: white;
+	font-size: 5vw;
+	width: 25%;
+	text-align: center;
+	padding: 1% 0 0 0;
+	margin: 3%;
+}
+
+
+
+
+

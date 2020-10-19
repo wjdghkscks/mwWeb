@@ -87,10 +87,10 @@
 			<c:otherwise>
 				<c:forEach var="k" items="${store_list}">
 					<div class="card">
-						<div>${k.store_img}</div>
+						<div>${k.s_img}</div>
 						<div class="text_container">
-							<h4><b>${k.store_name}</b></h4>
-							<p>${k.store_hashtag}</p>
+							<h4><b>${k.s_name}</b></h4>
+							<p>${k.s_hashtag}</p>
 						</div>
 					</div>
 				</c:forEach>

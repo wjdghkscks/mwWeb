@@ -45,6 +45,8 @@ th:first-child {
 	width: 15%;
 }
 .paging {
+	font-family: 'GmarketSansLight';
+	margin-top: 3vw;
 	text-align: center;
 }
 

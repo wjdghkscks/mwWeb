@@ -131,5 +131,5 @@ public class SVO {
 	public void setFile(MultipartFile file) {
 		this.file = file;
 	}
-	
+
 }

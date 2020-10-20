@@ -20,7 +20,7 @@ public class DAO {
 	// 전체 게시물 수
 	public int getTotalCount() throws Exception {
 		int res = 0;
-		res = sqlSessionTemplate.selectOne("total");		
+		res = sqlSessionTemplate.selectOne("totalCount");		
 		return res;
 	}
 	

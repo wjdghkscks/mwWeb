@@ -56,6 +56,11 @@ public class MwController {
 		return mv;
 	}
 	
+	@RequestMapping("category.do")
+	public ModelAndView categoryCommand() {
+		return new ModelAndView("category");
+	}
+	
 	@RequestMapping("category_eat.do")
 	public ModelAndView categoryEatCommand() {
 		return new ModelAndView("category_eat");

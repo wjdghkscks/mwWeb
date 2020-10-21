@@ -11,6 +11,10 @@
 <link rel="stylesheet" type="text/css" href="/resources/css/resetAll.css">
 <link rel="stylesheet" type="text/css" href="/resources/css/search_main.css">
 <script type="text/javascript">
+
+	// 진입 시 검색창에 포커스 고정
+	$(document).ready(function(){ $("#searchBar").focus(); });
+	
 	function searchBtn(f) {
 		// 유효성 검사
 		var keyWord = f.keyWord.value;
@@ -39,7 +43,7 @@
 	<form>
 		<div class="search_main_searchbar">
 			<img alt="back" src="/resources/images/back_icon.svg" onclick="back_go()">
-			<p><input type="text" name="keyWord" placeholder="검색어를 입력하세요."></p>
+			<p><input id="searchBar" type="text" name="keyWord" placeholder="검색어를 입력하세요."></p>
 			<input type="image" src="/resources/images/search_icon.svg" alt="search" onclick="searchBtn(this.form)">
 		</div>
 	</form>

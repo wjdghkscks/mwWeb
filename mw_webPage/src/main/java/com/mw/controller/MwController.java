@@ -197,7 +197,7 @@ public class MwController {
 	}
 
 	// 관리자 페이지 > 가게 관리 > 가게 추가
-	@RequestMapping("storeAdd.do")
+	@RequestMapping("adminStoreAdd.do")
 	public ModelAndView adminStoreAddCommand() {
 		return new ModelAndView("admin_store_add");
 	}

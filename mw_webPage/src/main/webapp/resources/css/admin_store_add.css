@@ -9,7 +9,7 @@
 }
 table {
 	width: 90%;
-	margin: 0 auto;
+	margin: 0 auto 8vw auto;
 	text-align: center;
 	border: 1px solid #444;
 	border-collapse: collapse;
@@ -56,7 +56,44 @@ td input:focus::-webkit-input-placeholder {
 	margin: 3%;
 }
 
+/* 576px 이상 tablet */
+@media (min-width: 576px){
+	
+}
 
+/* 992px 이상 PC */
+@media (min-width: 992px) {
+	.table_title { margin-top: 32px; }
+	.table_title h2 { 
+		font-size: 70px;
+		margin: 40px 0; 
+	}
+	table { 
+		width: 800px; 
+		margin-bottom: 100px;
+	}
+	th { 
+		width: 120px;
+		font-size: 28px;
+		padding: 15px;
+	}
+	td { 
+		padding: 15px;
+		font-size: 0;
+		height: 80px;
+	}
+	td input { 
+		font-size: 24px;
+		width: 570px;
+		padding: 1px;
+	}
+	.btns {
+		font-size: 36px;
+		padding: 8px 0 0 0;
+		margin: 3px;
+	}
+	
+}
 
 
 

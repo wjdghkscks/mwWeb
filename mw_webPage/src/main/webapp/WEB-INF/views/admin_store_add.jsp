@@ -37,37 +37,37 @@
 				<tbody>
 					<tr>
 						<th>가게 이름</th>
-						<td><input type="text" name="s_name" placeholder="가게 이름"></td>
+						<td><input type="text" name="s_name" placeholder="정확한 가게 이름을 기입"></td>
 					</tr>
 					<tr>
 						<th>가게 설명</th>
-						<td><input type="text" name="s_sub" placeholder="가게에 대한 한 줄 설명"></td>
+						<td><input type="text" name="s_sub" placeholder="한 줄 설명 (최대 70자)"></td>
 					</tr>
 					<tr>
 						<th>가게 사진</th>
-						<td><input type="file" name="file"/></td>
+						<td><input type="file" name="file" placeholder="파일 없음" /></td>
 					</tr>
 					<tr>
 						<th>해시태그</th>
 						<td>
-							<input type="text" name="s_hashtag" placeholder="'#'을 붙이며, 띄어쓰기 없이 '-' 로 구분"></textarea>
+							<input type="text" name="s_hashtag" placeholder="ex) #태그1&#태그2&#태그3"></textarea>
 						</td>
 					</tr>
 					<tr>
 						<th>가게 위치</th>
-						<td><input type="text" name="s_location" placeholder="가게 상세 주소"/></td>
+						<td><input type="text" name="s_location" placeholder="ex) 서울 서대문구 거북골로 34"/></td>
 					</tr>
 					<tr>
 						<th>전화번호</th>
-						<td><input type="text" name="s_tel" placeholder="가게 전화번호"/></td>
+						<td><input type="text" name="s_tel" placeholder="ex) 02-000-0000"/></td>
 					</tr>
 					<tr>
 						<th>영업시간</th>
-						<td><input type="text" name="s_hour" placeholder="가게 영업시간"/></td>
+						<td><input type="text" name="s_hour" placeholder="ex) 10:00-26:00"/></td>
 					</tr>
 					<tr>
 						<th>대표메뉴</th>
-						<td><input type="text" name="s_menu" placeholder="대표 메뉴 3가지 정도"/></td>
+						<td><input type="text" name="s_menu" placeholder="ex) 메뉴1, 메뉴2, 메뉴3"/></td>
 					</tr>
 					<tr>
 						<td colspan="2">

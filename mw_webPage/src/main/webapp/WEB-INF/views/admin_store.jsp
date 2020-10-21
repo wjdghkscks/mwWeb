@@ -15,7 +15,7 @@
 		location.href = "admin.do";
 	}
 	function storeAdd() {
-		location.href = "storeAdd.do";
+		location.href = "adminStoreAdd.do";
 	}
 </script>
 </head>
@@ -36,20 +36,22 @@
 					<tr>
 						<th>번호</th>
 						<th>가게이름</th>
+						<th>좋아요</th>
 					</tr>
 				</thead>
 				<tbody>
 					<c:choose>
-						<c:when test="${empty mw_store}">
+						<c:when test="${empty list}">
 							<tr>
 								<td colspan="2"> 가게가 존재하지 않습니다. </td>
 							</tr>
 						</c:when>
 						<c:otherwise>
-							<c:forEach var="k" items="${mw_store}">
+							<c:forEach var="k" items="${list}" varStatus="vs">
 								<tr>
-									<td>${k.s_idx}</td>
-									<td><a href="store_onelist.do">${k.s_name}</a></td>
+									<td>${paging.totalRecord-((paging.nowPage-1)*paging.numPerPage+vs.index)}</td>
+									<td><a href="admin_onelist_s.do">${k.s_name}</a></td>
+									<td>${k.s_like}</td>
 								</tr>
 							</c:forEach>
 						</c:otherwise>

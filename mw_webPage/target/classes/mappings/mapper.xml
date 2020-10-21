@@ -2,39 +2,48 @@
 <!DOCTYPE mapper
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="mwdb">
+<mapper namespace="mw_database">
 
 	<select id="totalCount" resultType="int">
-		SELECT count(*) FROM mw_store;
+		SELECT count(*) 
+		FROM mw_database.mw_stores;
 	</select>
-	
+
 	<select id="adminList" parameterType="Map" resultType="svo">
-		SELECT * FROM ( 
-			SELECT rownum r_num, a.* FROM ( 
-				SELECT * FROM mw_store ORDER BY s_idx DESC 
-			) a 
-		) WHERE r_num BETWEEN #{begin} AND #{end}
+		SELECT *
+		FROM (
+			SELECT 	@rownum:=@rownum+1 r_num,
+					A.*
+			FROM 	mw_database.mw_stores A,
+					(SELECT @ROWNUM := 0) R
+			WHERE 	1=1
+			ORDER BY s_name ASC
+		) list
+		WHERE r_num BETWEEN #{begin} AND #{end}
 	</select>
 
 	<insert id="adminWrite" parameterType="svo">
-		INSERT INTO mw_store
-		VALUES(#{s_name}, #{s_sub}, #{s_img}, #{s_hashtag}, #{s_location}, #{s_tel}, #{s_hour}, #{s_menu}, 0, 0, 0)
+		INSERT INTO
+		mw_database.mw_stores
+		VALUES(#{s_name}, #{s_sub}, #{s_img},
+		#{s_hashtag}, #{s_location}, #{s_tel}, #{s_hour}, #{s_menu}, 0, 0, 0)
 	</insert>
 
 	<select id="search" parameterType="String" resultType="svo">
-		SELECT * 
-		FROM mw_store 
-		WHERE (s_name LIKE '%'||#{keyWord}||'%' 
-			OR s_sub LIKE '%'||#{keyWord}||'%' 
-			OR s_hashtag LIKE '%'||#{keyWord}||'%')
+		SELECT *
+		FROM mw_database.mw_stores
+		WHERE (s_name LIKE CONCAT('%', #{keyWord}, '%')
+				OR s_sub LIKE CONCAT('%', #{keyWord}, '%')
+				OR s_hashtag LIKE CONCAT('%', #{keyWord}, '%')
+				OR s_menu LIKE CONCAT('%', #{keyWord}, '%'))
 	</select>
-	
+
 	<select id="storeInfo" parameterType="String" resultType="svo">
-		SELECT * 
-		FROM mw_store 
+		SELECT *
+		FROM mw_database.mw_stores
 		WHERE s_idx = #{s_idx}
 	</select>
-	
+
 </mapper>
 
 

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
     
 <!DOCTYPE html>
 <html>
@@ -86,13 +87,24 @@
 			</c:when>
 			<c:otherwise>
 				<c:forEach var="k" items="${store_list}">
-					<div class="card">
-						<div>${k.s_img}</div>
+					<div class="card" onclick="location.href='store_detail.do?s_idx=${k.s_idx}'">
+						<img alt="shop" src="/resources/images/${k.s_img}">
 						<div class="text_container">
 							<h4><b>${k.s_name}</b></h4>
-							<p>${k.s_hashtag}</p>
-						</div>
-					</div>
+							<c:set var="hash" value="${fn:split(k.s_hashtag, '%')}"></c:set>
+							<c:forEach var="item" items="${hash}">
+								<p>${item}</p>
+							</c:forEach>
+							<div class="shop_info">
+								<img alt="like" src="/resources/images/like.svg">
+								<h5>${k.s_like}</h5>
+								<img alt="like" src="/resources/images/write.svg">
+								<h5>${k.s_comment}</h5>
+								<img alt="like" src="/resources/images/watch.svg">
+								<h5>${k.s_view}</h5>
+							</div> <!-- shop_info -->
+						</div> <!-- text-container -->
+					</div> <!-- card -->
 				</c:forEach>
 			</c:otherwise>
 		</c:choose>

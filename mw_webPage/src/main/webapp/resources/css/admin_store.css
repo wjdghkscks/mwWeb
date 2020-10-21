@@ -17,8 +17,8 @@
 	margin: 4vw auto 0 auto;
 }
 .btn div {
+	font-family: 'GmarketSansLight';
 	color: #444;
-	border-radius: 3px;
 	font-size: 4vw;
 }
 .store_list { 
@@ -42,8 +42,12 @@ th {
 	color: white;
 }
 th:first-child {
-	width: 15%;
+	width: 16%;
 }
+th:last-child {
+	width: 21%;
+}
+td a { font-family: 'GmarketSansBold'; }
 .paging {
 	font-family: 'GmarketSansLight';
 	margin-top: 3vw;
@@ -57,7 +61,24 @@ th:first-child {
 
 /* 992px 이상 PC */
 @media (min-width: 992px) {
-	table {
-		width: 800px;
+	.info { margin-top: 32px; }
+	.info h2 { font-size: 70px; }
+	.btn {
+		width: 780px;
+		margin: 32px auto 0 auto;
 	}
+	.btn div {
+		font-size: 28px;
+		cursor: pointer;
+	}
+	.btn div:hover { 
+		color: #e8a761;
+	}
+	table { width: 800px; }
+	th { font-size: 28px; }
+	th:first-child { width: 70px; }
+	th:last-child {	width: 100px; }
+	td { font-size: 28px; }
+	a:hover { color: #e8a761; }
+	
 }

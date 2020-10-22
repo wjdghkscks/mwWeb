@@ -12,7 +12,6 @@
 <script type="text/javascript">
 	function send_go(f) {
 		// 유효성 검사
-		
 		if (f.elements[0].value == "") {
 			alert("가게 이름을 입력하세요.");
 			f.elements[0].focus();
@@ -68,22 +67,28 @@
 						<td>
 							<select name="s_category">
 								<option></option>
-								<option value="kr">한식</option>
-								<option value="cn">중식</option>
-								<option value="jp">일식</option>
-								<option value="ws">양식</option>
-								<option value="rf">간편식</option>
-								<option value="bs">분식</option>
-								<option value="ck">치킨</option>
-								<option value="pz">피자</option>
-								<option value="bk">베이커리</option>
-								<option value="as">아시안</option>
-								<option value="al">주류</option>
-								<option value="cf">카페/디저트</option>
-								<option value="pc">PC방</option>
-								<option value="sr">노래방</option>
-								<option value="sp">스포츠</option>
-								<option value="et">기타</option>
+								<optgroup label="먹을거리">
+									<option value="kr" selected="selected">한식</option>
+									<option value="cn">중식</option>
+									<option value="jp">일식</option>
+									<option value="ws">양식</option>
+									<option value="rf">간편식</option>
+									<option value="bs">분식</option>
+									<option value="ck">치킨</option>
+									<option value="pz">피자</option>
+									<option value="bk">베이커리</option>
+									<option value="as">아시안</option>
+								</optgroup>
+								<optgroup label="마실거리">
+									<option value="al">주류</option>
+									<option value="cf">카페/디저트</option>
+								</optgroup>
+								<optgroup label="즐길거리">
+									<option value="pc">PC방</option>
+									<option value="sr">노래방</option>
+									<option value="sp">스포츠</option>
+									<option value="et">기타</option>
+								</optgroup>
 							</select>
 						</td>
 					</tr>

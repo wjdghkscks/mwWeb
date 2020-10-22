@@ -36,7 +36,7 @@
 		location.href = "category_eat.do";	
 	}
 	function category_drink() {
-		location.href = "category_drink.do";	
+		location.href = "store_detail.do";	
 	}
 	function category_play() {
 		location.href = "admin.do";
@@ -124,9 +124,9 @@
 		
 		<!-- 카테고리 버튼 -->
 		<div class="category">
-			<div onclick="category_eat()">먹거리</div>
+			<div onclick="category_eat()">먹을거리</div>
 			<div onclick="category_drink()">마실거리</div>
-			<div onclick="category_play()">놀거리</div>
+			<div onclick="category_play()">즐길거리</div>
 		</div>
 		
 		<!-- 가게 리스트 -->

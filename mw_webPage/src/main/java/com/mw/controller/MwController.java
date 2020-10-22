@@ -56,24 +56,27 @@ public class MwController {
 		return mv;
 	}
 	
-	@RequestMapping("category.do")
-	public ModelAndView categoryCommand() {
-		return new ModelAndView("category");
-	}
-	
 	@RequestMapping("category_eat.do")
 	public ModelAndView categoryEatCommand() {
-		return new ModelAndView("category_eat");
+		ModelAndView mv = new ModelAndView("category");
+		
+		
+		
+		return mv;
 	}
 	
 	@RequestMapping("category_drink.do")
 	public ModelAndView categoryDrinkCommand() {
-		return new ModelAndView("category_drink");
+		ModelAndView mv = new ModelAndView("category");
+		
+		return mv;
 	}
 	
 	@RequestMapping("category_play.do")
 	public ModelAndView categoryPlayCommand() {
-		return new ModelAndView("category_play");
+		ModelAndView mv = new ModelAndView("category");
+		
+		return mv;
 	}
 	
 	@RequestMapping("submenu_mobile.do")
@@ -94,17 +97,15 @@ public class MwController {
 	@RequestMapping("store_detail.do")
 	public ModelAndView storeDetailCommand(HttpServletRequest request) {
 		
-		String s_idx = request.getParameter("s_idx");
-		ModelAndView mv = new ModelAndView("store_detail?s_idx=" + s_idx);
+		/* String s_idx = request.getParameter("s_idx"); */
+		String s_idx = "6";
+		ModelAndView mv = new ModelAndView("store_detail");
 		
 		// 가게 정보 받기
 		SVO svo = dao.getStoreInfo(s_idx);
-		request.getSession().setAttribute("svo", svo);
 		
-		// 해시태그 분리
-		String hash = request.getParameter("store_hashtag");
-		String[] hashes = hash.split("-");
-		mv.addObject("hashes", hashes);
+		// 가게 정보 session 에 저장
+		request.getSession().setAttribute("svo", svo);
 		
 		return mv;
 	}
@@ -208,7 +209,7 @@ public class MwController {
 		ModelAndView mv = new ModelAndView("redirect:admin_store.do");
 		
 		// 파일 처리
-		String path = request.getSession().getServletContext().getRealPath("/resources/upload");
+		String path = request.getSession().getServletContext().getRealPath("/resources/images");
 		MultipartFile file = svo.getFile();
 		
 		if (file.isEmpty()) {

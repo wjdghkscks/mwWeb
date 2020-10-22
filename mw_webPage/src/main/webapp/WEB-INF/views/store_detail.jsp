@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!DOCTYPE html>
 <html>
@@ -19,19 +20,12 @@
 	function like_review() {
 		location.href = "add_review_like.do";
 	}
+	function search_hash() {
+		f.action = "search.do";
+		f.submint();
+	}
 </script>
 </head>
-
-<% 
-	// session 에서 svo 값을 받아옴
-	SVO svo = (SVO)request.getSession().getAttribute("svo");
-	String idx = svo.getS_idx();
-	String name = svo.getS_name();
-	
-	// 현재 조회중인 가게 정보를 cookie 에 저장
-	Cookie cookie = new Cookie(name, idx);
-	response.addCookie(cookie);
-%>
 
 <body>
 	
@@ -39,15 +33,12 @@
 		<jsp:include page="top.jsp" />
 	</div>
 	
-	<!-- session 에 최근 방문한 가게 이력 저장 필요 -->
-	<input type="hidden" name="store_idx" value="${svo.s_idx}">
-	
 	<div class="wrap-all">
 		<div class="header">
 			<div class="header_top">
 				<div class="info_title">
 					<h2>${svo.s_name}</h2>
-					<h5>${svo.s_location}</h5>
+					<h5>${svo.s_sub}</h5>
 				</div>
 				<div class="numbers">
 					<div>
@@ -67,13 +58,17 @@
 			
 			<div class="photos">
 				<div class="pic_container">
-					<img alt="" src="/resources/images/store_pic.png">
+					<img alt="" src="/resources/upload/${svo.s_img}">
 				</div>
 			</div>
 			
 			<div class="hashtag">
-				<c:forEach var="k" items="${hashes}">
-					<div>${k}</div>
+				<c:set var="hash" value="${fn:split(svo.s_hashtag, '&')}"></c:set>
+				<c:forEach var="item" end="2" items="${hash}">
+					<form>
+						<div onclick="search_hash()">${item}</div>
+						<input type="hidden" name="keyWord" value="${item}">
+					</form>
 				</c:forEach>
 			</div>
 			
@@ -102,18 +97,46 @@
 			<div class="store_info">
 				<h2>가게 정보</h2>
 				<ul>
-					<li><b>가게위치&nbsp;&nbsp;</b>${svo.store_location}</li>
-					<li><b>전화번호&nbsp;&nbsp;</b>${svo.store_tel}</li>
-					<li><b>영업시간&nbsp;&nbsp;</b>${svo.store_hour}</li>
-					<li><b>대표메뉴&nbsp;&nbsp;</b>${svo.store_menu}</li>
+					<li><b>가게위치&nbsp;&nbsp;</b>${svo.s_location}</li>
+					<li><b>전화번호&nbsp;&nbsp;</b>${svo.s_tel}</li>
+					<li><b>영업시간&nbsp;&nbsp;</b>${svo.s_hour}</li>
+					<li><b>대표메뉴&nbsp;&nbsp;</b>${svo.s_menu}</li>
 				</ul>
 			</div>
 			
 			<hr class="only_mobile">
 			
+			
+			
 			<div class="store_map">
 				<h2>지도</h2>
-				<img alt="" src="/resources/images/store_map.png">
+				<div id="kakaoMap" class="kMap"></div>
+				<!-- KakaoMap API -->
+				<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=aeab532356c7d13bb662d58b2c6ebedd"></script>
+				<script>
+					var container = document.getElementById('kakaoMap'); 			// 지도를 담을 영역의 DOM 레퍼런스
+					var options = { 												// 지도를 생성할 때 필요한 기본 옵션
+						center: new kakao.maps.LatLng(${svo.s_lat}, ${svo.s_lng}), 	// 지도의 중심좌표.
+						draggable: false,											// 지도 이동 X
+						level: 3 													// 지도의 레벨(확대, 축소 정도)
+					};
+					var map = new kakao.maps.Map(container, options); 				// 지도 생성 및 객체 리턴
+					
+					// kakaoMap controller
+					var mapTypeControl = new kakao.maps.MapTypeControl();
+					map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
+					var zoomControl = new kakao.maps.ZoomControl();
+					map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+					
+					// marker
+					var markerPosition  = new kakao.maps.LatLng(${svo.s_lat}, ${svo.s_lng}); 
+
+					var marker = new kakao.maps.Marker({
+					    position: markerPosition
+					});
+
+					marker.setMap(map);
+				</script>
 			</div>
 			
 			<hr class="only_mobile">

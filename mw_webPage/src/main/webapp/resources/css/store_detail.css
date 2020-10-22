@@ -55,10 +55,10 @@
 	padding: 2.5vw 2vw 2vw 2vw;
 	margin: 3vw 1vw;
 	text-align: center;
-	font-size: 2.5vw;
+	font-size: 3.5vw;
 	color: #777;
 	border: 1.5px solid #777;
-	border-radius: 10%;
+	border-radius: 10px;
 }
 
 .brief {
@@ -139,11 +139,10 @@
 	color: #444;
 }
 
-.store_map img {
-	padding: 1vw;
-	max-width: 90%;
+.store_map div {
+	width: 90vw; 
+	height: 70vw; 
 	margin: 0 auto;
-	border-radius: 10px;
 }
 
 .store_review {
@@ -181,8 +180,8 @@
 }
 
 .review_like {
-	text-align: center;
 	font-family:'GmarketSansLight';
+	text-align: center;
 }
 
 .reviewer_info h5 {

@@ -25,7 +25,7 @@
 	<insert id="adminWrite" parameterType="svo">
 		INSERT INTO
 		mw_database.mw_stores
-		VALUES(s_idx, #{s_name}, #{s_category}, #{s_sub}, #{s_img}, #{s_hashtag}, #{s_location}, #{s_tel}, #{s_hour}, #{s_menu}, 0, 0, 0)
+		VALUES(s_idx, #{s_name}, #{s_category}, #{s_sub}, #{s_img}, #{s_hashtag}, #{s_location}, #{s_lat}, #{s_lng}, #{s_tel}, #{s_hour}, #{s_menu}, 0, 0, 0)
 	</insert>
 
 	<select id="search" parameterType="String" resultType="svo">

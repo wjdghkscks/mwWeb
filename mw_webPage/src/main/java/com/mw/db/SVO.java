@@ -4,15 +4,15 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class SVO {
 
-	private String s_idx, s_name, s_category, s_sub, s_img, s_hashtag, s_location, s_tel, s_hour, s_menu;
+	private String s_idx, s_name, s_category, s_sub, s_img, s_hashtag, s_location, s_lat, s_lng, s_tel, s_hour, s_menu;
 	private int s_like, s_comment, s_view;
 	private MultipartFile file;
 	
 	public SVO() {}
 
 	public SVO(String s_idx, String s_name, String s_category, String s_sub, String s_img, String s_hashtag,
-			String s_location, String s_tel, String s_hour, String s_menu, int s_like, int s_comment, int s_view,
-			MultipartFile file) {
+			String s_location, String s_lat, String s_lng, String s_tel, String s_hour, String s_menu, int s_like,
+			int s_comment, int s_view, MultipartFile file) {
 		super();
 		this.s_idx = s_idx;
 		this.s_name = s_name;
@@ -21,6 +21,8 @@ public class SVO {
 		this.s_img = s_img;
 		this.s_hashtag = s_hashtag;
 		this.s_location = s_location;
+		this.s_lat = s_lat;
+		this.s_lng = s_lng;
 		this.s_tel = s_tel;
 		this.s_hour = s_hour;
 		this.s_menu = s_menu;
@@ -86,6 +88,22 @@ public class SVO {
 		this.s_location = s_location;
 	}
 
+	public String getS_lat() {
+		return s_lat;
+	}
+
+	public void setS_lat(String s_lat) {
+		this.s_lat = s_lat;
+	}
+
+	public String getS_lng() {
+		return s_lng;
+	}
+
+	public void setS_lng(String s_lng) {
+		this.s_lng = s_lng;
+	}
+
 	public String getS_tel() {
 		return s_tel;
 	}
@@ -141,5 +159,5 @@ public class SVO {
 	public void setFile(MultipartFile file) {
 		this.file = file;
 	}
-	
+
 }

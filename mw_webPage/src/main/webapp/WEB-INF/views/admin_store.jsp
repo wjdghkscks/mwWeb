@@ -43,7 +43,7 @@
 					<c:choose>
 						<c:when test="${empty list}">
 							<tr>
-								<td colspan="2"> 가게가 존재하지 않습니다. </td>
+								<td colspan="3"> 가게가 존재하지 않습니다. </td>
 							</tr>
 						</c:when>
 						<c:otherwise>

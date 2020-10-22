@@ -12,15 +12,39 @@
 <script type="text/javascript">
 	function send_go(f) {
 		// 유효성 검사
-		for (var i = 0; i < f.elements.length; i++) {
-			if (f.elements[i].value == "") {
-				alert(f.elements[i].name + "를 입력하세요.");
-				f.elements[i].focus();
-				return;
+		
+		if (f.elements[0].value == "") {
+			alert("가게 이름을 입력하세요.");
+			f.elements[0].focus();
+			return;
+		} else if (f.elements[1].value == "") {
+			alert("카테고리를 선택하세요.");
+			f.elements[0].focus();
+			return;
+		} else if (f.elements[5].value == "") {
+			alert("가게 주소를 입력하세요.");
+			f.elements[5].focus();
+			return;
+		} else if (f.elements[6].value == "") {
+			alert("전화번호를 입력하세요.");
+			f.elements[6].focus();
+			return;
+		} else if (f.elements[7].value == "") {
+			alert("영업시간을 입력하세요.");
+			f.elements[7].focus();
+			return;
+		} else if (f.elements[8].value == "") {
+			alert("대표메뉴를 입력하세요.");
+			f.elements[8].focus();
+			return;
+		} else {
+			var sbmt = confirm("이대로 제출하시겠습니까?");
+			if (sbmt == true) {
+				f.action="storeAddOk.do";
+				f.submit();
 			}
 		}
-		f.action="storeAddOk.do";
-		f.submit();
+		
 	}
 	function list_go() { history.go(-1); }
 </script>
@@ -38,6 +62,30 @@
 					<tr>
 						<th>가게 이름</th>
 						<td><input type="text" name="s_name" placeholder="정확한 가게 이름을 기입"></td>
+					</tr>
+					<tr>
+						<th>카테고리</th>
+						<td>
+							<select name="s_category">
+								<option></option>
+								<option value="kr">한식</option>
+								<option value="cn">중식</option>
+								<option value="jp">일식</option>
+								<option value="ws">양식</option>
+								<option value="rf">간편식</option>
+								<option value="bs">분식</option>
+								<option value="ck">치킨</option>
+								<option value="pz">피자</option>
+								<option value="bk">베이커리</option>
+								<option value="as">아시안</option>
+								<option value="al">주류</option>
+								<option value="cf">카페/디저트</option>
+								<option value="pc">PC방</option>
+								<option value="sr">노래방</option>
+								<option value="sp">스포츠</option>
+								<option value="et">기타</option>
+							</select>
+						</td>
 					</tr>
 					<tr>
 						<th>가게 설명</th>

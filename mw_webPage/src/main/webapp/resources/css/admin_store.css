@@ -20,6 +20,10 @@
 	font-family: 'GmarketSansLight';
 	color: #444;
 	font-size: 4vw;
+	cursor: pointer;
+}
+.btn div:hover {
+	color: #e8a761;
 }
 .store_list { 
 	margin: 1vw auto; 
@@ -69,16 +73,21 @@ td a { font-family: 'GmarketSansBold'; }
 	}
 	.btn div {
 		font-size: 28px;
-		cursor: pointer;
 	}
 	.btn div:hover { 
 		color: #e8a761;
 	}
 	table { width: 800px; }
-	th { font-size: 28px; }
+	th { 
+		font-size: 28px;
+		padding: 20px;
+	}
 	th:first-child { width: 70px; }
 	th:last-child {	width: 100px; }
-	td { font-size: 28px; }
+	td { 
+		font-size: 28px;
+		padding: 24px;
+	}
 	a:hover { color: #e8a761; }
 	
 }

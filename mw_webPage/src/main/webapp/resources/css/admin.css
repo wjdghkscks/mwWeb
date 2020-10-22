@@ -3,7 +3,7 @@
 .wrap-all {
 	width: 90%;
 	color: #444;
-	margin: 5vw auto;
+	margin: 3vw auto 10vw auto;
 }
 
 .info {
@@ -17,7 +17,7 @@
 
 .info h2 {
 	font-family: 'GmarketSansBold';
-	font-size: 10vw;
+	font-size: 8vw;
 	color: #444;
 }
 

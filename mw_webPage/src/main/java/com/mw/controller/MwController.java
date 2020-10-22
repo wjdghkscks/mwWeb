@@ -205,19 +205,18 @@ public class MwController {
 	// 관리자 페이지 > 가게 관리 > 가게 추가
 	@RequestMapping(value = "storeAddOk.do", method = RequestMethod.POST)
 	public ModelAndView adminStoreAddOkCommand(HttpServletRequest request, SVO svo) {
-		ModelAndView mv = new ModelAndView("redirect:admin_store");
+		ModelAndView mv = new ModelAndView("redirect:admin_store.do");
 		
 		// 파일 처리
 		String path = request.getSession().getServletContext().getRealPath("/resources/upload");
 		MultipartFile file = svo.getFile();
 		
 		if (file.isEmpty()) {
-			svo.setS_img(" ");
+			svo.setS_img("");
 		} else {
 			svo.setS_img(svo.getFile().getOriginalFilename());
 		}
-		
-		int result = dao.getWrite(svo);
+		int result = dao.getWriteStore(svo);
 		
 		if (result > 0) {
 			try {

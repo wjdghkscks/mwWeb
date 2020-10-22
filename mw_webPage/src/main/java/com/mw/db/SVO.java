@@ -4,17 +4,19 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class SVO {
 
-	private String s_idx, s_name, s_sub, s_img, s_hashtag, s_location, s_tel, s_hour, s_menu;
+	private String s_idx, s_name, s_category, s_sub, s_img, s_hashtag, s_location, s_tel, s_hour, s_menu;
 	private int s_like, s_comment, s_view;
 	private MultipartFile file;
 	
 	public SVO() {}
 
-	public SVO(String s_idx, String s_name, String s_sub, String s_img, String s_hashtag, String s_location,
-			String s_tel, String s_hour, String s_menu, int s_like, int s_comment, int s_view, MultipartFile file) {
+	public SVO(String s_idx, String s_name, String s_category, String s_sub, String s_img, String s_hashtag,
+			String s_location, String s_tel, String s_hour, String s_menu, int s_like, int s_comment, int s_view,
+			MultipartFile file) {
 		super();
 		this.s_idx = s_idx;
 		this.s_name = s_name;
+		this.s_category = s_category;
 		this.s_sub = s_sub;
 		this.s_img = s_img;
 		this.s_hashtag = s_hashtag;
@@ -42,6 +44,14 @@ public class SVO {
 
 	public void setS_name(String s_name) {
 		this.s_name = s_name;
+	}
+
+	public String getS_category() {
+		return s_category;
+	}
+
+	public void setS_category(String s_category) {
+		this.s_category = s_category;
 	}
 
 	public String getS_sub() {
@@ -131,5 +141,5 @@ public class SVO {
 	public void setFile(MultipartFile file) {
 		this.file = file;
 	}
-
+	
 }

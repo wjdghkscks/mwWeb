@@ -36,7 +36,7 @@ public class DAO {
 	}
 	
 	// 관리자 페이지 - 가게 추가
-	public int getWrite(SVO svo) {
+	public int getWriteStore(SVO svo) {
 		int result = 0;
 		System.out.println(svo.getS_img());
 		result = sqlSessionTemplate.insert("adminWrite", svo);

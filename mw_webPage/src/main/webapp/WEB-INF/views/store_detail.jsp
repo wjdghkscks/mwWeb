@@ -13,16 +13,17 @@
 <title>가게 상세</title>
 <link rel="stylesheet" type="text/css" href="/resources/css/store_detail.css">
 <link rel="stylesheet" type="text/css" href="/resources/css/resetAll.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
 	function like_store() {
 		location.href = "add_store_like.do";
 	}
 	function like_review() {
-		location.href = "add_review_like.do";
+		location.href = "add_store_review.do";
 	}
-	function search_hash() {
-		f.action = "search.do";
-		f.submint();
+	function kMap_search() {
+		var k_url = "https://map.kakao.com/link/search/${svo.s_name}";
+		newPage = window.open(k_url);
 	}
 </script>
 </head>
@@ -37,7 +38,7 @@
 		<div class="header">
 			<div class="header_top">
 				<div class="info_title">
-					<h2>${svo.s_name}</h2>
+					<h2>${svo.s_name}&nbsp;<span class="title_cat">${svo.s_cat_s}</span></h2>
 					<h5>${svo.s_sub}</h5>
 				</div>
 				<div class="numbers">
@@ -66,8 +67,7 @@
 				<c:set var="hash" value="${fn:split(svo.s_hashtag, '&')}"></c:set>
 				<c:forEach var="item" end="2" items="${hash}">
 					<form>
-						<div onclick="search_hash()">${item}</div>
-						<input type="hidden" name="keyWord" value="${item}">
+						<div class="hash_item"> ${item} </div>
 					</form>
 				</c:forEach>
 			</div>
@@ -77,11 +77,11 @@
 			<hr class="only_mobile">
 		
 			<div class="brief">
-				<div class="brief_item">
+				<div class="brief_item" onclick="kMap_search()">
 					<img alt="search" src="/resources/images/kakaomap_favicon.ico">
 					<h5>카카오맵</h5>
 				</div>
-				<div class="brief_item">
+				<div class="brief_item" id="url_share">
 					<img alt="search" src="/resources/images/share.svg">
 					<h5>공유</h5>
 				</div>

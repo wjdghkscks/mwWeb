@@ -25,7 +25,7 @@
 		</div>
 		<nav class ="main_navi">
 			<ul class ="navi_wrap">
-				<li><a href="#">명월소개</a></li>
+				<li><a href="mw_info.do">명월소개</a></li>
 				<li><a href="category.do">가게찾기</a></li>
 				<li><a href="qna.do">문의하기</a></li>
 				<li><a href="user_info.do">내정보</a></li>

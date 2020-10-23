@@ -12,7 +12,9 @@
 <title>가게 검색</title>
 <link rel="stylesheet" type="text/css" href="/resources/css/search_res.css">
 <link rel="stylesheet" type="text/css" href="/resources/css/resetAll.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
+	alert("${keyWord}");
 	function searchBtn(f) {
 		// 유효성 검사
 		var keyWord = f.keyWord.value;
@@ -100,9 +102,9 @@
 							<div class="shop_info">
 								<img alt="like" src="/resources/images/like.svg">
 								<h5>${k.s_like}</h5>
-								<img alt="like" src="/resources/images/write.svg">
+								<img alt="review" src="/resources/images/write.svg">
 								<h5>${k.s_comment}</h5>
-								<img alt="like" src="/resources/images/watch.svg">
+								<img alt="watch" src="/resources/images/watch.svg">
 								<h5>${k.s_view}</h5>
 							</div> <!-- shop_info -->
 						</div> <!-- text-container -->

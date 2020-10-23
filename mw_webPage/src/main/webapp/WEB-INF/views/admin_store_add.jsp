@@ -18,23 +18,31 @@
 			return;
 		} else if (f.elements[1].value == "") {
 			alert("카테고리를 선택하세요.");
-			f.elements[0].focus();
+			f.elements[1].focus();
 			return;
 		} else if (f.elements[5].value == "") {
 			alert("가게 주소를 입력하세요.");
 			f.elements[5].focus();
 			return;
 		} else if (f.elements[6].value == "") {
-			alert("전화번호를 입력하세요.");
+			alert("위도값을 입력하세요.");
 			f.elements[6].focus();
 			return;
 		} else if (f.elements[7].value == "") {
-			alert("영업시간을 입력하세요.");
+			alert("경도값을 입력하세요.");
 			f.elements[7].focus();
 			return;
 		} else if (f.elements[8].value == "") {
-			alert("대표메뉴를 입력하세요.");
+			alert("전화번호를 입력하세요.");
 			f.elements[8].focus();
+			return;
+		} else if (f.elements[9].value == "") {
+			alert("영업시간을 입력하세요.");
+			f.elements[9].focus();
+			return;
+		} else if (f.elements[10].value == "") {
+			alert("대표메뉴를 입력하세요.");
+			f.elements[10].focus();
 			return;
 		} else {
 			var sbmt = confirm("이대로 제출하시겠습니까?");
@@ -65,29 +73,29 @@
 					<tr>
 						<th>카테고리</th>
 						<td>
-							<select name="s_category">
+							<select name="s_cat_s">
 								<option></option>
 								<optgroup label="먹을거리">
-									<option value="kr" selected="selected">한식</option>
-									<option value="cn">중식</option>
-									<option value="jp">일식</option>
-									<option value="ws">양식</option>
-									<option value="rf">간편식</option>
-									<option value="bs">분식</option>
-									<option value="ck">치킨</option>
-									<option value="pz">피자</option>
-									<option value="bk">베이커리</option>
-									<option value="as">아시안</option>
+									<option value="한식" selected="selected">한식</option>
+									<option value="중식">중식</option>
+									<option value="일식">일식</option>
+									<option value="양식">양식</option>
+									<option value="간편식">간편식</option>
+									<option value="분식">분식</option>
+									<option value="치킨">치킨</option>
+									<option value="피자">피자</option>
+									<option value="베이커리">베이커리</option>
+									<option value="아시안">아시안</option>
 								</optgroup>
 								<optgroup label="마실거리">
-									<option value="al">주류</option>
-									<option value="cf">카페/디저트</option>
+									<option value="술집">술집</option>
+									<option value="카페">카페</option>
 								</optgroup>
 								<optgroup label="즐길거리">
-									<option value="pc">PC방</option>
-									<option value="sr">노래방</option>
-									<option value="sp">스포츠</option>
-									<option value="et">기타</option>
+									<option value="PC방">PC방</option>
+									<option value="노래방">노래방</option>
+									<option value="스포츠">스포츠</option>
+									<option value="기타">기타</option>
 								</optgroup>
 							</select>
 						</td>
@@ -103,12 +111,20 @@
 					<tr>
 						<th>해시태그</th>
 						<td>
-							<input type="text" name="s_hashtag" placeholder="ex) #태그1&#태그2&#태그3"></textarea>
+							<input type="text" name="s_hashtag" placeholder="ex) #태그1&#태그2&#태그3">
 						</td>
 					</tr>
 					<tr>
 						<th>가게 위치</th>
 						<td><input type="text" name="s_location" placeholder="ex) 서울 서대문구 거북골로 34"/></td>
+					</tr>
+					<tr>
+						<th>위도값</th>
+						<td><input type="text" name="s_lat" placeholder="ex) 37.579958 (소수점 6자리까지)"/></td>
+					</tr>
+					<tr>
+						<th>경도값</th>
+						<td><input type="text" name="s_lng" placeholder="ex) 126.923649 (소수점 6자리까지)"/></td>
 					</tr>
 					<tr>
 						<th>전화번호</th>

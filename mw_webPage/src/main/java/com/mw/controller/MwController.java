@@ -28,25 +28,28 @@ public class MwController {
 	
 	@Inject
 	Paging paging;
-	
+	public void setPaging(Paging paging) { this.paging = paging; }
+
 	String cPage;
 	
 	@RequestMapping("main.do")
 	public ModelAndView mainCommand() {
-		
 		ModelAndView mv = new ModelAndView("main");
-		
 		return mv;
 	}
 	
+	@RequestMapping("mw_info.do")
+	public ModelAndView mwInfoCommand() {
+		ModelAndView mv = new ModelAndView("mw_info");
+		return mv;
+	}
+	
+	// 검색
 	@RequestMapping("search.do")
-	public ModelAndView searchCommand(
-			@RequestParam("keyWord") String keyWord, HttpServletRequest request) {
-
+	public ModelAndView searchCommand(@RequestParam("keyWord") String keyWord, HttpServletRequest request) {
 		ModelAndView mv = new ModelAndView("search_res");
 		try {
 			mv.addObject("keyWord", keyWord);
-	
 			// 검색 결과에 해당되는 아이템 리스트 가져오기
 			List<SVO> list = dao.getSearchResult(keyWord);
 			mv.addObject("store_list", list);
@@ -56,57 +59,108 @@ public class MwController {
 		return mv;
 	}
 	
+	// 카테고리 > 먹을거리
 	@RequestMapping("category_eat.do")
 	public ModelAndView categoryEatCommand() {
-		ModelAndView mv = new ModelAndView("category");
-		
-		
-		
+		ModelAndView mv = new ModelAndView("category_eat");
 		return mv;
 	}
 	
+	// 카테고리 > 마실거리
 	@RequestMapping("category_drink.do")
 	public ModelAndView categoryDrinkCommand() {
-		ModelAndView mv = new ModelAndView("category");
-		
+		ModelAndView mv = new ModelAndView("category_drink");
+		try {
+			List<SVO> list = dao.getCatDri();
+			mv.addObject("store_list", list);
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return mv;
+	}
+	// 카테고리 > 마실거리 > 술집
+	@RequestMapping("cat_al.do")
+	public ModelAndView catAlCommand() {
+		ModelAndView mv = new ModelAndView("redirect:category_drink.do");
+		try {
+			List<SVO> list = dao.getCatAl();
+			mv.addObject("store_list", list);
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return mv;
+	}
+	// 카테고리 > 마실거리 > 카페
+	@RequestMapping("cat_cf.do")
+	public ModelAndView catCfCommand() {
+		ModelAndView mv = new ModelAndView("redirect:category_drink.do");
+		try {
+			List<SVO> list = dao.getCatAl();
+			mv.addObject("store_list", list);
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 		return mv;
 	}
 	
 	@RequestMapping("category_play.do")
 	public ModelAndView categoryPlayCommand() {
-		ModelAndView mv = new ModelAndView("category");
-		
+		ModelAndView mv = new ModelAndView("category_play");
 		return mv;
 	}
 	
+	// 모바일용 서브메뉴 페이지
 	@RequestMapping("submenu_mobile.do")
 	public ModelAndView submenuMobileCommand() {
 		return new ModelAndView("submenu_mobile");
 	}
 	
+	// 모바일용 검색 전용 페이지
 	@RequestMapping("search_main.do")
 	public ModelAndView searchMainCommand() {
 		return new ModelAndView("search_main");
 	}
 	
+	// 모바일용 카테고리 검색 이동
 	@RequestMapping("search_category.do")
 	public ModelAndView searchCategoryCommand() {
 		return new ModelAndView("search_category");
 	}
 	
+	// 가게 상세
 	@RequestMapping("store_detail.do")
 	public ModelAndView storeDetailCommand(HttpServletRequest request) {
 		
 		/* String s_idx = request.getParameter("s_idx"); */
-		String s_idx = "6";
+		String s_idx = "7";
 		ModelAndView mv = new ModelAndView("store_detail");
 		
-		// 가게 정보 받기
-		SVO svo = dao.getStoreInfo(s_idx);
-		
-		// 가게 정보 session 에 저장
-		request.getSession().setAttribute("svo", svo);
-		
+		try {
+			// 조회수 업데이트
+			dao.getViewUpdate(s_idx);
+			
+			// 가게 정보 받기
+			SVO svo = dao.getStoreInfo(s_idx);
+			
+			// 가게 정보 session 에 저장
+			request.getSession().setAttribute("svo", svo);
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return mv;
+	}
+	
+	// 좋아요 버튼 처리
+	@RequestMapping("add_store_like.do")
+	public ModelAndView addStoreLikeCommand(HttpServletRequest request) {
+		String s_idx = request.getParameter("s_idx");
+		ModelAndView mv = new ModelAndView("redirect:store_detail.do");
+		try {
+			dao.getLikeUpdate(s_idx);
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 		return mv;
 	}
 	
@@ -203,30 +257,42 @@ public class MwController {
 		return new ModelAndView("admin_store_add");
 	}
 	
-	// 관리자 페이지 > 가게 관리 > 가게 추가
+	// 관리자 페이지 > 가게 관리 > 가게 추가 > DB
 	@RequestMapping(value = "storeAddOk.do", method = RequestMethod.POST)
 	public ModelAndView adminStoreAddOkCommand(HttpServletRequest request, SVO svo) {
+		
 		ModelAndView mv = new ModelAndView("redirect:admin_store.do");
-		
-		// 파일 처리
-		String path = request.getSession().getServletContext().getRealPath("/resources/images");
-		MultipartFile file = svo.getFile();
-		
-		if (file.isEmpty()) {
-			svo.setS_img("");
-		} else {
-			svo.setS_img(svo.getFile().getOriginalFilename());
-		}
-		int result = dao.getWriteStore(svo);
-		
-		if (result > 0) {
-			try {
-				file.transferTo(new File(path + "/" + svo.getS_img()));
-			} catch (IllegalStateException e) {
-				System.out.println(e);
-			} catch (IOException e) {
-				System.out.println(e);
+		try {
+			// 파일 처리
+			String path = request.getSession().getServletContext().getRealPath("/resources/images");
+			MultipartFile file = svo.getFile();
+			if (file.isEmpty()) {
+				svo.setS_img("");
+			} else {
+				svo.setS_img(svo.getFile().getOriginalFilename());
 			}
+			// 큰 카테고리 처리
+			if (svo.getS_cat_s()=="술집"||svo.getS_cat_s()=="카페") {
+				svo.setS_cat_b("마실거리");
+			} else if (svo.getS_cat_s()=="PC방"||svo.getS_cat_s()=="노래방"||svo.getS_cat_s()=="스포츠"||svo.getS_cat_s() == "기타") {
+				svo.setS_cat_b("즐길거리");
+			} else {
+				svo.setS_cat_b("먹을거리");
+			}
+			// DB 처리
+			int result = dao.getWriteStore(svo);
+			// DB 처리 성공 여부에 따른 이미지 처리
+			if (result > 0) {
+				try {
+					file.transferTo(new File(path + "/" + svo.getS_img()));
+				} catch (IllegalStateException e) {
+					System.out.println(e);
+				} catch (IOException e) {
+					System.out.println(e);
+				}
+			}
+		} catch (Exception e) {
+			System.out.println(e);
 		}
 		return mv;
 	}

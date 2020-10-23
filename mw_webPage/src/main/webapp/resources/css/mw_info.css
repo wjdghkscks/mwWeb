@@ -1,0 +1,90 @@
+@charset "UTF-8";
+
+.wrap_all {
+	width: 100%;
+	margin: 5vw auto;
+}
+
+.mw_info_title {
+	font-family: 'GmarketSansBold';
+	opacity: 0;
+	margin: 0 auto;
+	text-align: center;
+	color: #e8a761;
+	font-size: 5vw;
+}
+
+.mw_info_context {
+	opacity: 0;
+	font-family: 'GmarketSansLight';
+	font-size: 5vw;
+	color: white;
+	margin: 5vw auto;
+	border: 1vw solid #e8a761;
+	background: #e8a761;
+	border-radius: 10px;
+	line-height: 8vw;
+	width: 90vw;
+	height: 82vw;
+}
+.mw_info_context div {
+	padding: 5vw;
+	text-align: center;
+}
+.txt_hlt {
+	font-family: 'GmarketSansBold';
+	font-size: 6vw;
+}
+.sns_link {
+	font-family: 'GmarketSansBold';
+	display: flex;
+	flex-flow: column;
+	justify-content: space-between;
+	height: 26vw;
+}
+/* 576px 이상 tablet */
+@media ( min-width : 576px) {
+	
+}
+
+/* 992px 이상 PC */
+@media ( min-width : 992px) {
+	.wrap_all {
+		width: 960px;
+		margin: 0 auto;
+	}
+	.mw_info_title {
+		margin-top: 48px;
+		font-size: 48px;
+	}
+	.mw_info_context {
+		width: 900px;
+		height: 830px;
+		font-size: 50px;
+		margin: 20px auto;
+		border: 2px solid #e8a761;
+		line-height: 100px;
+	}
+	.mw_info_context div {
+		padding: 30px;
+		height: 280px;
+	}
+	.txt_hlt {
+		font-family: 'GmarketSansBold';
+		font-size: 62px;
+	}
+	.sns_link {
+		font-family: 'GmarketSansBold';
+		display: flex;
+		flex-flow: column;
+		justify-content: space-between;
+		height: 26vw;
+	}
+	.sns_link p:hover {
+		color: #34558b;
+	}
+}
+
+
+
+

@@ -27,7 +27,7 @@
 	
 	<ul class = "submenu_list">
 		<li><a href="main.do">홈</a></li>
-		<li><a href="#">명월소개</a></li>
+		<li><a href="mw_info.do">명월소개</a></li>
 		<li><a href="search_main.do">가게찾기</a></li>
 		<li><a href="qna.do">문의하기</a></li>
 		<li><a href="user_info.do">내정보</a></li>

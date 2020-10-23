@@ -36,9 +36,8 @@ public class DAO {
 	}
 	
 	// 관리자 페이지 - 가게 추가
-	public int getWriteStore(SVO svo) {
+	public int getWriteStore(SVO svo) throws Exception {
 		int result = 0;
-		System.out.println(svo.getS_img());
 		result = sqlSessionTemplate.insert("adminWrite", svo);
 		return result;
 	}
@@ -50,11 +49,40 @@ public class DAO {
 		return list;
 	}
 	
+	// 카테고리 - 주류
+		public List<SVO> getCatDri() throws Exception {
+			List<SVO> list = null;
+			list = sqlSessionTemplate.selectList("catDri");
+			return list;
+		}
+	// 카테고리 - 주류
+	public List<SVO> getCatAl() throws Exception {
+		List<SVO> list = null;
+		list = sqlSessionTemplate.selectList("catAl");
+		return list;
+	}
+	// 카테고리 - 카페
+	public List<SVO> getCatCf() throws Exception {
+		List<SVO> list = null;
+		list = sqlSessionTemplate.selectList("catCf");
+		return list;
+	}
+	
+	// 가게 접속 시 조회수 업데이트
+	public void getViewUpdate(String s_idx) throws Exception {
+		sqlSessionTemplate.update("viewUpdate", s_idx);
+	}
+	
 	// 가게 상세
 	public SVO getStoreInfo(String store_idx) {
 		SVO svo = null;
 		svo = sqlSessionTemplate.selectOne("storeInfo", store_idx);
 		return svo;
+	}
+	
+	// 가게 좋아요
+	public void getLikeUpdate(String s_idx) throws Exception {
+		sqlSessionTemplate.update("likeUpdate", s_idx);
 	}
 	
 	

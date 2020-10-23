@@ -29,18 +29,10 @@
 			f.submit();
 		}
 	}
-	function search_main() {
-		location.href = "search_main.do";
-	}
-	function category_eat() {
-		location.href = "category_eat.do";	
-	}
-	function category_drink() {
-		location.href = "store_detail.do";	
-	}
-	function category_play() {
-		location.href = "admin.do";
-	}
+	function search_main() { location.href = "search_main.do"; }
+	function category_eat() { location.href = "category_eat.do"; }
+	function category_drink() { location.href = "category_drink.do"; }
+	function category_play() { location.href = "admin.do"; }
 </script>
 </head>
 
@@ -67,6 +59,7 @@
 	</script>
 		
 	<div class="wrap-all">
+		<!-- 슬라이드 배너 -->
 		<div class="banner_container">
 			<div class="main_banner">
 				<div><img src="/resources/images/banner01.png"></div>

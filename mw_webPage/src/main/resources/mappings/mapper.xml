@@ -25,7 +25,7 @@
 	<insert id="adminWrite" parameterType="svo">
 		INSERT INTO
 		mw_database.mw_stores
-		VALUES(s_idx, #{s_name}, #{s_category}, #{s_sub}, #{s_img}, #{s_hashtag}, #{s_location}, #{s_lat}, #{s_lng}, #{s_tel}, #{s_hour}, #{s_menu}, 0, 0, 0)
+		VALUES(s_idx, #{s_name}, #{s_cat_b}, #{s_cat_s}, #{s_sub}, #{s_img}, #{s_hashtag}, #{s_location}, #{s_lat}, #{s_lng}, #{s_tel}, #{s_hour}, #{s_menu}, 0, 0, 0)
 	</insert>
 
 	<select id="search" parameterType="String" resultType="svo">
@@ -37,11 +37,35 @@
 				OR s_menu LIKE CONCAT('%', #{keyWord}, '%'))
 	</select>
 
+	<select id="catDri" resultType="svo">
+		SELECT * FROM mw_database.mw_stores WHERE s_cat_b = "마실거리"
+	</select>
+	
+	<select id="catAl" resultType="svo">
+		SELECT * FROM mw_database.mw_stores WHERE s_cat_s = "술집"
+	</select>
+	
+	<select id="catCf" resultType="svo">
+		SELECT * FROM mw_database.mw_stores WHERE s_cat_s = "카페"
+	</select>
+
+	<update id="viewUpdate" parameterType="String">
+		UPDATE mw_database.mw_stores 
+		SET s_view = (s_view + 1) 
+		WHERE s_idx = #{s_idx}
+	</update>
+
 	<select id="storeInfo" parameterType="String" resultType="svo">
 		SELECT *
 		FROM mw_database.mw_stores
 		WHERE s_idx = #{s_idx}
 	</select>
+	
+	<update id="likeUpdate" parameterType="String">
+		UPDATE mw_database.mw_stores 
+		SET s_like = (s_like + 1) 
+		WHERE s_idx = #{s_idx}
+	</update>
 
 </mapper>
 

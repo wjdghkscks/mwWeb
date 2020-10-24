@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html> 
@@ -50,7 +49,7 @@
 							<c:forEach var="k" items="${list}" varStatus="vs">
 								<tr>
 									<td>${paging.totalRecord-((paging.nowPage-1)*paging.numPerPage+vs.index)}</td>
-									<td><a href="admin_onelist_s.do">${k.s_name}</a></td>
+									<td><a href="admin_store_onelist.do?s_idx=${k.s_idx}&cPage=${paging.nowPage}">${k.s_name}</a></td>
 									<td>${k.s_like}</td>
 								</tr>
 							</c:forEach>

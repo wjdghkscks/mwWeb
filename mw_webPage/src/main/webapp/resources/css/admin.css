@@ -41,6 +41,9 @@
 	color: white;
 	width: 60%;
 	padding: 2vw;
+	-webkit-appearance: none;
+	-webkit-border-radius: 2vw;
+	cursor: pointer;
 }
 
 .menu_item input:hover {

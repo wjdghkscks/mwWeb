@@ -19,7 +19,7 @@
 		<c:choose>
 			<c:when test="${empty store_list}">
 				<div class="noRes">
-					<p> 해당되는 가게가 존재하지 않습니다. </p>
+					<p> 표시할 결과가 없습니다. </p>
 				</div>
 			</c:when>
 			<c:otherwise>

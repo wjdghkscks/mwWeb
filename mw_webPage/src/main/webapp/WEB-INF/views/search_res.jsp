@@ -14,7 +14,6 @@
 <link rel="stylesheet" type="text/css" href="/resources/css/resetAll.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
-	alert("${keyWord}");
 	function searchBtn(f) {
 		// 유효성 검사
 		var keyWord = f.keyWord.value;
@@ -90,7 +89,7 @@
 			<c:otherwise>
 				<c:forEach var="k" items="${store_list}">
 					<div class="card" onclick="location.href='store_detail.do?s_idx=${k.s_idx}'">
-						<img alt="${k.s_img}" src="/resources/upload/${k.s_img}">
+						<img alt="${k.s_img}" src="/resources/images/${k.s_img}">
 						<div class="text_container">
 							<h4><b>${k.s_name}</b></h4>
 							<div class="texts">

@@ -59,13 +59,13 @@
 			
 			<div class="photos">
 				<div class="pic_container">
-					<img alt="" src="/resources/upload/${svo.s_img}">
+					<img alt="" src="/resources/images/${svo.s_img}">
 				</div>
 			</div>
 			
 			<div class="hashtag">
 				<c:set var="hash" value="${fn:split(svo.s_hashtag, '&')}"></c:set>
-				<c:forEach var="item" end="2" items="${hash}">
+				<c:forEach var="item" items="${hash}">
 					<form>
 						<div class="hash_item"> ${item} </div>
 					</form>
@@ -118,7 +118,7 @@
 					var options = { 												// 지도를 생성할 때 필요한 기본 옵션
 						center: new kakao.maps.LatLng(${svo.s_lat}, ${svo.s_lng}), 	// 지도의 중심좌표.
 						draggable: false,											// 지도 이동 X
-						level: 3 													// 지도의 레벨(확대, 축소 정도)
+						level: 2 													// 지도의 레벨(확대, 축소 정도)
 					};
 					var map = new kakao.maps.Map(container, options); 				// 지도 생성 및 객체 리턴
 					

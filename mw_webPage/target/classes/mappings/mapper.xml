@@ -27,6 +27,18 @@
 		mw_database.mw_stores
 		VALUES(s_idx, #{s_name}, #{s_cat_b}, #{s_cat_s}, #{s_sub}, #{s_img}, #{s_hashtag}, #{s_location}, #{s_lat}, #{s_lng}, #{s_tel}, #{s_hour}, #{s_menu}, 0, 0, 0)
 	</insert>
+	
+	<select id="adminOnelist" parameterType="String" resultType="svo">
+		SELECT * 
+		FROM mw_database.mw_stores 
+		WHERE s_idx = #{s_idx}
+	</select>
+	
+	<update id="adminUpdate" parameterType="svo">
+		UPDATE mw_database.mw_stores 
+		SET s_name = #{s_name}, s_cat_b = #{s_cat_b}, s_cat_s = #{s_cat_s}, s_sub = #{s_sub}, s_img = #{s_img}, s_hashtag = #{s_hashtag}, s_location = #{s_location}, s_lat = #{s_lat}, s_lng = #{s_lng}, s_tel = #{s_tel}, s_hour = #{s_hour}, s_menu = #{s_menu}
+		WHERE s_idx = #{s_idx}
+	</update>
 
 	<select id="search" parameterType="String" resultType="svo">
 		SELECT *

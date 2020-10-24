@@ -67,6 +67,7 @@ td input:focus::-webkit-input-placeholder {
 	margin: 3%;
 	-webkit-appearance: none;
 	-webkit-border-radius: 1vw;
+	cursor: pointer;
 }
 
 /* 576px 이상 tablet */

@@ -25,35 +25,9 @@ th {
 	background-color: #e8a761;
 	color: white;
 }
-td select {
+td p { 
 	font-family: 'GmarketSansLight';
-	width: 98%;
-	color: #444; 
 	font-size: 3vw;
-	padding: 1vw;
-	-webkit-appearance: env();
-	-webkit-border-radius: 0;
-}
-td input { 
-	font-family: 'GmarketSansLight';
-	width: 95%;
-	color: #444;
-	border-color: #444;
-	font-size: 3vw;
-	padding: 1%;
-	-webkit-appearance: none;
-	-webkit-border-radius: 0;
-}
-td input::placeholder {
-	font-family: 'GmarketSansLight';
-	color: #ccc;
-	text-align: center;
-}
-td input:focus {
-	box-shadow: none;
-}
-td input:focus::-webkit-input-placeholder {
-	color: transparent;
 }
 .btns {
 	font-family: 'GmarketSansLight';
@@ -67,6 +41,7 @@ td input:focus::-webkit-input-placeholder {
 	margin: 3%;
 	-webkit-appearance: none;
 	-webkit-border-radius: 1vw;
+	cursor: pointer;
 }
 
 /* 576px 이상 tablet */
@@ -95,13 +70,7 @@ td input:focus::-webkit-input-placeholder {
 		font-size: 0;
 		height: 80px;
 	}
-	td input { 
-		font-size: 24px;
-		width: 570px;
-		padding: 1px;
-	}
-	td select {
-		width: 572px;
+	td p { 
 		font-size: 24px;
 	}
 	.btns {

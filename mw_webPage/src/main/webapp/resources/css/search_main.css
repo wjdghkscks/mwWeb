@@ -16,7 +16,7 @@
 .search_main_searchbar p input {
 	font-family: 'GmarketSansLight';
 	font-size: 5vw;
-	width: 100%;
+	width: 62vw;
 	margin: auto 0;
 	padding: 0 0 0 2vw;
 	color: #444;
@@ -24,6 +24,8 @@
 	border-left-width: 0;
 	border-right-width: 0;
 	border-top-width: 0;
+	-webkit-appearance: none;
+	-webkit-border-radius: 0;
 }
 
 .search_main_searchbar input {

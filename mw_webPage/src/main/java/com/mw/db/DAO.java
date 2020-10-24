@@ -42,6 +42,20 @@ public class DAO {
 		return result;
 	}
 	
+	// 관리자 페이지 - 가게 상세 정보
+	public SVO getAdminOnelist(String s_idx) throws Exception {
+		SVO svo = null;
+		svo = sqlSessionTemplate.selectOne("adminOnelist", s_idx);
+		return svo;
+	}
+	
+	// 관리자 페이지 - 가게 정보 업데이트
+	public int getUpdateStore(SVO svo) {
+		int result = 0;
+		result = sqlSessionTemplate.update("adminUpdate", svo);
+		return result;
+	}
+	
 	// 검색어
 	public List<SVO> getSearchResult(String keyWord) throws Exception {
 		List<SVO> list = null;

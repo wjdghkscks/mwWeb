@@ -22,8 +22,8 @@
 }
 .info_title h5 {
 	font-family:'GmarketSansLight';
-	color: #777;
-	font-size: 4vw;
+	color: #aaa;
+	font-size: 2.5vw;
 }
 .numbers {
 	font-family:'GmarketSansLight';
@@ -35,12 +35,14 @@
 	width: 4vw;
 }
 .numbers h5 {
-	padding: 3%;
+	padding: 0.5vw;
 	font-size: 3vw;
+	color: #777;
 }
 .photos img {
-	max-width: 100%;
-	margin: 0 auto;
+	width: 100vw;
+	height: 70vw;
+	object-fit: cover;
 }
 .hashtag {
 	display: flex;
@@ -48,11 +50,11 @@
 }
 .hash_item {
 	font-family:'GmarketSansBold';
-	padding: 2.5vw 2vw 2vw 2vw;
+	padding: 2.5vw 5vw 2vw 5vw;
 	margin: 3vw 1vw;
 	text-align: center;
 	font-size: 3.5vw;
-	color: #777;
+	color: #e8a761;
 	border: 1.5px solid #777;
 	border-radius: 10px;
 	cursor: pointer;
@@ -186,7 +188,12 @@
 
 /* 576px 이상 tablet */
 @media (min-width: 576px){
-	
+	.info_title h2 {
+		font-size: 9vw;
+	}
+	.title_cat {
+		font-size: 3vw;
+	}
 }
 
 /* 992px 이상 PC */
@@ -226,17 +233,19 @@
 	.numbers img {
 		width: 30px;
 	}
+	.photos { text-align: center; }
 	.photos img {
 		border-radius: 10px;
+		width: 830px;
+		height: 630px;
 	}
 	.hashtag {
 		padding: 0;
-		justify-content: center;
 	}
 	.hash_item {
-		margin: 20px 10px 0 10px;
-		font-size: 18px;
-		padding: 12px;
+		margin: 20px 20px 0 0;
+		font-size: 24px;
+		padding: 10px 24px;
 		border-radius: 8px;
 	}
 	.brief {

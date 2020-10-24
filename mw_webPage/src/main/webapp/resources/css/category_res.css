@@ -6,8 +6,8 @@
 	width: 77vw;
 	padding: 5vw;
 	margin: 4vw auto;
-	border: 2px solid #444;
-	border-radius: 7px;
+	border: 0.3vw solid #444;
+	border-radius: 3vw;
 }
 .noRes {
 	font-family: 'GmarketSansLight';
@@ -73,7 +73,8 @@
 /* 576px 이상 tablet */
 @media (min-width: 576px){
 	.cardview {
-		border: 1.5px solid #444;
+		border: 0.3vw solid #444;
+		border-radius: 3vw;
 	}
 	.noRes {
 		margin: 36vw auto;
@@ -85,9 +86,10 @@
 @media (min-width: 992px) {
 	.cardview {
 		display: block;
-		width: 780px;
+		width: 770px;
 		padding: 24px 56px 56px 56px;
 		margin: 30px auto 100px auto;
+		border: 2px solid #444;
 		border-radius: 10px;
 	}
 	.noRes {

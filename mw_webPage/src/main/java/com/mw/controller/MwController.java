@@ -131,9 +131,8 @@ public class MwController {
 	@RequestMapping("store_detail.do")
 	public ModelAndView storeDetailCommand(HttpServletRequest request) {
 		
-		/* String s_idx = request.getParameter("s_idx"); */
-		String s_idx = "7";
 		ModelAndView mv = new ModelAndView("store_detail");
+		String s_idx = request.getParameter("s_idx");
 		
 		try {
 			// 조회수 업데이트
@@ -295,6 +294,80 @@ public class MwController {
 			System.out.println(e);
 		}
 		return mv;
+	}
+	
+	// 관리자 페이지 > 가게 관리 > 가게 상세 정보
+	@RequestMapping("admin_store_onelist.do")
+	public ModelAndView adminStoreOneelistCommand(HttpServletRequest request, @RequestParam("cPage") String cPage) {
+		ModelAndView mv = new ModelAndView("admin_store_onelist");
+		String s_idx = request.getParameter("s_idx");
+		try {
+			SVO svo = dao.getAdminOnelist(s_idx);
+			// 가게 정보 및 cPage 정보 session 에 저장
+			request.getSession().setAttribute("svo", svo);
+			request.getSession().setAttribute("cPage", cPage);
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return mv;
+	}
+	
+	// 관리자 페이지 > 가게 관리 > 가게 상세 정보 > 정보 수정
+	@RequestMapping("admin_store_update.do")
+	public ModelAndView adminStoreUpdateCommand(@RequestParam("cPage")String cPage) {
+		return new ModelAndView("admin_store_update");
+	}
+	
+	// 관리자 페이지 > 가게 관리 > 가게 상세 정보 > 정보 수정 > DB 처리
+	@RequestMapping("store_update_ok.do")
+	public ModelAndView adminStoreUpdateOkCommand(HttpServletRequest request, SVO svo, @RequestParam("cPage")String cPage) {
+		ModelAndView mv = new ModelAndView("redirect:admin_store_onelist.do?s_idx="+svo.getS_idx()+"&cPage="+cPage);
+		try {
+			// 파일 처리
+			String path = request.getSession().getServletContext().getRealPath("/resources/images");
+			MultipartFile file = svo.getFile();
+			String f_name = request.getParameter("f_name");
+			if (file.isEmpty()) {
+				svo.setS_img(f_name);
+			} else {
+				svo.setS_img(svo.getFile().getOriginalFilename());
+			}
+			// 큰 카테고리 처리
+			if (svo.getS_cat_s()=="술집"||svo.getS_cat_s()=="카페") {
+				svo.setS_cat_b("마실거리");
+			} else if (svo.getS_cat_s()=="PC방"||svo.getS_cat_s()=="노래방"||svo.getS_cat_s()=="스포츠"||svo.getS_cat_s() == "기타") {
+				svo.setS_cat_b("즐길거리");
+			} else {
+				svo.setS_cat_b("먹을거리");
+			}
+			// DB 처리
+			int result = dao.getUpdateStore(svo);
+			// DB 처리 성공 여부에 따른 이미지 처리
+			if (result > 0) {
+				try {
+					file.transferTo(new File(path + "/" + svo.getS_img()));
+				} catch (IllegalStateException e) {
+					System.out.println(e);
+				} catch (IOException e) {
+					System.out.println(e);
+				}
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return mv;
+	}
+	
+	// 관리자 페이지 > 가게 관리 > 가게 상세 정보 > 삭제
+	@RequestMapping("admin_store_delete.do")
+	public ModelAndView adminStoreDeleteCommand() {
+		return new ModelAndView("admin_store_delete");
+	}
+	
+	// 관리자 페이지 > 가게 관리 > 가게 상세 정보 > 삭제
+	@RequestMapping("store_delete_ok.do")
+	public ModelAndView storeDeleteOkCommand() {
+		return new ModelAndView("admin_store_delete");
 	}
 	
 	// 관리자 페이지 > 문의 관리

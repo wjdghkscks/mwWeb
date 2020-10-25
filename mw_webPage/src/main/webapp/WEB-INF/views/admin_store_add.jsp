@@ -111,7 +111,7 @@
 					<tr>
 						<th>해시태그</th>
 						<td>
-							<input type="text" name="s_hashtag" placeholder="ex) #태그1&#태그2&#태그3">
+							<input type="text" name="s_hashtag" placeholder="ex) #태그1+#태그2+#태그3">
 						</td>
 					</tr>
 					<tr>

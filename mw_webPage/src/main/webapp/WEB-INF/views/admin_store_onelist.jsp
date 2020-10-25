@@ -51,7 +51,7 @@
 					<th>해시태그</th>
 					<td>
 						<div style="display: flex; justify-content: center;">
-							<c:set var="hash" value="${fn:split(svo.s_hashtag, '&')}"></c:set>
+							<c:set var="hash" value="${fn:split(svo.s_hashtag, '+')}"></c:set>
 							<c:forEach var="item" items="${hash}">
 								<div> <p>${item}&nbsp;</p> </div>
 							</c:forEach>

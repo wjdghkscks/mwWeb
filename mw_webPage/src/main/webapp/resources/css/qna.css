@@ -19,22 +19,24 @@
 	background-color: #e8a761;
 	color: white;
 	border: thin;
-	border-radius: 5px;
 	transition: 0.3s;
 	font-size: 5vw;
 	margin-top: 6vw;
 	padding: 2vw;
 	width: 100%;
+	cursor: pointer;
+	-webkit-appearance: button;
 }
 .qna_list {
 	color: #444;
 	margin-top: 5vw;
-	border: 1px solid #444;
+	border: 0.3vw solid #444;
 	transition: 0.3s;
 	border-left-width: 0;
 	border-right-width: 0;
 	border-top-width: 0;
 	border-bottom-width: 1;
+	cursor: pointer;
 }
 .qna_one {
 	display: flex;
@@ -80,14 +82,14 @@
 	}
 	.list_title input {
 		font-size: 38px;
+		border: 3px solid #e8a761;
 		border-radius: 10px;
-		width: 100%;
+		width: 863px;
 		padding: 18px;
 		margin: 20px 0 0 0;
 	}
 	.list_title input:hover {
 		border: 3px solid #e8a761;
-		box-shadow: 0 10px 10px 0 rgba(0,0,0,0.2);
 		background-color: white;
 		color: #e8a761;
 	}
@@ -96,7 +98,7 @@
 	}
 	.qna_list {
 		margin: 50px 0;
-		border: 2px solid #444;
+		border: 1px solid #444;
 		border-radius: 10px;
 		width: 100%;
 	}

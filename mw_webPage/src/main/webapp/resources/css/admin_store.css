@@ -33,11 +33,10 @@ table {
 	width: 90%;
 	margin: 0 auto;
 	text-align: center;
-	border: 1px solid #444;
 	border-collapse: collapse;
 }
 th,td {
-	border: 1px solid #444;
+	border: 0.2vw solid #444;
 	padding: 2vw;
 	font-size: 4vw;
 }
@@ -51,7 +50,8 @@ th:first-child {
 th:last-child {
 	width: 21%;
 }
-td a { font-family: 'GmarketSansBold'; }
+td a { font-family: 'GmarketSansLight'; }
+td a:hover { color: #e8a761; }
 .paging {
 	font-family: 'GmarketSansLight';
 	margin-top: 3vw;
@@ -60,7 +60,9 @@ td a { font-family: 'GmarketSansBold'; }
 
 /* 576px 이상 tablet */
 @media (min-width: 576px){
-	
+	td input {
+		border: 0.2vw solid #444;
+	}
 }
 
 /* 992px 이상 PC */
@@ -74,10 +76,10 @@ td a { font-family: 'GmarketSansBold'; }
 	.btn div {
 		font-size: 28px;
 	}
-	.btn div:hover { 
-		color: #e8a761;
-	}
 	table { width: 800px; }
+	th,td {
+		border: 1px solid #444;
+	}
 	th { 
 		font-size: 28px;
 		padding: 20px;
@@ -88,6 +90,5 @@ td a { font-family: 'GmarketSansBold'; }
 		font-size: 28px;
 		padding: 24px;
 	}
-	a:hover { color: #e8a761; }
 	
 }

@@ -54,24 +54,24 @@
 		margin: 0 auto;
 	}
 	.mw_info_title {
-		margin-top: 48px;
+		margin-top: 24px;
 		font-size: 48px;
 	}
 	.mw_info_context {
 		width: 900px;
-		height: 830px;
-		font-size: 50px;
+		height: 580px;
+		font-size: 40px;
 		margin: 20px auto;
 		border: 2px solid #e8a761;
-		line-height: 100px;
+		line-height: 65px;
 	}
 	.mw_info_context div {
 		padding: 30px;
-		height: 280px;
+		height: 180px;
 	}
 	.txt_hlt {
 		font-family: 'GmarketSansBold';
-		font-size: 62px;
+		font-size: 50px;
 	}
 	.sns_link {
 		font-family: 'GmarketSansBold';
@@ -80,11 +80,5 @@
 		justify-content: space-between;
 		height: 26vw;
 	}
-	.sns_link p:hover {
-		color: #34558b;
-	}
 }
-
-
-
 

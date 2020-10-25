@@ -11,11 +11,10 @@ table {
 	width: 90%;
 	margin: 0 auto 8vw auto;
 	text-align: center;
-	border: 1px solid #444;
 	border-collapse: collapse;
 }
 th,td {
-	border: 1px solid #444;
+	border: 0.2vw solid #444;
 	padding: 2vw;
 	font-size: 4vw;
 }
@@ -27,20 +26,21 @@ th {
 }
 td select {
 	font-family: 'GmarketSansLight';
-	width: 98%;
+	width: 59.5vw;
 	color: #444; 
-	font-size: 3vw;
+	font-size: 2.5vw;
 	padding: 1vw;
 	-webkit-appearance: env();
 	-webkit-border-radius: 0;
 }
 td input { 
 	font-family: 'GmarketSansLight';
-	width: 95%;
+	width: 58vw;
 	color: #444;
 	border-color: #444;
+	border: 0.2vw solid #444;
 	font-size: 3vw;
-	padding: 1%;
+	padding: 0.7vw;
 	-webkit-appearance: none;
 	-webkit-border-radius: 0;
 }
@@ -72,7 +72,9 @@ td input:focus::-webkit-input-placeholder {
 
 /* 576px 이상 tablet */
 @media (min-width: 576px){
-	
+	td input {
+		border: 0.2vw solid #444;
+	}
 }
 
 /* 992px 이상 PC */
@@ -86,6 +88,9 @@ td input:focus::-webkit-input-placeholder {
 		width: 800px; 
 		margin-bottom: 100px;
 	}
+	th,td {
+		border: 1px solid #444;
+	}
 	th { 
 		width: 123px;
 		font-size: 28px;
@@ -97,13 +102,15 @@ td input:focus::-webkit-input-placeholder {
 		height: 80px;
 	}
 	td input { 
+		border: 1px solid #444;
 		font-size: 24px;
 		width: 570px;
-		padding: 1px;
+		padding: 10px;
 	}
 	td select {
-		width: 572px;
+		width: 590px;
 		font-size: 24px;
+		padding: 10px;
 	}
 	.btns {
 		font-size: 36px;

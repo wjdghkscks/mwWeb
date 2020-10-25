@@ -50,7 +50,7 @@ public class MyMember {
 	            return readBody(con.getErrorStream());
 	        }
 	    } catch (IOException e) {
-	        throw new RuntimeException("API 요청과 응답 실패", e);
+	        throw new RuntimeException("API 요청 및 응답 실패", e);
 	    } finally {
 	        con.disconnect();
 	    }

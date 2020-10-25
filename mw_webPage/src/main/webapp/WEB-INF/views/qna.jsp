@@ -15,6 +15,10 @@
 	function ask_go() {
 		location.href = "write_qna.do";
 	}
+	function qna_onelist() {
+		f.action = "";
+		f.submit;
+	}
 </script>
 </head>
 
@@ -31,12 +35,6 @@
 			<input type="button" value="문의하기" onclick="ask_go()">
 		</div>
 		
-		<div class="qna_list">
-			<div class="qna_one">
-				<h4>문의 제목이 여기에 표시..</h4>
-				<p>0000-00-00</p>
-			</div>
-		</div>
 		<div class="qna_list">
 			<div class="qna_one">
 				<h4>문의 제목이 여기에 표시...</h4>

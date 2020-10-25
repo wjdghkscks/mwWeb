@@ -1,18 +1,19 @@
 @charset "UTF-8";
 
 .search_res_searchbar {
-	border: 2px solid #e8a761;
+	border: 0.2vw solid #444;
 	border-radius: 7px;
 	width: 83vw;
 	margin: 8vw auto 0 auto;
 	display: flex;
-	justify-content: space-between;
+	justify-content: flex-start;
 	padding: 2vw;
 }
 .search_res_searchbar input {
 	width: 5vw;
 	margin-left: 2vw;
 }
+.search_res_searchbar p { margin: auto 0; }
 .search_res_searchbar p input {
 	font-family: 'GmarketSansLight';
 	font-size: 5vw;
@@ -29,11 +30,11 @@
 
 .cardview {
 	display: flex;
-	justify-content: space-around;
+	justify-content: flex-start;
 	width: 77vw;
 	padding: 5vw;
 	margin: 4vw auto;
-	border: 2px solid #e8a761;
+	border: 0.2vw solid #444;
 	border-radius: 7px;
 }
 .noRes {
@@ -100,13 +101,13 @@
 /* 576px 이상 tablet */
 @media (min-width: 576px){
 	.search_res_searchbar {
-		border: 3px solid #e8a761;
+		border: 0.2vw solid #444;
 	}
 	.search_res_searchbar p input {
 		margin : 1vw 15vw 0 3vw;
 	}
 	.cardview {
-		border: 3px solid #e8a761;
+		border: 0.2vw solid #444;
 	}
 	.noRes {
 		margin: 36vw auto;
@@ -119,7 +120,7 @@
 	.search_res_searchbar {
 		width: 870px;
 		margin: 30px auto 0 auto;
-		padding: 10px;
+		padding: 10px;border: 1px solid #444;
 		border-radius: 10px;
 	}
 	.search_res_searchbar input {
@@ -129,7 +130,7 @@
 	.search_res_searchbar p input {
 		font-size: 32px;
 		width: 800px;
-		padding-top: 2px;
+		padding: 10px 0 0 20px;
 		margin: 0 auto
 	}
 	.search-bar-click {
@@ -165,7 +166,7 @@
 		display: block;
 		width: 780px;
 		padding: 24px 56px 56px 56px;
-		margin: 30px auto 100px auto;
+		margin: 30px auto 100px auto;border: 1px solid #444;
 		border-radius: 10px;
 	}
 	.noRes {
@@ -178,7 +179,7 @@
 		height: 100%;
 		margin: 20px auto;
 		box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
-		border: 3px solid #e8a761;
+		border: 1px solid #444;
 		border-radius: 10px;
 		padding: 24px;
 		cursor: pointer;
@@ -233,22 +234,4 @@
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

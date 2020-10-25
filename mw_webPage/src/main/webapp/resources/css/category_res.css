@@ -7,7 +7,7 @@
 	padding: 5vw;
 	margin: 4vw auto;
 	border: 0.3vw solid #444;
-	border-radius: 3vw;
+	border-radius: 2vw;
 }
 .noRes {
 	font-family: 'GmarketSansLight';
@@ -74,7 +74,7 @@
 @media (min-width: 576px){
 	.cardview {
 		border: 0.3vw solid #444;
-		border-radius: 3vw;
+		border-radius: 1vw;
 	}
 	.noRes {
 		margin: 36vw auto;
@@ -89,7 +89,7 @@
 		width: 770px;
 		padding: 24px 56px 56px 56px;
 		margin: 30px auto 100px auto;
-		border: 2px solid #444;
+		border: 1px solid #444;
 		border-radius: 10px;
 	}
 	.noRes {
@@ -102,7 +102,7 @@
 		height: 100%;
 		margin: 20px auto;
 		box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
-		border: 1.5px solid #444;
+		border: 1px solid #444;
 		border-radius: 10px;
 		padding: 24px;
 		cursor: pointer;

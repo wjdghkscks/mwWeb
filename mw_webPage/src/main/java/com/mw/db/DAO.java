@@ -56,6 +56,11 @@ public class DAO {
 		return result;
 	}
 	
+	// 관리자 페이지 - 가게 정보 삭
+	public void getDeleteStore(String s_idx) {
+		sqlSessionTemplate.delete("adminDelete", s_idx);
+	}
+	
 	// 검색어
 	public List<SVO> getSearchResult(String keyWord) throws Exception {
 		List<SVO> list = null;

@@ -11,11 +11,10 @@ table {
 	width: 90%;
 	margin: 0 auto 8vw auto;
 	text-align: center;
-	border: 1px solid #444;
 	border-collapse: collapse;
 }
 th,td {
-	border: 1px solid #444;
+	border: 0.2vw solid #444;
 	padding: 2vw;
 	font-size: 4vw;
 }
@@ -46,7 +45,9 @@ td p {
 
 /* 576px 이상 tablet */
 @media (min-width: 576px){
-	
+	td input {
+		border: 0.2vw solid #444;
+	}
 }
 
 /* 992px 이상 PC */
@@ -59,6 +60,9 @@ td p {
 	table { 
 		width: 800px; 
 		margin-bottom: 100px;
+	}
+	th,td {
+		border: 1px solid #444;
 	}
 	th { 
 		width: 123px;

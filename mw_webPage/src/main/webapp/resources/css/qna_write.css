@@ -21,10 +21,12 @@ form {
 	font-family: 'GmarketSansLight';
 	font-size: 6vw;
 	padding: 0 0 0 2vw;
+	border: 0.2vw solid #444;
 	border-left-width:0;
 	border-right-width:0;
 	border-top-width:0;
 	border-bottom-width:1;
+	-webkit-border-radius: 0;
 }
 .qna_title input::placeholder {
 	text-align: center;
@@ -42,8 +44,10 @@ form {
 	padding: 5%;
 	font-family: 'GmarketSansLight';
 	font-size: 5vw;
-	border: 2px solid #444;
+	border: 0.2vw solid #444;
 	border-radius: 7px;
+	-webkit-appearance: none;
+	-webkit-border-radius: 0;
 }
 .qna_context textarea::placeholder {
 	font-family: 'GmarketSansLight';
@@ -63,16 +67,12 @@ form {
 	margin: 2vw;
 	width: 39vw;
 	font-size: 7vw;
-	background: white;
-	color: #444;
-	border: 2px solid #444;
-	border-color: #444;
-	border-radius: 5px;
-}
-.qna_submit input:hover {
-	background-color: #e8a761;
-	border-color: #e8a761;
+	background: #e8a761;
 	color: white;
+	border: 0.2vw solid #444;
+	border-radius: 5px;
+	-webkit-appearance: button;
+	cursor: pointer;
 }
 
 /* 576px 이상 tablet */
@@ -117,6 +117,11 @@ form {
 		margin: 40px auto;
 		font-size: 32px;
 		padding: 0 0 0 12px;
+		border: 1px solid #444;
+		border-left-width:0;
+		border-right-width:0;
+		border-top-width:0;
+		border-bottom-width:1;
 	}
 	.qna_context {
 		margin: 20px auto 0 auto;
@@ -126,6 +131,7 @@ form {
 		height: 240px;
 		font-size: 28px;
 		margin: 20px 0 20px 0;
+		border: 1px solid #444;
 	}
 	.qna_context textarea::placeholder {
 		font-size: 32px;
@@ -137,5 +143,6 @@ form {
 		height: 92px;
 		width: 331px;
 		margin: 28px;
+		border: 1px solid #444;
 	}
 }

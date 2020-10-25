@@ -77,7 +77,7 @@
 						location.href = "search_main.do";
 					}
 					if (innerWidth >= 992) {
-						$("#popUpContent").show(0);
+						$("#popUpContent").show(3000);
 					}
 				});
 				$(document).mouseup(function (e){

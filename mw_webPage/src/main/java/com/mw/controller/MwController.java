@@ -360,14 +360,23 @@ public class MwController {
 	
 	// 관리자 페이지 > 가게 관리 > 가게 상세 정보 > 삭제
 	@RequestMapping("admin_store_delete.do")
-	public ModelAndView adminStoreDeleteCommand() {
+	public ModelAndView adminStoreDeleteCommand(@RequestParam("cPage")String cPage) {
 		return new ModelAndView("admin_store_delete");
 	}
 	
-	// 관리자 페이지 > 가게 관리 > 가게 상세 정보 > 삭제
+	// 관리자 페이지 > 가게 관리 > 가게 상세 정보 > 삭제 > DB 처리
 	@RequestMapping("store_delete_ok.do")
-	public ModelAndView storeDeleteOkCommand() {
-		return new ModelAndView("admin_store_delete");
+	public ModelAndView storeDeleteOkCommand(HttpServletRequest request, @RequestParam("cPage")String cPage) {
+		String s_idx = request.getParameter("s_idx");
+		ModelAndView mv =  new ModelAndView("redirect:admin_store.do");
+		try {
+			dao.getDeleteStore(s_idx);
+			mv.addObject("s_idx", s_idx);
+			mv.addObject("cPage", cPage);
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return mv;
 	}
 	
 	// 관리자 페이지 > 문의 관리

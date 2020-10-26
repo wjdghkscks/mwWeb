@@ -30,9 +30,9 @@
 		}
 	}
 	function search_main() { location.href = "search_main.do"; }
-	function category_eat() { location.href = "category_eat.do"; }
-	function category_drink() { location.href = "category_drink.do"; }
-	function category_play() { location.href = "admin.do"; }
+	function category_eat() { location.href = "category_eat.do?cat=eat"; }
+	function category_drink() { location.href = "category_drink.do?cat=drink"; }
+	function category_play() { location.href = "category_drink.do?cat=play"; }
 </script>
 </head>
 

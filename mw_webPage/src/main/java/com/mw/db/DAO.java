@@ -1,5 +1,6 @@
 package com.mw.db;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -56,7 +57,7 @@ public class DAO {
 		return result;
 	}
 	
-	// 관리자 페이지 - 가게 정보 삭
+	// 관리자 페이지 - 가게 정보 삭제
 	public void getDeleteStore(String s_idx) {
 		sqlSessionTemplate.delete("adminDelete", s_idx);
 	}
@@ -68,22 +69,31 @@ public class DAO {
 		return list;
 	}
 	
-	// 카테고리 - 주류
-		public List<SVO> getCatDri() throws Exception {
-			List<SVO> list = null;
-			list = sqlSessionTemplate.selectList("catDri");
-			return list;
-		}
-	// 카테고리 - 주류
-	public List<SVO> getCatAl() throws Exception {
+	// 카테고리 > 먹을거리
+	public List<SVO> getEat() throws Exception {
 		List<SVO> list = null;
-		list = sqlSessionTemplate.selectList("catAl");
+		list = sqlSessionTemplate.selectList("getEat");
 		return list;
 	}
-	// 카테고리 - 카페
-	public List<SVO> getCatCf() throws Exception {
+	
+	// 카테고리 > 마실거리
+	public List<SVO> getDrink() throws Exception {
 		List<SVO> list = null;
-		list = sqlSessionTemplate.selectList("catCf");
+		list = sqlSessionTemplate.selectList("getDrink");
+		return list;
+	}
+	
+	// 카테고리 > 즐길거리
+	public List<SVO> getPlay() throws Exception {
+		List<SVO> list = null;
+		list = sqlSessionTemplate.selectList("getPlay");
+		return list;
+	}
+	
+	// 카테고리 > 하위 카테고리
+	public List<SVO> getSmall(String cat) throws Exception {
+		List<SVO> list = null;
+		list = sqlSessionTemplate.selectList("getSmall", cat);
 		return list;
 	}
 	

@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mw_database">
-
-	<select id="totalCount" resultType="int">
+ 
+ 	<select id="totalCount" resultType="int">
 		SELECT count(*) 
 		FROM mw_database.mw_stores;
 	</select>
@@ -25,7 +25,9 @@
 	<insert id="adminWrite" parameterType="svo">
 		INSERT INTO
 		mw_database.mw_stores
-		VALUES(s_idx, #{s_name}, #{s_cat_b}, #{s_cat_s}, #{s_sub}, #{s_img}, #{s_hashtag}, #{s_location}, #{s_lat}, #{s_lng}, #{s_tel}, #{s_hour}, #{s_menu}, 0, 0, 0)
+		VALUES(s_idx, #{s_name}, #{s_cat_b}, #{s_cat_s}, 
+				#{s_sub}, #{s_img}, #{s_hashtag}, #{s_location}, 
+				#{s_lat}, #{s_lng}, #{s_tel}, #{s_hour}, #{s_menu}, 0, 0, 0)
 	</insert>
 	
 	<select id="adminOnelist" parameterType="String" resultType="svo">
@@ -36,7 +38,10 @@
 	
 	<update id="adminUpdate" parameterType="svo">
 		UPDATE mw_database.mw_stores 
-		SET s_name = #{s_name}, s_cat_b = #{s_cat_b}, s_cat_s = #{s_cat_s}, s_sub = #{s_sub}, s_img = #{s_img}, s_hashtag = #{s_hashtag}, s_location = #{s_location}, s_lat = #{s_lat}, s_lng = #{s_lng}, s_tel = #{s_tel}, s_hour = #{s_hour}, s_menu = #{s_menu}
+		SET s_name = #{s_name}, s_cat_b = #{s_cat_b}, s_cat_s = #{s_cat_s}, 
+			s_sub = #{s_sub}, s_img = #{s_img}, s_hashtag = #{s_hashtag}, 
+			s_location = #{s_location}, s_lat = #{s_lat}, s_lng = #{s_lng}, 
+			s_tel = #{s_tel}, s_hour = #{s_hour}, s_menu = #{s_menu}
 		WHERE s_idx = #{s_idx}
 	</update>
 	
@@ -84,8 +89,28 @@
 		WHERE s_idx = #{s_idx}
 	</update>
 
+	<select id="getEat" resultType="svo">
+		SELECT *
+		FROM mw_database.mw_stores
+		WHERE s_cat_b = '먹을거리'
+	</select>
+	
+	<select id="getDrink" resultType="svo">
+		SELECT *
+		FROM mw_database.mw_stores
+		WHERE s_cat_b = '마실거리'
+	</select>
+	
+	<select id="getPlay" resultType="svo">
+		SELECT *
+		FROM mw_database.mw_stores
+		WHERE s_cat_b = '즐길거리'
+	</select>
+	
+	<select id="getSmall" parameterType="String" resultType="svo">
+		SELECT *
+		FROM mw_database.mw_stores
+		WHERE s_cat_s = #{s_cat_s}
+	</select>
+ 
 </mapper>
-
-
-
-

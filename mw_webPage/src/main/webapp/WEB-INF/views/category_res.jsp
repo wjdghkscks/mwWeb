@@ -25,11 +25,11 @@
 			<c:otherwise>
 				<c:forEach var="k" items="${store_list}">
 					<div class="card" onclick="location.href='store_detail.do?s_idx=${k.s_idx}'">
-						<img alt="${k.s_img}" src="/resources/upload/${k.s_img}">
+						<img alt="${k.s_img}" src="/resources/images/${k.s_img}">
 						<div class="text_container">
 							<h4><b>${k.s_name}</b></h4>
 							<div class="texts">
-								<c:set var="hash" value="${fn:split(k.s_hashtag, '&')}"></c:set>
+								<c:set var="hash" value="${fn:split(k.s_hashtag, '+')}"></c:set>
 								<c:forEach var="item" end="2" items="${hash}">
 									${item}
 								</c:forEach>

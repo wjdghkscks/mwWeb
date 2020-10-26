@@ -8,6 +8,6 @@
 		<typeAlias type="com.mw.db.SVO" alias="svo" />
 	</typeAliases>
 	<mappers>
-		<mapper resource="mappings/mapper.xml" />
+		<mapper resource="mappings/store_mapper.xml" />
 	</mappers>
 </configuration>

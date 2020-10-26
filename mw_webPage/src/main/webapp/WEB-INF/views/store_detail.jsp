@@ -93,47 +93,6 @@
 			
 		<hr class="only_mobile">
 		
-		<!-- 공유 모달 -->
-			<div id="myModal" class="modal">
-				<!-- Modal content -->
-				<div class="modal-content">
-					<span class="close">&times;</span>
-					<h2>공유하기</h2>
-					<div class="modalIn">
-						<form method="post">
-							<div class="userInfo_container">
-								<div class="userInfo">
-									<input type="text" name="m_id" placeholder="아이디를 입력하세요.">
-									<input type="password" name="m_pw" placeholder="비밀번호를 입력하세요.">
-								</div>
-								<div class="loginBtn" onclick="userLogin_go(this.form)">로그인</div>
-							</div>
-							<div class="socialLogin">
-								<div><img alt="kakaoAdd" src="/resources/images/email_add_btn.png" onclick="kakaoAdd_go()"></div>
-								<div><img alt="kakaoAdd" src="/resources/images/kakao_add_btn.png" onclick="kakaoAdd_go()"></div>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-			<script type="text/javascript">
-				var modal = document.getElementById("myModal");
-				var btn = document.getElementById("myBtn");
-				var span = document.getElementsByClassName("close")[0];
-	
-				btn.onclick = function() {
-					modal.style.display = "block";
-				}
-				span.onclick = function() {
-					modal.style.display = "none";
-				}
-				window.onclick = function(event) {
-					if (event.target == modal) {
-						modal.style.display = "none";
-					}
-				}
-			</script> <!-- 공유 모달 끝 -->
-			
 		<div class="article">
 			<div class="store_info">
 				<h2>가게 정보</h2>
@@ -146,8 +105,6 @@
 			</div>
 			
 			<hr class="only_mobile">
-			
-			
 			
 			<div class="store_map">
 				<h2>지도</h2>

@@ -36,12 +36,14 @@
 				<li><a href="mw_info.do">		명월소개	</a></li>
 				<li><a href="category_eat.do">	가게찾기	</a></li>
 				<li><a href="qna.do">			문의하기	</a></li>
-				<li><a id="myBtn">				내정보	</a></li>
+				<li><a href="admin.do">			내정보		</a></li>
+				<!-- <li><a id="myBtn">				내정보	</a></li> -->
 			</ul>
 		</nav>
-		<!-- The Modal -->
+		<!-- 로그인 MODAL
+		The Modal
 		<div id="myModal" class="modal">
-			<!-- Modal content -->
+			Modal content
 			<div class="modal-content">
 				<span class="close">&times;</span>
 				<h2>로그인</h2>
@@ -79,6 +81,7 @@
 				}
 			}
 		</script>
+		 -->
 	</header>
 	<hr>
 </body>

@@ -20,6 +20,14 @@
 		    }, 1200);
 		});
 	});
+	function fbook_go() {
+		var f_url = "https://www.facebook.com/myongjiworld/";
+		newPage = window.open(f_url);
+	}
+	function igram_go() {
+		var i_url = "https://www.instagram.com/myongji_world/";
+		newPage = window.open(i_url);
+	}
 </script>
 </head>
 
@@ -32,17 +40,20 @@
 			<h2>#명지월드</h2>
 		</div>
 		<div class="mw_info_context">
-			<div>
-				<p><span class="txt_hlt">'명월-명지월드의 모든 것'</span>은<br>어쩌구저쩌구해서 요렇게 저렇게 <br>활동하고 있는 블라블라입니다.</p>
-				<div class="sns_link">
-					<p>facebook</p>
-					<p>instagram</p>
-					<p>youtube</p>
+			<div class="texts">
+				<p><span class="txt_hlt">'명월-명지월드의 모든 것'</span>은<br>거북골로에 자리잡은 상권과의<br><span class="txt_hlt">상생</span>을 위해 활동하고 있는<br>청년 단체입니다.</p>
+			</div>
+			<div class="sns_link">
+				<div onclick="fbook_go()">
+					<img alt="facebook" src="/resources/images/facebook.png">
+					<p>명월-명지월드의 모든 것</p>
 				</div>
-				<div>
-					<p> myongjiworld@gmail.com </p>
+				<div onclick="igram_go()">
+					<img alt="instagram" src="/resources/images/instagram.png">
+					<p>@myongji_world</p>
 				</div>
 			</div>
+			<p>myongjiworld@gmail.com</p>
 		</div>
 	</div>
 

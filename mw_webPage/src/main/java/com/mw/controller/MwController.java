@@ -61,51 +61,58 @@ public class MwController {
 	
 	// 카테고리 > 먹을거리
 	@RequestMapping("category_eat.do")
-	public ModelAndView categoryEatCommand() {
+	public ModelAndView categoryEatCommand(HttpServletRequest request) {
 		ModelAndView mv = new ModelAndView("category_eat");
+		String cat = request.getParameter("cat");
+		try {
+			if (cat.equals("eat")) {
+				List<SVO> list = dao.getEat();
+				mv.addObject("list", list);
+			} else {
+				List<SVO> list = dao.getSmall(cat);
+				mv.addObject("list", list);
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 		return mv;
 	}
 	
 	// 카테고리 > 마실거리
 	@RequestMapping("category_drink.do")
-	public ModelAndView categoryDrinkCommand() {
+	public ModelAndView categoryDrinkCommand(HttpServletRequest request) {
 		ModelAndView mv = new ModelAndView("category_drink");
+		String cat = request.getParameter("cat");
 		try {
-			List<SVO> list = dao.getCatDri();
-			mv.addObject("store_list", list);
-		} catch (Exception e) {
-			System.out.println(e);
-		}
-		return mv;
-	}
-	// 카테고리 > 마실거리 > 술집
-	@RequestMapping("cat_al.do")
-	public ModelAndView catAlCommand() {
-		ModelAndView mv = new ModelAndView("redirect:category_drink.do");
-		try {
-			List<SVO> list = dao.getCatAl();
-			mv.addObject("store_list", list);
-		} catch (Exception e) {
-			System.out.println(e);
-		}
-		return mv;
-	}
-	// 카테고리 > 마실거리 > 카페
-	@RequestMapping("cat_cf.do")
-	public ModelAndView catCfCommand() {
-		ModelAndView mv = new ModelAndView("redirect:category_drink.do");
-		try {
-			List<SVO> list = dao.getCatAl();
-			mv.addObject("store_list", list);
+			if (cat.equals("drink")) {
+				List<SVO> list = dao.getDrink();
+				mv.addObject("list", list);
+			} else {
+				List<SVO> list = dao.getSmall(cat);
+				mv.addObject("list", list);
+			}
 		} catch (Exception e) {
 			System.out.println(e);
 		}
 		return mv;
 	}
 	
+	// 카테고리 > 즐길거리
 	@RequestMapping("category_play.do")
-	public ModelAndView categoryPlayCommand() {
+	public ModelAndView categoryPlayCommand(HttpServletRequest request) {
 		ModelAndView mv = new ModelAndView("category_play");
+		String cat = request.getParameter("cat");
+		try {
+			if (cat.equals("play")) {
+				List<SVO> list = dao.getPlay();
+				mv.addObject("list", list);
+			} else {
+				List<SVO> list = dao.getSmall(cat);
+				mv.addObject("list", list);
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 		return mv;
 	}
 	

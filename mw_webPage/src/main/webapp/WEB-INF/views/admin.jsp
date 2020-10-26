@@ -29,9 +29,9 @@
 			<div class="menu_item">
 				<input type="button" value="가게 관리" onclick="admin_store()">
 			</div>
-			<div class="menu_item">
+			<!-- <div class="menu_item">
 				<input type="button" value="문의 관리" onclick="admin_qna()">
-			</div>
+			</div> -->
 		</div>
 	</div>
 </body>

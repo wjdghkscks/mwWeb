@@ -30,9 +30,9 @@
 		}
 	}
 	function search_main() { location.href = "search_main.do"; }
-	function category_eat() { location.href = "category_eat.do?cat=eat"; }
-	function category_drink() { location.href = "category_drink.do?cat=drink"; }
-	function category_play() { location.href = "category_drink.do?cat=play"; }
+	function category_eat() { location.href = "category_eat.do?cat=먹을거리"; }
+	function category_drink() { location.href = "category_drink.do?cat=마실거리"; }
+	function category_play() { location.href = "category_play.do?cat=즐길거리"; }
 </script>
 </head>
 

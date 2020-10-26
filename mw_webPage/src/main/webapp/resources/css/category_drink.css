@@ -66,8 +66,6 @@
 }
 
 .cardview {
-	display: flex;
-	justify-content: space-around;
 	width: 77vw;
 	padding: 5vw;
 	margin: 4vw auto;
@@ -81,10 +79,22 @@
 	margin: 28vw auto;
 	text-align: center;
 }
+.cardview h4 {
+	font-family: 'GmarketSansMedium';
+	text-align: left;
+	font-size: 4vw;
+	color: #444;
+	margin-bottom: 3vw;
+}
+.cardContainer {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
 .card {
 	box-shadow: 0 2vw 2vw 0 rgba(0, 0, 0, 0.2);
 	width: 35vw;
-	margin-bottom: 3vw;
+	margin: 3vw 1vw;
 }
 .card:hover {
 	transition: 0.7s;
@@ -112,10 +122,11 @@
 	justify-content: space-evenly;
 }
 .text_container h4 {
-	font-family: 'GmarketSansBold';
+	font-family: 'GmarketSansMedium';
 	color: #444;
 	text-align: center;
 	font-size: 4vw;
+    margin: 0;
 }
 .shop_info { 
 	display: flex;
@@ -202,6 +213,8 @@
 		font-size: 36px;
 		margin: 250px auto;
 	}
+	.cardview h4 { font-size: 24px; margin-bottom: 20px; }
+	.cardContainer { display: block; }
 	.card {
 		display: flex;
 		width: 720px;
@@ -262,7 +275,6 @@
 		object-fit: contain;
 	}
 }
-
 
 
 

@@ -34,9 +34,9 @@
 		<nav class="main_navi">
 			<ul class="navi_wrap">
 				<li><a href="mw_info.do">		명월소개	</a></li>
-				<li><a href="category_eat.do">	가게찾기	</a></li>
-				<li><a href="qna.do">			문의하기	</a></li>
-				<li><a href="admin.do">			내정보		</a></li>
+				<li><a href="category_eat.do?cat=먹을거리">	가게찾기	</a></li>
+				<!-- <li><a href="qna.do">			문의하기	</a></li> -->
+				<li><a href="admin_store.do">			내정보		</a></li>
 				<!-- <li><a id="myBtn">				내정보	</a></li> -->
 			</ul>
 		</nav>

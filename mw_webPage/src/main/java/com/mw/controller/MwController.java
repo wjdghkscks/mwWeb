@@ -65,7 +65,7 @@ public class MwController {
 		ModelAndView mv = new ModelAndView("category_eat");
 		String cat = request.getParameter("cat");
 		try {
-			if (cat.equals("eat")) {
+			if (cat.equals("먹을거리")) {
 				List<SVO> list = dao.getEat();
 				mv.addObject("list", list);
 			} else {
@@ -75,6 +75,7 @@ public class MwController {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
+		mv.addObject("category", cat);
 		return mv;
 	}
 	
@@ -84,7 +85,7 @@ public class MwController {
 		ModelAndView mv = new ModelAndView("category_drink");
 		String cat = request.getParameter("cat");
 		try {
-			if (cat.equals("drink")) {
+			if (cat.equals("마실거리")) {
 				List<SVO> list = dao.getDrink();
 				mv.addObject("list", list);
 			} else {
@@ -94,6 +95,7 @@ public class MwController {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
+		mv.addObject("category", cat);
 		return mv;
 	}
 	
@@ -103,7 +105,7 @@ public class MwController {
 		ModelAndView mv = new ModelAndView("category_play");
 		String cat = request.getParameter("cat");
 		try {
-			if (cat.equals("play")) {
+			if (cat.equals("즐길거리")) {
 				List<SVO> list = dao.getPlay();
 				mv.addObject("list", list);
 			} else {
@@ -113,6 +115,7 @@ public class MwController {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
+		mv.addObject("category", cat);
 		return mv;
 	}
 	
@@ -278,9 +281,10 @@ public class MwController {
 				svo.setS_img(svo.getFile().getOriginalFilename());
 			}
 			// 큰 카테고리 처리
-			if (svo.getS_cat_s()=="술집"||svo.getS_cat_s()=="카페") {
+			String catInput = svo.getS_cat_s();
+			if (catInput.equals("술집") || catInput.equals("카페")) {
 				svo.setS_cat_b("마실거리");
-			} else if (svo.getS_cat_s()=="PC방"||svo.getS_cat_s()=="노래방"||svo.getS_cat_s()=="스포츠"||svo.getS_cat_s() == "기타") {
+			} else if (catInput.equals("PC방")||catInput.equals("노래방")||catInput.equals("스포츠")||catInput.equals("기타")) {
 				svo.setS_cat_b("즐길거리");
 			} else {
 				svo.setS_cat_b("먹을거리");

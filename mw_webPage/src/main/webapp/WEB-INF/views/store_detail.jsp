@@ -86,10 +86,66 @@
 					<h5>공유</h5>
 				</div>
 				<div class="brief_item">
-					<img alt="search" src="/resources/images/like_before.svg" onclick="like_store()">
+					<img alt="search" src="/resources/images/like_before.svg">
 					<h5>좋아요</h5>
 				</div>
 			</div>
+			
+			<div id="myModal" class="modal">
+				<div class="modal-content">
+					<span class="close">&times;</span>
+					<h2>공유하기</h2>
+					<div class="modalIn">
+						<form method="post">
+							<div class="userInfo_container">
+								<div class="userInfo">
+									<input id="textArea" class="textArea" type="text">
+									<input id="copyBtn" class="copyBtn" type="button" value="클립보드로 복사">
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<script type="text/javascript">
+				var modal = document.getElementById("myModal");
+				var btn = document.getElementById("myBtn");
+				var span = document.getElementsByClassName("close")[0];
+				
+				var url = window.document.URL;
+				var textbox = document.getElementById("textArea");
+				var copyBtn = document.getElementById("copyBtn");
+				
+				var innerWidth = window.innerWidth;
+	
+				btn.onclick = function() {
+					if (innerWidth <= 992) {
+						modal.style.display = "block";
+						textbox.value = url;
+					} else if (innerWidth < 992) {
+						textArea_H.value = url;
+						textArea_H.select();
+						document.execCommand('copy');
+						textArea_H.setSelectionRange(0,0);
+						alert('클립보드에 현재 페이지 주소를 복사했습니다!');
+					}
+				}
+				copyBtn.onclick = function() {
+					textbox.select();
+					document.execCommand('copy');
+					textbox.setSelectionRange(0,0);
+					alert('클립보드에 현재 페이지 주소를 복사했습니다!');
+				}
+				span.onclick = function() {
+					modal.style.display = "none";
+					
+				}
+				window.onclick = function(event) {
+					if (event.target == modal) {
+						modal.style.display = "none";
+					}
+				}
+			</script>
 			
 		<hr class="only_mobile">
 		

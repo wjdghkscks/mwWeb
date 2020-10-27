@@ -31,7 +31,7 @@
 
 	<!-- DI -->
 	<bean id="dao" class="com.mw.db.DAO" autowire="byName" />
-	<bean id="paging" class="com.mw.model.Paging" />
+	<bean id="paging" class="com.mw.model.Paging" autowire="byName" />
 
 	<!-- upload -->
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">

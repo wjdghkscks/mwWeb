@@ -27,24 +27,28 @@
 .info_title h5 {
 	font-family: 'GmarketSansLight';
 	color: #aaa;
-	font-size: 2.5vw;
+	font-size: 3vw;
 }
 
 .numbers {
 	font-family: 'GmarketSansLight';
-	margin: auto 0;
-	width: 30%;
-	text-align: right;
+	display: flex;
+	flex-flow: column;
+	justify-content: space-between;
 }
-
-.numbers img {
-	width: 4vw;
+.numbers div {
+	display: flex;
+	justify-content: flex-end;
+	padding: 0.8vw 0;
 }
-
 .numbers h5 {
-	padding: 0.5vw;
+	padding-right: 0.5vw;
 	font-size: 3vw;
-	color: #777;
+	color: #777;margin: auto 0;
+}
+.numbers img { 
+    width: 3.5vw;
+    height: 3.5vw; 
 }
 
 .photos img {
@@ -217,7 +221,7 @@
 	padding: 2vw 3vw 2vw 3vw;
 }
 
-	.modal {
+	.linkModal {
 		display: none;
 		position: fixed;
 		z-index: 5;
@@ -228,7 +232,7 @@
 		overflow: auto;
 		background-color: rgba(0, 0, 0, 0.5);
 	}
-	.modal-content {
+	.linkModal_container {
 		background-color: white;
 		margin: 50vw auto;
 		padding: 5vw;
@@ -237,27 +241,27 @@
 		width: 70vw;
 		height: 32vw;
 	}
-	.modal-content h2 {
+	.linkModal h2 {
 		font-family: 'GmarketSansMedium';
 		text-align: center;
 		font-size: 8vw;
 		color: #e8a761;
 	}
-	.modalIn {
+	.linkModalIn {
 		text-align: center;
 	}
-	.userInfo_container {
+	.pageInfo_container {
 		display: flex;
 		justify-content: center;
 		width: 48vw;
 		margin: 5px auto;
 	}
-	.userInfo {
+	.pageInfo {
 		display: flex;
 		flex-flow: column;
 		margin: 2vw auto;
 	}
-	.textArea {
+	.linkArea {
 		width: 64vw;
 		margin: 0 auto;
 		font-size: 3vw;
@@ -267,26 +271,20 @@
 		border-radius: 1vw;
 		text-align: center;
 	}
-	.copyBtn {
+	.linkCopyBtn {
 		font-family:'GmarketSansMedium';
 		background-color: #e8a761;
 		color: white;
         width: 27vw;
         height: 8vw;
         padding: 2vw;
-        margin: 3vw auto;
+        margin: 5vw auto;
         font-size: 3vw;
+        border: 0.1vw solid #444;
         -webkit-appearance: none;
-	    -webkit-border-radius: 2vw;
+	    -webkit-border-radius: 1vw;
 	}
-	.socialLogin {
-		margin-top: 20px;
-	}
-	.socialLogin img {
-		width: 400px;
-		margin: 10px;
-	}
-	.close {
+	.linkCloseBtn {
 		font-family: 'GmarketSansLight';
 		color: #444;
 		float: right;
@@ -294,7 +292,7 @@
 		font-size: 5vw;
 		font-weight: bold;
 	}
-	.close:hover, .close:focus {
+	.linkCloseBtn:hover, .linkCloseBtn:focus {
 		color: #e8a761;
 		text-decoration: none;
 		cursor: pointer;
@@ -343,12 +341,16 @@
 	.info_title h5 {
 		font-size: 24px;
 	}
+	.numbers div {
+		padding: 0;
+	}
 	.numbers h5 {
 		font-size: 20px;
 		color: #777;
 	}
 	.numbers img {
 		width: 30px;
+		height: 30px;
 	}
 	.photos {
 		text-align: center;
@@ -389,86 +391,79 @@
 		font-size: 28px;
 	}
 	
-	.modal {
-		display: none;
-		position: fixed;
-		z-index: 1;
-		left: 0;
-		top: 0;
-		width: 100%;
-		height: 100%;
-		overflow: auto;
-		background-color: rgba(0, 0, 0, 0.5);
-	}
-	.modal-content {
-		background-color: white;
-		margin: 120px auto;
-		padding: 25px;
-		border: 1.5px solid #444;
-		border-radius: 20px;
-		width: 500px;
-		height: 200px;
-	}
-	.modal-content h2 {
-		text-align: center;
-		font-size: 42px;
-		color: #e8a761;
-		font-family: 'GmarketSansMedium';
-	}
-	.modalIn {
-		text-align: center;
-	}
-	.userInfo_container {
-		display: flex;
-		justify-content: center;
-		width: 420px;
-		margin: 5px auto;
-	}
-	.userInfo {
-		display: flex;
-		flex-flow: column;
-		margin: 10px auto;
-	}
-	.textArea {
-		width: 380px;
-		margin: 10px auto;
-		font-size: 18px;
-		padding: 8px 0 9px 14px;
-		border: 1px solid #777;
-		color: #777;
-		border-radius: 5px;
-	}
-	.copyBtn {
-		font-family:'GmarketSansMedium';
-		background-color: #e8a761;
-		color: white;
-        width: 200px;
-        height: 36px;
-        padding: 7px;
-        margin: 0 auto;
-        font-size: 16px;
-        -webkit-appearance: none;
-	    -webkit-border-radius: 2vw;
-	}
-	.socialLogin {
-		margin-top: 20px;
-	}
-	.socialLogin img {
-		width: 400px;
-		margin: 10px;
-	}
-	.close {
-		font-family: 'GmarketSansLight';
-		color: #444;
-		float: right;
-		font-size: 36px;
-		font-weight: bold;
-	}
-	.close:hover, .close:focus {
-		color: #e8a761;
-		text-decoration: none;
-		cursor: pointer;
-	}
+		.linkModal {
+			display: none;
+			position: fixed;
+			z-index: 5;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			overflow: auto;
+			background-color: rgba(0, 0, 0, 0.5);
+		}
+		.linkModal_container {
+			background-color: white;
+			margin: 120px auto;
+			padding: 25px;
+			border: 1.5px solid #444;
+			border-radius: 20px;
+			width: 500px;
+			height: 200px;
+		}
+		.linkModal_container h2 {
+			text-align: center;
+			font-size: 42px;
+			color: #e8a761;
+			font-family: 'GmarketSansMedium';
+		}
+		.linkModalIn {
+			text-align: center;
+		}
+		.pageInfo_container {
+			display: flex;
+			justify-content: center;
+			width: 420px;
+			margin: 5px auto;
+		}
+		.pageInfo {
+			display: flex;
+			flex-flow: column;
+			margin: 10px auto;
+		}
+		.linkArea {
+			width: 380px;
+			margin: 10px auto;
+			font-size: 18px;
+			padding: 8px 0 9px 2px;
+			border: 1px solid #777;
+			color: #777;
+			border-radius: 5px;
+		}
+		.linkCopyBtn {
+			font-family:'GmarketSansMedium';
+			background-color: #e8a761;
+			color: white;
+	        width: 200px;
+	        height: 36px;
+	        padding: 8px;
+	        margin: 10px auto;
+	        font-size: 16px;
+	        -webkit-appearance: none;
+		    -webkit-border-radius: 3px;
+		}
+		.linkCloseBtn {
+			font-family: 'GmarketSansLight';
+			color: #444;
+			float: right;
+			font-size: 36px;
+			font-weight: bold;
+		}
+		.linkCloseBtn:hover, .linkCloseBtn:focus {
+			color: #e8a761;
+			text-decoration: none;
+			cursor: pointer;
+		}
 	
 	.store_info {
 		padding: 20px 40px;

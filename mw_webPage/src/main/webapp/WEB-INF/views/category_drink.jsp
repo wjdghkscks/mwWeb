@@ -37,13 +37,13 @@
 	<div id="cardview" class="cardview">
 		<c:choose>
 			<c:when test="${empty list}">
-				<h4> 카테고리 : ${category} </h4>
+				<h4> #${category} </h4>
 				<div class="noRes">
 					<p> 표시할 결과가 없습니다. </p>
 				</div>
 			</c:when>
 			<c:otherwise>
-				<h4> 카테고리 : ${category} </h4>
+				<h4> #${category} </h4>
 				<div class="cardContainer">
 					<c:forEach var="k" items="${list}">
 						<div class="card" onclick="location.href='store_detail.do?s_idx=${k.s_idx}'">

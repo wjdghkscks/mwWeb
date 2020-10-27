@@ -8,6 +8,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>명월-명지월드의 모든 것</title>
+<!-- favicon -->
+<link rel="shortcut icon" href="/resources/images/mw_favicon.ico" type="image/x-icon">
+<link rel="icon" href="/resources/images/mw_favicon.ico" type="image/x-icon">
+<!-- css -->
 <link rel="stylesheet" type="text/css" href="/resources/css/main.css">
 <link rel="stylesheet" type="text/css" href="/resources/css/resetAll.css">
 <!-- slick css -->

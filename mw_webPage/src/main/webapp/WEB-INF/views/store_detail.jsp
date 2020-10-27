@@ -43,16 +43,16 @@
 				</div>
 				<div class="numbers">
 					<div>
-						<h5>${svo.s_like}&nbsp;
-						<img alt="like" src="/resources/images/like.svg"></h5>
+						<h5>${svo.s_like}&nbsp;</h5>
+						<img alt="like" src="/resources/images/like.svg">
 					</div>
 					<div>
-						<h5>${svo.s_comment}&nbsp;
-						<img alt="write" src="/resources/images/write.svg"></h5>
+						<h5>${svo.s_comment}&nbsp;</h5>
+						<img alt="write" src="/resources/images/write.svg">
 					</div>
 					<div>
-						<h5>${svo.s_view}&nbsp;
-						<img alt="view" src="/resources/images/watch.svg"></h5>
+						<h5>${svo.s_view}&nbsp;</h5>
+						<img alt="view" src="/resources/images/watch.svg">
 					</div>
 				</div>
 			</div>
@@ -81,7 +81,7 @@
 					<img alt="search" src="/resources/images/kakaomap_favicon.ico">
 					<h5>카카오맵</h5>
 				</div>
-				<div class="brief_item" id="myBtn">
+				<div id="linkModalBtn" class="brief_item">
 					<img alt="search" src="/resources/images/share.svg">
 					<h5>공유</h5>
 				</div>
@@ -91,50 +91,44 @@
 				</div>
 			</div>
 			
-			<div id="myModal" class="modal">
-				<div class="modal-content">
-					<span class="close">&times;</span>
+			<div id="linkModal" class="linkModal">
+				<div class="linkModal_container">
+					<span class="linkCloseBtn">&times;</span>
 					<h2>공유하기</h2>
-					<div class="modalIn">
+					<div class="linkModalIn">
 						<form method="post">
-							<div class="userInfo_container">
-								<div class="userInfo">
-									<input id="textArea" class="textArea" type="text">
-									<input id="copyBtn" class="copyBtn" type="button" value="클립보드로 복사">
+							<div class="pageInfo_container">
+								<div class="pageInfo">
+									<input id="linkArea" class="linkArea" type="text">
+									<input id="linkCopyBtn" class="linkCopyBtn" type="button" value="클립보드로 복사">
 								</div>
 							</div>
 						</form>
 					</div>
 				</div>
 			</div>
+			
+			<!-- 공유 링크 Modal -->
 			<script type="text/javascript">
-				var modal = document.getElementById("myModal");
-				var btn = document.getElementById("myBtn");
-				var span = document.getElementsByClassName("close")[0];
+				var modal = document.getElementById("linkModal");
+				var btn = document.getElementById("linkModalBtn");
+				var span = document.getElementsByClassName("linkCloseBtn")[0];
 				
 				var url = window.document.URL;
-				var textbox = document.getElementById("textArea");
-				var copyBtn = document.getElementById("copyBtn");
+				var linkBox = document.getElementById("linkArea");
+				var copyBtn = document.getElementById("linkCopyBtn");
 				
 				var innerWidth = window.innerWidth;
 	
 				btn.onclick = function() {
-					if (innerWidth <= 992) {
-						modal.style.display = "block";
-						textbox.value = url;
-					} else if (innerWidth < 992) {
-						textArea_H.value = url;
-						textArea_H.select();
-						document.execCommand('copy');
-						textArea_H.setSelectionRange(0,0);
-						alert('클립보드에 현재 페이지 주소를 복사했습니다!');
-					}
+					modal.style.display = "block";
+					linkBox.value = url;
 				}
 				copyBtn.onclick = function() {
-					textbox.select();
+					linkBox.select();
 					document.execCommand('copy');
-					textbox.setSelectionRange(0,0);
-					alert('클립보드에 현재 페이지 주소를 복사했습니다!');
+					linkBox.setSelectionRange(0,0);
+					alert('현재 페이지의 주소를 클립보드에 복사했습니다.');
 				}
 				span.onclick = function() {
 					modal.style.display = "none";

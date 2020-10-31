@@ -4,7 +4,7 @@
 	display: flex;
 	justify-content: center;
 	width: 90%;
-	margin: 5vw auto 0 auto;
+	margin: 3vw auto 0 auto;
 }
 .bigChoice {
 	background-color: #e8a761;
@@ -32,7 +32,7 @@
 
 .smallCategory {
 	width: 90%;
-	margin: 1vw auto;
+	margin: 0 auto;
 	overflow: auto;
 	/* safari scrolling */
 	-webkit-overflow-scrolling: touch;
@@ -104,7 +104,8 @@
 .card img { 
 	width: 35vw;
 	height: 35vw;
-	object-fit: cover; 
+	object-fit: cover;
+	image-orientation: from-image;
 }
 .texts {
 	display: flex;

@@ -7,6 +7,10 @@
 <head>
 <meta charset="UTF-8">
 <title>명월 소개</title>
+<!-- favicon -->
+<link rel="shortcut icon" href="/resources/images/mw_favicon.ico" type="image/x-icon">
+<link rel="icon" href="/resources/images/mw_favicon.ico" type="image/x-icon">
+<!-- CSS -->
 <link rel="stylesheet" type="text/css" href="/resources/css/mw_info.css">
 <link rel="stylesheet" type="text/css" href="/resources/css/resetAll.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

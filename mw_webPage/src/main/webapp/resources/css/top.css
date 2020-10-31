@@ -81,6 +81,9 @@
 		display: flex;
 		justify-content: space-between;
 	}
+	.navi_wrap a {
+		cursor: pointer;
+	}
 	.navi_wrap a:hover {
 		color: #e8a761;
 	}

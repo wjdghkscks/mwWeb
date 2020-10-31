@@ -11,6 +11,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>가게 상세</title>
+<!-- favicon -->
+<link rel="shortcut icon" href="/resources/images/mw_favicon.ico" type="image/x-icon">
+<link rel="icon" href="/resources/images/mw_favicon.ico" type="image/x-icon">
+<!-- CSS -->
 <link rel="stylesheet" type="text/css" href="/resources/css/store_detail.css">
 <link rel="stylesheet" type="text/css" href="/resources/css/resetAll.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -24,6 +28,11 @@
 	function kMap_search() {
 		var k_url = "https://map.kakao.com/link/search/${svo.s_location}";
 		newPage = window.open(k_url);
+	}
+	function search_hash(f) {
+		var keyWord = f.keyWord.value;
+		f.action = "search.do";
+		f.submit();
 	}
 </script>
 </head>
@@ -67,7 +76,8 @@
 				<c:set var="hash" value="${fn:split(svo.s_hashtag, '+')}"></c:set>
 				<c:forEach var="item" items="${hash}">
 					<form>
-						<div class="hash_item"> ${item} </div>
+						<input class="hash_item" type="button" value="${item}" onclick="search_hash(this.form)">
+						<input class="hash_item" type="hidden" name="keyWord" value="${item}">
 					</form>
 				</c:forEach>
 			</div>

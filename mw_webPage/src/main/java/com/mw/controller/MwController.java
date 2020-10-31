@@ -40,8 +40,7 @@ public class MwController {
 	
 	@RequestMapping("mw_info.do")
 	public ModelAndView mwInfoCommand() {
-		ModelAndView mv = new ModelAndView("mw_info");
-		return mv;
+		return new ModelAndView("mw_info");
 	}
 	
 	// 검색
@@ -188,20 +187,6 @@ public class MwController {
 		return new ModelAndView("user_info");
 	}
 	
-	@RequestMapping("my_info.do")
-	public ModelAndView loginCommand() {
-		return new ModelAndView("login");
-	}
-	@RequestMapping("my_like.do")
-	public ModelAndView myLikeCommand() {
-		return new ModelAndView("my_like");
-	}
-	
-	@RequestMapping("my_review.do")
-	public ModelAndView myReviewCommand() {
-		return new ModelAndView("my_review");
-	}
-	
 	// 관리자 페이지
 	@RequestMapping("admin.do")
 	public ModelAndView adminCommand() {
@@ -271,8 +256,9 @@ public class MwController {
 	public ModelAndView adminStoreAddOkCommand(HttpServletRequest request, SVO svo) {
 		
 		ModelAndView mv = new ModelAndView("redirect:admin_store.do");
+
 		try {
-			// 파일 처리
+			// 파일 이름 처리
 			String path = request.getSession().getServletContext().getRealPath("/resources/images");
 			MultipartFile file = svo.getFile();
 			if (file.isEmpty()) {

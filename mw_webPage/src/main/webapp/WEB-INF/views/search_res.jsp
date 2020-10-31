@@ -10,6 +10,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>가게 검색</title>
+<!-- favicon -->
+<link rel="shortcut icon" href="/resources/images/mw_favicon.ico" type="image/x-icon">
+<link rel="icon" href="/resources/images/mw_favicon.ico" type="image/x-icon">
+<!-- CSS -->
 <link rel="stylesheet" type="text/css" href="/resources/css/search_res.css">
 <link rel="stylesheet" type="text/css" href="/resources/css/resetAll.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -94,7 +98,7 @@
 							<h4><b>${k.s_name}</b></h4>
 							<div class="texts">
 								<c:set var="hash" value="${fn:split(k.s_hashtag, '+')}"></c:set>
-								<c:forEach var="item" end="2" items="${hash}">
+								<c:forEach var="item" end="1" items="${hash}">
 									${item}
 								</c:forEach>
 							</div>

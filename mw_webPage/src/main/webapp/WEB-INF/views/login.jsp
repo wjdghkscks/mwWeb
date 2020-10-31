@@ -11,6 +11,10 @@
 <head>
 <meta charset="UTF-8">
  <title>카카오 로그인</title>
+ <!-- favicon -->
+<link rel="shortcut icon" href="/resources/images/mw_favicon.ico" type="image/x-icon">
+<link rel="icon" href="/resources/images/mw_favicon.ico" type="image/x-icon">
+<!-- CSS -->
 </head>
 
 <body>

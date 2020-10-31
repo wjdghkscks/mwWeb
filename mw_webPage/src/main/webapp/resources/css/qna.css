@@ -82,14 +82,14 @@
 	}
 	.list_title input {
 		font-size: 38px;
-		border: 3px solid #e8a761;
+		border: 1.5px solid #e8a761;
 		border-radius: 10px;
 		width: 863px;
 		padding: 18px;
 		margin: 20px 0 0 0;
 	}
 	.list_title input:hover {
-		border: 3px solid #e8a761;
+		border: 1.5px solid #e8a761;
 		background-color: white;
 		color: #e8a761;
 	}

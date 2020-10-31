@@ -8,6 +8,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>검색하기</title>
+<!-- favicon -->
+<link rel="shortcut icon" href="/resources/images/mw_favicon.ico" type="image/x-icon">
+<link rel="icon" href="/resources/images/mw_favicon.ico" type="image/x-icon">
+<!-- CSS -->
 <link rel="stylesheet" type="text/css" href="/resources/css/resetAll.css">
 <link rel="stylesheet" type="text/css" href="/resources/css/search_main.css">
 <script type="text/javascript">

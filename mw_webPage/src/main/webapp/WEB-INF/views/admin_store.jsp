@@ -7,6 +7,10 @@
 <head>
 <meta charset="UTF-8">
 <title> 가게 관리 </title>
+<!-- favicon -->
+<link rel="shortcut icon" href="/resources/images/mw_favicon.ico" type="image/x-icon">
+<link rel="icon" href="/resources/images/mw_favicon.ico" type="image/x-icon">
+<!-- CSS -->
 <link rel="stylesheet" type="text/css" href="/resources/css/admin_store.css">
 <link rel="stylesheet" type="text/css" href="/resources/css/resetAll.css">
 <script type="text/javascript">

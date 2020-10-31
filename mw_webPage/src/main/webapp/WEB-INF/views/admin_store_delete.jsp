@@ -8,6 +8,10 @@
 <head>
 <meta charset="UTF-8">
 <title>관리자 페이지 - 가게 삭제</title>
+<!-- favicon -->
+<link rel="shortcut icon" href="/resources/images/mw_favicon.ico" type="image/x-icon">
+<link rel="icon" href="/resources/images/mw_favicon.ico" type="image/x-icon">
+<!-- CSS -->
 <link rel="stylesheet" type="text/css" href="/resources/css/admin_store_delete.css">
 <link rel="stylesheet" type="text/css" href="/resources/css/resetAll.css">
 <script type="text/javascript">

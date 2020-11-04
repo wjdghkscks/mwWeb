@@ -18,7 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class MyCallBack {
 
-	@RequestMapping("login.do")
+	@RequestMapping("kakaoAdd.do")
 	public ModelAndView callBack(HttpServletRequest request) {
 		
 		// 1. 인증 코드 받기
@@ -33,28 +33,28 @@ public class MyCallBack {
 			URL url = new URL(reqURL);
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			
-			// POST 요청을 위해 기본값이 false인 setDoOutput을 true로
+			// POST 요청 - setDoOutput 를 true 로 설정 (기본값: false)
 			conn.setRequestMethod("POST");
 			conn.setDoOutput(true);
 
-			// POST 요청에 필요로 요구하는 파라미터 스트림을 통해 전송
+			// POST 요청 - 필요한 Parameter BufferedWriter 로 전송
 			BufferedWriter bw = 
 					new BufferedWriter(
 							new OutputStreamWriter(
 									conn.getOutputStream()));
 			StringBuilder sb = new StringBuilder();
 			sb.append("grant_type=authorization_code");
-			sb.append("&client_id=3b4a6321cd8a2b5b3c9ab33e7ed7e322");
-			sb.append("&redirect_uri=http://localhost:8090/login.do");
+			sb.append("&client_id=7fa4c79b1a602921cf1ed184bbf652c0");
+			sb.append("&redirect_uri=http://localhost:8090/kakaoAdd.do");
 			sb.append("&code=" + code);
 			bw.write(sb.toString());
 			bw.flush();
 
 			// 결과 코드가 200이라면 성공
 			int responseCode = conn.getResponseCode();
-			// System.out.println("responseCode : " + responseCode);
+			System.out.println("responseCode : " + responseCode);
 
-			// 요청을 통해 얻은 JSON타입의 Response 메세지 읽어오기
+			// JSON 타입의 Response
 			BufferedReader br = 
 					new BufferedReader(
 							new InputStreamReader(
@@ -68,7 +68,7 @@ public class MyCallBack {
 			br.close();
 			bw.close();
 
-			// System.out.println(result);
+			System.out.println(result);
 
 			JSONParser parsing = new JSONParser();
 			Object obj = parsing.parse(result.toString());
@@ -79,10 +79,10 @@ public class MyCallBack {
 			request.getSession().setAttribute("access_token", access_token);
 			request.getSession().setAttribute("refresh_token", refresh_token);
 
-			// System.out.println("access_token : " + access_token);
+			System.out.println("access_token : " + access_token);
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		return new ModelAndView("result");
+		return new ModelAndView("AddComplete");
 	}
 }

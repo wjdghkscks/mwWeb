@@ -153,6 +153,7 @@
 		.socialLogin img {
 			width: 400px;
 			margin: 10px;
+			cursor: pointer;
 		}
 		.close {
 			font-family: 'GmarketSansLight';

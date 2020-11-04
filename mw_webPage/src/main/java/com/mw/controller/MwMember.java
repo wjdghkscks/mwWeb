@@ -17,11 +17,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class MyMember {
+public class MwMember {
 	@RequestMapping(value = "member.do", produces = "text/html; charset=utf-8")
 	@ResponseBody
 	private String memberChk(HttpSession session) {
-		String access_token = (String)session.getAttribute("access_token");
+		String access_token = (String) session.getAttribute("access_token");
 		String token = access_token;
 		String header = "Bearer " + token; 
 		String apiURL = "https://kapi.kakao.com/v2/user/me";
@@ -44,9 +44,11 @@ public class MyMember {
 	        }
 
 	        int responseCode = con.getResponseCode();
-	        if (responseCode == HttpURLConnection.HTTP_OK) { // 정상 호출
+	        if (responseCode == HttpURLConnection.HTTP_OK) { 
+	        	// 정상 호출
 	            return readBody(con.getInputStream());
-	        } else { // 에러 발생
+	        } else { 
+	        	// 에러 발생
 	            return readBody(con.getErrorStream());
 	        }
 	    } catch (IOException e) {
@@ -55,6 +57,7 @@ public class MyMember {
 	        con.disconnect();
 	    }
 	}
+	
 	private static HttpURLConnection connect(String apiUrl){
 	    try {
 	        URL url = new URL(apiUrl);
@@ -65,18 +68,16 @@ public class MyMember {
 	        throw new RuntimeException("연결이 실패했습니다. : " + apiUrl, e);
 	    }
 	}
-	private static String readBody(InputStream body){
+	
+	private static String readBody(InputStream body) {
 	    InputStreamReader streamReader = new InputStreamReader(body);
-
-	    try (BufferedReader lineReader 
-	    		= new BufferedReader(streamReader)) {
-	        StringBuilder responseBody = new StringBuilder();
-
+	    try (BufferedReader lineReader = new BufferedReader(streamReader)) {
+	        
+	    	StringBuilder responseBody = new StringBuilder();
 	        String line;
 	        while ((line = lineReader.readLine()) != null) {
 	            responseBody.append(line);
 	        }
-
 	        return responseBody.toString();
 	    } catch (IOException e) {
 	        throw new RuntimeException("API 응답을 읽는데 실패했습니다.", e);

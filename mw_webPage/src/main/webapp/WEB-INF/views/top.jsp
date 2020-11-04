@@ -11,11 +11,14 @@
 <link rel="stylesheet" type="text/css" href="/resources/css/resetAll.css">
 <script type="text/javascript">
 	function userLogin_go(f) {
-		f.action = "";
+		f.action = "userLogin.do";
 		f.submit();
 	}
+	function emailAdd_go() {
+		location.href = "memberAdd.do";
+	}
 	function kakaoAdd_go() {
-		location.href = "kakaoLogin.do";
+		location.href = "https://kauth.kakao.com/oauth/authorize?client_id=7fa4c79b1a602921cf1ed184bbf652c0&redirect_uri=http://localhost:8090/kakaoAdd.do&response_type=code&state=mjworld2020";
 	}
 </script>
 </head>
@@ -55,7 +58,7 @@
 							<div class="loginBtn" onclick="userLogin_go(this.form)">로그인</div>
 						</div>
 						<div class="socialLogin">
-							<div><img alt="emailAdd" src="/resources/images/email_add_btn.png" onclick="kakaoAdd_go()"></div>
+							<div><img alt="emailAdd" src="/resources/images/email_add_btn.png" onclick="emailAdd_go()"></div>
 							<div><img alt="kakaoAdd" src="/resources/images/kakao_add_btn.png" onclick="kakaoAdd_go()"></div>
 						</div>
 					</form>

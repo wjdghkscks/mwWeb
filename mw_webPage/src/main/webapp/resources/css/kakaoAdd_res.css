@@ -7,14 +7,17 @@ article h2 {
 	text-align: center;
 	margin: 5vw auto 0 auto;
 }
+
 .addInfo {
+	opacity: 0;
 	text-align: center;
-	border: 0.3vw solid #777;
+	border: 0.2vw solid #777;
 	border-radius: 1vw;
-	width: 80vw;
+	width: 60vw;
 	padding: 3vw;
 	margin: 5vw auto;
 }
+
 .addInfo img {
 	width: 50vw;
 	height: 50vw;
@@ -24,45 +27,55 @@ article h2 {
 	object-fit: cover;
 	image-orientation: from-image;
 }
+
 .addInfo h4 {
 	font-family: 'GmarketSansMedium';
 	font-size: 7vw;
 	color: #555;
 }
+
 .addInfo p {
 	font-family: 'GmarketSansLight';
 	font-size: 3vw;
 	color: #aaa;
 }
-.menu_item {
-	margin: 7vw auto;
+
+.addRes {
+	opacity: 0;
 	text-align: center;
+	color: #e8a761;
+	margin: 9vw;
 }
-.menu_item input {
-	border: 0.3vw solid #777;
-	border-radius: 1vw;
-	background-color: white;
+.addRes p {
+	font-family: 'GmarketSansLight';
+	font-size: 5vw;
+	margin: 1.5vw;
+}
+.addRes span {
 	font-family: 'GmarketSansMedium';
 	font-size: 6vw;
-	color: #555;
-	width: 86.5vw;
-	padding: 3vw;
+}
+.addRes button {
+	background-color: #e8a761;
+	border: 0.2vw solid #e8a761;
+	border-radius: 1vw;
+	font-family: 'GmarketSansMedium';
+	font-size: 5vw;
+	color: white;
+	padding: 2vw 3vw;
+	margin: 5vw;
 	transition: 0.3s;
 	cursor: pointer;
 }
-.menu_item input:hover {
-	background-color: #e8a761;
-	color: white;
-	border-color: #e8a761;
+.addRes button:hover {
+	background-color: white;
+	color: #e8a761;
 }
 
 /* 576px 이상 tablet */
 @media ( min-width : 576px) {
 	article h2 {
 		font-size: 7vw;
-	}
-	.addInfo {
-		border: 0.2vw solid #777;
 	}
 	.addInfo img {
 		width: 40vw;
@@ -75,13 +88,19 @@ article h2 {
 	.addInfo p {
 		font-size: 2vw;
 	}
-	.menu_item {
-		margin: 6vw auto;
+	.addRes {
+		margin: 5vw;
 	}
-	.menu_item input {
-		border: 0.2vw solid #777;
-		font-size: 5vw;
-		padding: 2vw;
+	.addRes p {
+		margin: 1vw;
+	}
+	.addRes span {
+		font-size: 3.5vw;
+	}
+	.addRes button {
+		border: 0.1vw solid #e8a761;
+		font-size: 4vw;
+		margin: 3vw;
 	}
 }
 
@@ -89,18 +108,18 @@ article h2 {
 @media ( min-width : 992px) {
 	article h2 {
 		font-size: 64px;
-		margin: 24px auto 0 auto;
+		margin: 36px auto 0 auto;
 	}
 	.addInfo {
 		border: 1px solid #777;
 		border-radius: 5px;
-		width: 800px;
+		width: 600px;
 		padding: 20px 0 40px 0;
 		margin: 30px auto;
 	}
 	.addInfo img {
-		width: 200px;
-		height: 200px;
+		width: 300px;
+		height: 300px;
 		border: 1px solid #777;
 		border-radius : 200px;
 		margin: 30px auto;
@@ -111,14 +130,22 @@ article h2 {
 	.addInfo p {
 		font-size: 18px;
 	}
-	.menu_item {
-		margin: 30px auto;
+	.addRes {
+		margin: 0;
 	}
-	.menu_item input {
-		border: 1px solid #777;
-		border-radius: 6px;
-		font-size: 48px;
-		width: 805px;
-		padding: 15px;
+	.addRes p {
+		font-size: 32px;
+		margin: 16px;
 	}
+	.addRes span {
+		font-size: 36px;
+	}
+	.addRes button {
+		border: 1px solid #e8a761;
+		border-radius: 5px;
+		font-size: 28px;
+		padding: 16px 24px;
+		margin: 10px;
+	}
+	
 }

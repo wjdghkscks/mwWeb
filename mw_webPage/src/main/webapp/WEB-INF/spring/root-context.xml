@@ -16,7 +16,7 @@
         <property name="driverClass" value="org.mariadb.jdbc.Driver" />
         <property name="url" value="jdbc:mariadb://localhost:3306/mw_database" />
         <property name="username" value="root"></property>
-        <property name="password" value="mariadb7963"></property>
+        <property name="password" value="maria7963"></property>
     </bean>
 
 	<!-- config.xml -->
@@ -61,5 +61,5 @@
 		<property name="poolPreparedStatements" value="true" />
 		<property name="maxOpenPreparedStatements" value="50" />
 	</bean>
-
+	
 </beans>

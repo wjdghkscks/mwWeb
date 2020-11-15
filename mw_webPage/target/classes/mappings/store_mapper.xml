@@ -3,6 +3,32 @@
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mw_database">
+
+	<select id="kakaoIdChk" parameterType="String" resultType="Integer">
+		SELECT count(*) 
+		FROM mw_database.mw_members 
+		WHERE m_id = #{m_id} AND m_sns = '카카오'
+	</select>
+
+	<insert id="kakaoAdd" parameterType="mvo">
+		INSERT INTO 
+		mw_database.mw_members 
+		VALUES(m_idx, #{m_sns}, #{m_id}, #{m_email}, 
+				#{m_nickname}, #{m_profile_img}, #{m_thumbnail_img}, 
+				#{m_age_range}, #{m_gender}, SYSDATE())
+	</insert>
+	
+	<select id="kakaoLogin" parameterType="String" resultType="mvo">
+		SELECT * 
+		FROM mw_database.mw_members 
+		WHERE m_sns = '카카오' AND m_id = #{m_id}
+	</select>
+	
+	<select id="hotList" resultType="svo">
+		SELECT * 
+		FROM mw_database.mw_stores 
+		ORDER BY s_view desc
+	</select>
  
  	<select id="totalCount" resultType="int">
 		SELECT count(*) 

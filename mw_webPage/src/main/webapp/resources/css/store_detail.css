@@ -65,7 +65,7 @@
 
 .hash_item {
 	font-family: 'GmarketSansMedium';
-	padding: 2.5vw 5vw 2vw 5vw;
+	padding: 2.5vw 4vw 2vw 4vw;
 	margin: 3vw 1vw;
 	text-align: center;
 	font-size: 3.5vw;
@@ -75,7 +75,14 @@
 	border-radius: 10px;
 	-webkit-appearance: none;
 	-webkit-border-radius: 2vw;
+	transition: 0.3s;
 	cursor: pointer;
+}
+
+.hash_item:hover {
+	background-color: #e8a761;
+	color: white;
+	border-color: #e8a761;
 }
 
 .brief {
@@ -129,7 +136,7 @@
 }
 
 .store_info b {
-	font-family: 'GmarketSansBold';
+	font-family: 'GmarketSansMedium';
 	font-size: 4vw;
 }
 
@@ -370,14 +377,9 @@
 	.hash_item {
 		margin: 20px 20px 0 0;
 		font-size: 24px;
-		padding: 10px 20px;
+		padding: 10px 20px 8px 18px;
 		border-radius: 8px;
 		transition: 0.3s;
-	}
-	.hash_item:hover {
-		background-color: #e8a761;
-		color: white;
-		border-color: #e8a761;
 	}
 	.brief {
 		padding: 0 80px;
@@ -436,7 +438,7 @@
 			margin: 10px auto;
 		}
 		.linkArea {
-			width: 380px;
+			width: 420px;
 			margin: 10px auto;
 			font-size: 18px;
 			padding: 8px 0 9px 2px;
@@ -447,14 +449,21 @@
 		.linkCopyBtn {
 			font-family:'GmarketSansMedium';
 			background-color: #e8a761;
+			border: 1px solid #777;
 			color: white;
 	        width: 200px;
 	        height: 36px;
 	        padding: 8px;
 	        margin: 10px auto;
 	        font-size: 16px;
+	        transition: 0.7s;
 	        -webkit-appearance: none;
 		    -webkit-border-radius: 3px;
+		}
+		.linkCopyBtn:hover {
+			background-color: white;
+			color: #e8a761;
+			cursor: pointer;
 		}
 		.linkCloseBtn {
 			font-family: 'GmarketSansLight';
@@ -501,7 +510,8 @@
 	.kMap {
 		width: 800px;
 		height: 500px;
-		border-radius: 20px;
+		border: 1px solid #999;
+		border-radius: 5px;
 	}
 	.store_map img {
 		border-radius: 15px;

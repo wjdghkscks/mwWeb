@@ -6,6 +6,7 @@
 	<!-- 별칭 사용 -->
 	<typeAliases>
 		<typeAlias type="com.mw.db.SVO" alias="svo" />
+		<typeAlias type="com.mw.db.MVO" alias="mvo" />
 	</typeAliases>
 	<mappers>
 		<mapper resource="mappings/store_mapper.xml" />

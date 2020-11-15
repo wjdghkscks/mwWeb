@@ -17,7 +17,26 @@ public class DAO {
 	
 // DB 처리 ↓↓↓
 	
-	// 전체 게시물 수
+	// 아이디 중복 체크
+	public int getIdChk(String m_id) throws Exception {
+		int idChkRes = 0;
+		idChkRes = sqlSessionTemplate.selectOne("kakaoIdChk", m_id);
+		return idChkRes;
+	}
+	
+	// 카카오 회원가입
+	public void getkakaoMemberAdd(MVO mvo) throws Exception {
+		sqlSessionTemplate.insert("kakaoAdd", mvo);
+	}
+	
+	// 카카오 로그인
+	public MVO getKakaoLogin(String m_id) throws Exception {
+		MVO login_id = null;
+		login_id = sqlSessionTemplate.selectOne("kakaoLogin", m_id);
+		return login_id;
+	}
+	
+	// 관리자 페이지 - 전체 게시물 수
 	public int getTotalCount() throws Exception {
 		int res = 0;
 		res = sqlSessionTemplate.selectOne("totalCount");		
@@ -59,6 +78,13 @@ public class DAO {
 	// 관리자 페이지 - 가게 정보 삭제
 	public void getDeleteStore(String s_idx) {
 		sqlSessionTemplate.delete("adminDelete", s_idx);
+	}
+	
+	// 메인 페이지 - 인기 리스트
+	public List<SVO> getHotList() {
+		List<SVO> list = null;
+		list = sqlSessionTemplate.selectList("hotList");
+		return list;
 	}
 	
 	// 검색어

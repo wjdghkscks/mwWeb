@@ -12,24 +12,42 @@ import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.mw.db.MVO;
+
 @RestController
-public class MwMember {
-	@RequestMapping(value = "member.do", produces = "text/html; charset=utf-8")
+public class KakaoMember {
+	@RequestMapping(value = "k_member.do", produces = "text/html; charset=utf-8")
 	@ResponseBody
 	private String memberChk(HttpSession session) {
-		String access_token = (String) session.getAttribute("access_token");
-		String token = access_token;
-		String header = "Bearer " + token; 
+		String access_token = (String)session.getAttribute("access_token");
+		String refresh_token = (String)session.getAttribute("refresh_token");
+		String header = "Bearer " + access_token; 
 		String apiURL = "https://kapi.kakao.com/v2/user/me";
 
 		Map<String, String> requestHeaders = new HashMap<String, String>();
 		requestHeaders.put("Authorization", header);
-		String responseBody = get(apiURL,requestHeaders);
-
+		String responseBody = get(apiURL, requestHeaders);
+		
+		// JSON parsing
+		try {
+			JSONParser parsing = new JSONParser();
+			Object obj = parsing.parse(responseBody.toString());
+			JSONObject jsonobj = (JSONObject) obj;
+			
+			String m_id = jsonobj.get("id").toString();
+			session.setAttribute("m_id", m_id);
+			System.out.println("m_id : " + m_id);
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		System.out.println("responseBody : " + responseBody);
 		return responseBody;
 	}
 	

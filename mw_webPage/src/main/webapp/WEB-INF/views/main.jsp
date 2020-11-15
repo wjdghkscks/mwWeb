@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!DOCTYPE html>
 <html>
@@ -41,7 +42,9 @@
 </head>
 
 <body>
-	<div><jsp:include page="top.jsp" /></div>
+	<header>
+		<jsp:include page="top.jsp" />
+	</header>
 	
 	<!-- slick -->
 	<script type="text/javascript">
@@ -62,7 +65,7 @@
 		});
 	</script>
 		
-	<div class="wrap-all">
+	<article class="wrap-all">
 		<!-- 슬라이드 배너 -->
 		<div class="banner_container">
 			<div class="main_banner">
@@ -102,13 +105,6 @@
 	
 			<div id="modal" class="search_modal">
 				<div id="popUpContent" class="search-bar-click" style="display: none;">
-					<div class="prev_search">
-						<!-- *cookie 정보 처리 필요 -->
-						<h5>검색 기록</h5>
-						<p>검색어1</p>
-						<p>검색어2</p>
-						<p>검색어3</p>
-					</div>
 					<div class="want_search">
 						<h5>추천 검색어</h5>
 						<p>검색어1</p>
@@ -127,69 +123,33 @@
 		</div>
 		
 		<!-- 가게 리스트 -->
-		<c:choose>
-			<c:when test="${empty thisTimeView}">
-				<div class="story">
-					<h3> 추천 리스트 </h3>
-				</div>
-				<div class="cardview">
-					<div class="card" onclick="location.href='store_detail.do?store_idx=${k.store_idx}'">
-						<img alt="shop" src="/resources/images/shop.png">
-						<div class="text_container">
-							<h4><b>가게이름</b></h4>
-							<p>#tag1 #tag2</p>
-							<div class="shop_info">
-								<img alt="like" src="/resources/images/like.svg">
-								<h5>132</h5>
-								<img alt="like" src="/resources/images/write.svg">
-								<h5>27</h5>
-								<img alt="like" src="/resources/images/watch.svg">
-								<h5>1,054</h5>
-							</div> <!-- shop_info -->
-						</div> <!-- text-container -->
-					</div> <!-- card -->
-					<div class="card" onclick="location.href='store_detail.do?store_idx=${k.store_idx}'">
-						<img alt="shop" src="/resources/images/shop.png">
-						<div class="text_container">
-							<h4><b>가게이름</b></h4>
-							<p>#tag1 #tag2</p>
-							<div class="shop_info">
-								<img alt="like" src="/resources/images/like.svg">
-								<h5>132</h5>
-								<img alt="like" src="/resources/images/write.svg">
-								<h5>27</h5>
-								<img alt="like" src="/resources/images/watch.svg">
-								<h5>1,054</h5>
-							</div> <!-- shop_info -->
-						</div> <!-- text-container -->
-					</div> <!-- card -->
-				</div> <!-- cardview -->
-			</c:when>
-			<c:otherwise>
-				<c:forEach var="k" items="${thisTimeView}">
-					<div class="story">
-						<h3> 최근 본 가게 </h3>
-					</div>
-					<div class="cardview">
-						<div class="card" onclick="location.href='store_detail.do?store_idx=${k.store_idx}'">
-							<img alt="shop" src="/resources/images/${k.store_img}">
-							<div class="text_container">
-								<h4><b>${k.store_name}</b></h4>
-								<p>${k.store_sub}</p>
-								<div class="shop_info">
-									<img alt="like" src="/resources/images/like.svg">
-									<h5>${k.store_like}</h5>
-									<img alt="like" src="/resources/images/write.svg">
-									<h5>${k.store_comment}</h5>
-									<img alt="like" src="/resources/images/watch.svg">
-									<h5>${k.store_view}</h5>
-								</div> <!-- shop_info -->
-							</div> <!-- text-container -->
-						</div> <!-- card -->
-					</div> <!-- cardview -->
-				</c:forEach>
-			</c:otherwise>
-		</c:choose>
-	</div>	<!-- wrap-all 클래스 끝 -->
+		<div class="story">
+			<h3> 인기 리스트 </h3>
+		</div>
+		<div class="cardview">
+			<c:forEach var="k" end="5" items="${hotList}">
+				<div class="card" onclick="location.href='store_detail.do?s_idx=${k.s_idx}'">
+					<img alt="${k.s_img}" src="/resources/images/${k.s_img}">
+					<div class="text_container">
+						<h4><b>${k.s_name}</b></h4>
+						<div class="texts">
+							<c:set var="hash" value="${fn:split(k.s_hashtag, '+')}"></c:set>
+							<c:forEach var="item" end="1" items="${hash}">
+								${item}
+							</c:forEach>
+						</div>
+						<div class="shop_info">
+							<img alt="like" src="/resources/images/like.svg">
+							<h5>${k.s_like}</h5>
+							<img alt="review" src="/resources/images/write.svg">
+							<h5>${k.s_comment}</h5>
+							<img alt="watch" src="/resources/images/watch.svg">
+							<h5>${k.s_view}</h5>
+						</div> <!-- shop_info -->
+					</div> <!-- text-container -->
+				</div> <!-- card -->
+			</c:forEach>
+		</div>
+	</article>	<!-- 본문 끝 -->
 </body>
 </html>
